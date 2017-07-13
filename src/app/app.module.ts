@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router'
 
 
-//Home Module
+//Customs Module
 import { HomeModule } from './home/home.module'
+import { SharedModule } from './shared/shared.module'
 
 import { AppComponent } from './app.component';
 
@@ -18,6 +19,7 @@ import { routes } from './app.routes'
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
+    SharedModule,
     HomeModule
   ],
   providers: [],
