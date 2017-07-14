@@ -1,22 +1,16 @@
-html {
+/*html {
   position: relative;
   min-height: 100%;
-}
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
+}*/
 .footer {
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
-  text-align: center;
-  align-content: center;
   background-color: #e7e7e7;
 }
 
-.container .text-muted {
+.footer .text-muted {
     margin: 20px 0;
 }

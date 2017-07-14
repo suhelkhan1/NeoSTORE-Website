@@ -6,6 +6,10 @@ export const routes: Routes = [
         path: '',
         loadChildren: './home/home.module#HomeModule' 
     },
+    {
+        path: 'auth',
+        loadChildren: './auth/auth.module#AuthModule'
+    }
     /*{ path: 'path2', component: Name2Component },
     { path: 'path3', component: Name3Component },
     { path: 'path4', component: Name4Component },

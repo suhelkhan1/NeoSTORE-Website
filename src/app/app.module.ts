@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router'
 //Customs Module
 import { HomeModule } from './home/home.module'
 import { SharedModule } from './shared/shared.module'
+import { AuthModule } from './auth/auth.module'
 
 import { AppComponent } from './app.component';
 
@@ -20,7 +21,8 @@ import { routes } from './app.routes'
     BrowserModule,
     RouterModule.forRoot(routes),
     SharedModule,
-    HomeModule
+    HomeModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
