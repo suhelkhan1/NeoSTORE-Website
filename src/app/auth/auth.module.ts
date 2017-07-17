@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router'
+import { ReactiveFormsModule } from '@angular/forms'
 
 //
 import { SharedModule } from '../shared/shared.module'
@@ -13,7 +14,8 @@ import { AuthRoutes as routes} from './auth.routes'
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],
   declarations: [
     LoginComponent, 
