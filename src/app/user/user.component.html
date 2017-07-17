@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <div class="col-md-12">
+    <h4> My Account </h4>
+    <hr>
+  </div>
+
+  <div class="sidebar col-md-3">
+    <p><small>ORDERS</small></p>
+    <p><a routerLink="/user/orders" routerLinkActive="active">Orders</a></p>
+    <hr>
+    <p><small>ACCOUNT</small></p>
+    <p><a routerLink="/user/profile" routerLinkActive="active">Profile</a></p>
+    <p><a routerLink="/user/addresses" routerLinkActive="active">Address</a></p>
+  </div>
+
+  <div class="col-md-8">
+    <router-outlet></router-outlet>
+  </div>
+</div>

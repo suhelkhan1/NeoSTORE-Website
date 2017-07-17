@@ -9,6 +9,14 @@ export const routes: Routes = [
     {
         path: 'auth',
         loadChildren: './auth/auth.module#AuthModule'
+    },
+    {
+        path: 'user',
+        loadChildren: './user/user.module#UserModule'
+    },
+    {
+        path: 'commons',
+        loadChildren: './shared/shared.module#SharedModule'
     }
     /*{ path: 'path2', component: Name2Component },
     { path: 'path3', component: Name3Component },
