@@ -2,7 +2,7 @@
   <div class="col-md-5">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h2 class="text-center text-muted">Login to NeoSTORE</h2>
+        <h2 class="text-center text-muted">Register to NeoSTORE</h2>
       </div>
       <div class="panel-body">
         <p class="text-muted text-center">EASILY USING</p>
@@ -17,7 +17,7 @@
 
         <p class="text-muted text-center">--OR USING--</p>
 
-        <form class="form-custom" autocomplete="on" [formGroup]="addUserForm" (ngSubmit)="addUserForm.valid && addUser(addUserForm.value)" novalidate>
+        <form class="form-custom" autocomplete="on" [formGroup]="registerForm" (ngSubmit)="registerForm.valid && registerUser(registerForm.value)" novalidate>
           <div class="form-group">
             <input type="email" class="form-control" formControlName="email" [ngClass]="{ 'error' : email.invalid && (email.dirty || email.touched) }"
               placeholder="Your Email Address">
@@ -30,17 +30,18 @@
               placeholder="Confirm Password">
             <em class="text-danger" *ngIf="confirmPassword.invalid && confirmPassword.dirty">Password does not matches</em>
                      
-            <input type="tel" class="form-control" formControlName="phoneNumber" [ngClass]="{ 'error' : phoneNumber.invalid && phoneNumber.dirty }"
+            <input type="number" class="form-control" formControlName="phoneNumber" [ngClass]="{ 'error' : phoneNumber.invalid && phoneNumber.dirty }"
               placeholder="Enter Phone Number">
             <em class="text-danger" *ngIf="phoneNumber.invalid && phoneNumber.dirty">Please enter phone number</em>
 
+            <legend class="gender-legend">I'm</legend>
             <div class="checkbox" [ngClass]="{ 'error' : gender.invalid && gender.dirty }">
               <label><input type="radio" formControlName="gender" value="male" name="gender"> <strong>Male</strong> </label>
               <label><input type="radio" formControlName="gender" value="female" name="gender"> <strong>Female</strong> </label>
             </div>
             <em class="text-danger" *ngIf="gender.invalid && gender.dirty">Please select</em>
          
-            <button type="submit" [disabled]="addUserForm.invalid" class="btn btn-lg btn-primary btn-block">Register</button>
+            <button type="submit" [disabled]="registerForm.invalid" class="btn btn-lg btn-primary btn-block">Register</button>
           </div>
         </form>
       </div>

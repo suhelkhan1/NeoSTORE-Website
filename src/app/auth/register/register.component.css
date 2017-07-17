@@ -29,11 +29,10 @@
 
 .form-custom input[type="password"] {
   margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
+  border-radius: 0px;
 }
 
-.form-custom input[type="tel"] {
+.form-custom input[type="number"] {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
@@ -52,4 +51,23 @@
 .container {
   display: flex;
   justify-content: center;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.gender-legend {
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal;
+  margin-bottom: 0;
+  font-size: inherit;
+  width: auto;
+  border: none;
 }
