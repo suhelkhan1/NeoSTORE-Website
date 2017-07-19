@@ -4,11 +4,16 @@ import { Routes, RouterModule } from '@angular/router';
 export const routes: Routes = [
     {
         path: '',
-        loadChildren: './home/home.module#HomeModule' 
+        loadChildren: './home/home.module#HomeModule'
     },
     {
         path: 'auth',
         loadChildren: './auth/auth.module#AuthModule'
+    },
+    {
+      path:'product',
+      loadChildren:'./product/product.module#ProductModule'
+
     }
     /*{ path: 'path2', component: Name2Component },
     { path: 'path3', component: Name3Component },

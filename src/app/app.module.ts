@@ -8,10 +8,14 @@ import { HomeModule } from './home/home.module'
 import { SharedModule } from './shared/shared.module'
 import { AuthModule } from './auth/auth.module'
 import { CoreModule } from './core/core.module'
+import {ProductModule} from './product/product.module'
+
 
 import { AppComponent } from './app.component';
 
-//Main App route 
+
+
+//Main App route
 import { routes } from './app.routes'
 
 @NgModule({
@@ -24,7 +28,8 @@ import { routes } from './app.routes'
     SharedModule,
     HomeModule,
     AuthModule,
-    CoreModule
+    CoreModule,
+    ProductModule
   ],
   providers: [],
   bootstrap: [AppComponent]
