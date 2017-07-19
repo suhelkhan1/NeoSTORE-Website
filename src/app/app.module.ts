@@ -26,7 +26,8 @@ import { routes } from './app.routes'
     AuthModule,
     CoreModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
