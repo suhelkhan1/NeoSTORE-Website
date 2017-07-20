@@ -31,7 +31,8 @@ import { routes } from './app.routes'
     CoreModule,
     ProductModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
