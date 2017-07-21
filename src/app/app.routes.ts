@@ -4,13 +4,17 @@ import { Routes, RouterModule } from '@angular/router';
 export const routes: Routes = [
     {
         path: '',
-        loadChildren: './home/home.module#HomeModule' 
+        loadChildren: './home/home.module#HomeModule'
     },
     {
         path: 'auth',
         loadChildren: './auth/auth.module#AuthModule'
     },
-    {
+  {
+    path: 'product',
+    loadChildren: './product/product.module#ProductModule'
+  },
+  {
         path: 'user',
         loadChildren: './user/user.module#UserModule'
     },
@@ -23,7 +27,6 @@ export const routes: Routes = [
     { path: 'path4', component: Name4Component },
     { path: '**', component: PageNotFoundComponent },*/
 
-    //{ path: 'path/:routeParam', component: MyComponent },
     //{ path: 'staticPath', component: ... },
     //{ path: '**', component: ... },
     //{ path: 'oldPath', redirectTo: '/staticPath' },
