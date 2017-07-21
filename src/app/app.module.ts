@@ -9,6 +9,8 @@ import { SharedModule } from './shared/shared.module'
 import { AuthModule } from './auth/auth.module'
 import { CoreModule } from './core/core.module'
 import {ProductModule} from './product/product.module'
+import { CheckoutModule }from './checkout/checkout.module'
+
 
 
 import { AppComponent } from './app.component';
@@ -29,7 +31,8 @@ import { routes } from './app.routes'
     HomeModule,
     AuthModule,
     CoreModule,
-    ProductModule
+    ProductModule,
+    CheckoutModule
   ],
   providers: [
   ],

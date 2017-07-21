@@ -15,6 +15,10 @@ export const routes: Routes = [
     loadChildren: './product/product.module#ProductModule'
   },
   {
+    path: 'checkout',
+    loadChildren: './checkout/checkout.module#CheckoutModule'
+  },
+  {
         path: 'user',
         loadChildren: './user/user.module#UserModule'
     },
