@@ -4,3 +4,9 @@
 body {
     color: #777 !important;
 }
+
+@media (min-width: 970px) {
+  .container {
+    width: 970px;
+  }
+}

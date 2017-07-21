@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
     /*let element = this.elementRef.nativeElement.querySelectorAll('#Carousel')
     console.log(element)
     element.forEach(() => {
-      let next = element.next()
+      let next = element.next
     });*/
   }
 
