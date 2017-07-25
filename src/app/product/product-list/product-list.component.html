@@ -1,39 +1,34 @@
-<!--<p>-->
-<!--product list works!</p>-->
-<!--<div class="container">-->
-<app-sidebar></app-sidebar>
+<app-sidebar>
+</app-sidebar>
 <div class="col-md-9">
 
   <h5>OUR PRODUCTS</h5>
   <hr>
 
-  <div class="col-md-4" *ngFor="let product of products; let i = index" [attr.data-index]="i" >
-    <div class="thumbnail">
-      <div *ngFor="let img of productImg">
-        <img [src]="img.ThumbUrl250" alt="product_image">
-      </div>
-      <div class="caption">
-        <h4 class="pull-right">{{product.product_cost | currency}}</h4>
-        <h4><a href="#">{{product.product_name}}t</a></h4>
-        <p>{{product.product_material}}</p>
-
-        <div class="ratings">
+  <div *ngFor="let product of products; let i = index" [attr.data-index]="i">
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <div class="img-thumb">
+          <img class="img-reposive" [src]="product.product_img[0].ThumbURL250" alt="product_image">
+        </div>
+        <div class="caption">
+          <p><a [routerLink]="['/product/details/', product.id]" >{{product.product_name}}t</a></p>
           <button class="pull-right btn btn-primary btn-xs">Add To Cart</button>
-          <p>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-          </p>
+          <p><strong>{{product.product_cost | currency:'INR':true}}</strong></p>
+          <fieldset  class="rating">
+            <!--<span *ngFor="let r of [product.product_avg_rating]" class="glyphicon glyphicon-star"></span>-->
+            <star-rating-comp [starType]="'svg'"
+                              [rating]="product.product_avg_rating"
+                              [size]="'medium'"
+                              [staticColor]="'negative'"                              
+                              [showHalfStars]="true"
+                              [disabled]="true">
+            </star-rating-comp>            
+          </fieldset>
         </div>
       </div>
     </div>
   </div>
 
+
 </div>
-  <!--</div>-->
-
-
-
-

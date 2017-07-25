@@ -7,7 +7,7 @@ export const ProductRoutes =[
     path:'',
     component: ProductComponent,
     children: [
-      { path:'details', component:ProductDetailsComponent},
+      { path:'details/:id', component:ProductDetailsComponent},
       { path:'list', component:ProductListComponent}
     ]
   }

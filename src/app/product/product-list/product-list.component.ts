@@ -15,13 +15,13 @@ export class ProductListComponent implements OnInit {
   ) { }
 
   products: any
-  productImg: any
+  ratings: any
 
   ngOnInit() {
     this.productService.getProducts().subscribe(
       (response: IProduct) => {
         this.products = response
-        this.productImg = response.product_img
+        this.ratings = response.product_avg_rating
         return response
       },
       (error: Error) => {
