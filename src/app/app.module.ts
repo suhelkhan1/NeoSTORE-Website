@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router'
+import { HttpModule } from '@angular/http'
 
 
 //Customs Module
@@ -8,7 +9,7 @@ import { HomeModule } from './home/home.module'
 import { SharedModule } from './shared/shared.module'
 import { AuthModule } from './auth/auth.module'
 import { CoreModule } from './core/core.module'
-import {ProductModule} from './product/product.module'
+import { ProductModule } from './product/product.module'
 import { CheckoutModule }from './checkout/checkout.module'
 
 
@@ -27,6 +28,7 @@ import { routes } from './app.routes'
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
+    HttpModule,
     SharedModule,
     HomeModule,
     AuthModule,

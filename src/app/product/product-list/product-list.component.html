@@ -3,17 +3,19 @@
 <!--<div class="container">-->
 <app-sidebar></app-sidebar>
 <div class="col-md-9">
-  
+
   <h5>OUR PRODUCTS</h5>
   <hr>
 
-  <div class="col-md-4">
+  <div class="col-md-4" *ngFor="let product of products; let i = index" [attr.data-index]="i" >
     <div class="thumbnail">
-      <img src="http://placehold.it/250x250" alt="">
+      <div *ngFor="let img of productImg">
+        <img [src]="img.ThumbUrl250" alt="product_image">
+      </div>
       <div class="caption">
-        <h4 class="pull-right">$24.99</h4>
-        <h4><a href="#">First Product</a></h4>
-        <p>Material</p>
+        <h4 class="pull-right">{{product.product_cost | currency}}</h4>
+        <h4><a href="#">{{product.product_name}}t</a></h4>
+        <p>{{product.product_material}}</p>
 
         <div class="ratings">
           <button class="pull-right btn btn-primary btn-xs">Add To Cart</button>
@@ -29,137 +31,6 @@
     </div>
   </div>
 
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <img src="http://placehold.it/250x250" alt="">
-      <div class="caption">
-        <h4 class="pull-right">$24.99</h4>
-        <h4><a href="#">First Product</a></h4>
-        <p>Material</p>
-
-        <div class="ratings">
-          <button class="pull-right btn btn-primary btn-xs">Add To Cart</button>
-          <p>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <img src="http://placehold.it/250x250" alt="">
-      <div class="caption">
-        <h4 class="pull-right">$24.99</h4>
-        <h4><a href="#">First Product</a></h4>
-        <p>Material</p>
-
-        <div class="ratings">
-          <button class="pull-right btn btn-primary btn-xs">Add To Cart</button>
-          <p>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-lg-4">
-    <div class="thumbnail">
-      <img src="http://placehold.it/250x250" alt="">
-      <div class="caption">
-        <h4 class="pull-right">$24.99</h4>
-        <h4><a href="#">First Product</a></h4>
-        <p>Material</p>
-
-        <div class="ratings">
-          <button class="pull-right btn btn-primary btn-xs">Add To Cart</button>
-          <p>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <img src="http://placehold.it/250x250" alt="">
-      <div class="caption">
-        <h4 class="pull-right">$24.99</h4>
-        <h4><a href="#">First Product</a></h4>
-        <p>Material</p>
-
-        <div class="ratings">
-          <button class="pull-right btn btn-primary btn-xs">Add To Cart</button>
-          <p>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <img src="http://placehold.it/250x250" alt="">
-      <div class="caption">
-        <h4 class="pull-right">$24.99</h4>
-        <h4><a href="#">First Product</a></h4>
-        <p>Material</p>
-
-        <div class="ratings">
-          <button class="pull-right btn btn-primary btn-xs">Add To Cart</button>
-          <p>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <img src="http://placehold.it/250x250" alt="">
-      <div class="caption">
-        <h4 class="pull-right">$24.99</h4>
-        <h4><a href="#">First Product</a></h4>
-        <p>Material</p>
-
-        <div class="ratings">
-          <button class="pull-right btn btn-primary btn-xs">Add To Cart</button>
-          <p>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
   <!--</div>-->
 
