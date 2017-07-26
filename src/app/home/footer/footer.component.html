@@ -1,5 +1,76 @@
 <div class="footer">
   <div class="container">
+    <div class="bordered-wrapper">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="content-element">
+            <h3 class="footer-title">About Company</h3>
+            <div class="footer-custom-content">
+              <p>NeoSOFT Technologies is here at your quick and easy service for shooping .</p>
+              <h6>Contact information</h6>
+              <p>Email: contact@neosofttech.com</p>
+              <p>Phone: +91 0000000000</p>
+              <p>MUMBAI, INDIA</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="content-element">
+            <h3 class="footer-title">OUR PRODUCTS</h3>
+            <ul class="footer-menu">
+              <li><a href="">Product 1</a></li>
+              <li><a href="">Product 2</a></li>
+              <li><a href="">Product 3</a></li>
+              <li><a href="">Product 4</a></li>
+              <li><a href="">Product 5</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="content-element">
+            <h3 class="footer-title">INFORMATION</h3>
+            <ul class="footer-menu">
+              <li>
+                <a [routerLink]="['/contact-us']">Contact us</a>
+              </li>
+              <li>
+                <a [routerLink]="['/terms-conditions']">Terms &amp; Conditions</a>
+              </li>
+              <li>
+                <a [routerLink]="['/guarantee-return-policy']">Guarantee &amp; Return Policy</a>
+              </li>
+              <li>
+                <a [routerLink]="['/privacy-policy']">Privacy Policy</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="content-element">
+            <div class="content-element home-newsletter-block">
+              <div class="newsletter-widget-container">
+                <h3 class="footer-title">Newsletter</h3>
+                <form action="http://" method="post" id="newsletter-validate-detail" class="newsletter-form">
+                  <p>Sign up to get exclusive offers from<br>our favorite brands and to be well up in the news.</p>
+                  <div class="block-content">
+                    <div class="input-box">
+                      <input type="text" name="email" id="newsletter" title="Sign up for our newsletter" class="input-text input-email required-entry validate-email" placeholder="Your email adress">
+                    </div>
+                    <div class="actions">
+                      <button type="submit" title="Subscribe" class="button"><span><span>Subscribe</span></span></button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
     <p class="copywrite text-muted ">Copyright © 2017 NeoSOFT Technologies All rights reserved | Design by <a href="http://www.neosofttech.com/">NeoSOFT Technologies</a></p>
   </div>
 </div>
