@@ -11,7 +11,7 @@ import { AuthModule } from './auth/auth.module'
 import { CoreModule } from './core/core.module'
 import { ProductModule } from './product/product.module'
 import { CheckoutModule }from './checkout/checkout.module'
-
+import { InformationModule }from './information/information.module'
 
 
 import { AppComponent } from './app.component';
@@ -19,11 +19,11 @@ import { AppComponent } from './app.component';
 
 
 //Main App route
-import { routes } from './app.routes'
+import { routes } from './app.routes';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +34,8 @@ import { routes } from './app.routes'
     AuthModule,
     CoreModule,
     ProductModule,
-    CheckoutModule
+    CheckoutModule,
+    InformationModule
   ],
   providers: [
   ],

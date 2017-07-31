@@ -9,7 +9,7 @@
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
-  background-color: #e7e7e7;
+  /*background-color: #e7e7e7;*/
 }
 
 .footer .text-muted {
@@ -17,7 +17,49 @@
     text-align: center;
 }
 
-/*.container {
-  position: relative
-}*/
+.footer .footer-title {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    margin-top: 22px;
+}
 
+.footer .footer-custom-content {
+    line-height: 1.8;
+}
+
+.footer .footer-menu {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.footer .footer-custom-content {
+    line-height: 1.8;
+}
+
+@media (min-width: 1200px)
+.content-element, .element-content {
+    margin-bottom: 30px;
+}
+.content-element, .element-content {
+    margin-bottom: 15px;
+}
+
+.footer p {
+    margin: 0 0 10px;
+    line-height: 1.5;
+}
+
+.home-newsletter-block {
+    padding: 4px;
+    border: 1px solid #ebebeb;
+}
+
+.home-newsletter-block .newsletter-widget-container {
+    text-align: center;
+    padding: 20px 20px 5px 20px;
+    border: 1px solid #ebebeb;
+    position: relative;
+    z-index: 2;
+}
