@@ -1,63 +1,62 @@
 <hr>
+
 <div class="card" *ngIf="product">
-  <div class="row">
-    <div class="wrapper">
-      <div class="col-md-6 ">
-        <div class="preview ">
-          <div class="preview-pic tab-content">
-            <div class="tab-pane active img-thumb" id="pic-1"><img [imageZoom]="zoomedImageSrc" lensStyle="LENS" minZoomLevel=.3 [src]="product.product_img[0].ImgURL"/></div>
-            <div class="tab-pane img-thumb" id="pic-2"><img [imageZoom]="zoomedImageSrc" lensStyle="LENS" src="http://1.bp.blogspot.com/-3IaO6fY9BBg/UJXtWnWe0uI/AAAAAAAAFg8/m4CTl04RyTs/s1600/la.jpg"/></div>
-            <div class="tab-pane img-thumb" id="pic-3"><img [imageZoom]="zoomedImageSrc" src="http://placekitten.com/400/252" />
-            </div>
-          </div>
-          <ul class="preview-thumbnail nav nav-tabs">
-            <li class="active"><a data-target="#pic-1" data-toggle="tab"><img [src]="product.product_img[0].ThumbURL100"/></a></li>
-            <li><a data-target="#pic-2" data-toggle="tab"><img src="http://placekitten.com/200/126"/></a></li>
-            <li><a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126"/></a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-md-6 ">
-        <div class="details">
-          <h3 class="product-title">{{product.product_name}}</h3>
-          <div class="rating">
-            <div class="stars">
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-            </div>
-            <!--<span class="review-no">41 reviews</span>-->
-          </div>
-
-          <p class="product-description">{{product.product_description}}</p>
-          <h4 class="price">current price: <span>{{product.product_cost | currency:'INR':true}}</span></h4>
-          <!--<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>-->
-          <h5 class="sizes">Dimensions:
-            <span class="size" data-toggle="tooltip" title="small">{{product.product_dimension}} (cm)</span>
-          </h5>
-          <h5 class="colors">colors:
-            
-            <!--<span [style]="background-color: product.product_color ">color</span>-->
-          </h5>
-          <label class="colors">
-
-            QUANTITY:
-            <span class="color"><input  type="number" style="width: 45px; padding: 1px" value="0">
-            </span>
-            </label>
-
-          <!---->
-          <div class="action">
-            <button class=" btn btn-primary" type="button">ADD TO CART</button>
-            <!--<button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>-->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="row">
+<div class="wrapper">
+<div class="col-md-6">
+<div class="preview" >
+<div class="preview-pic tab-content" >
+  <div class="my-img tab-pane active"><img class="actual-img" src="{{activeImage}}" [imageZoom]="zoomedImageSrc" lensStyle="LENS" /></div>
+  <!--<div class="my-img tab-pane"><img [src]="product.product_img[0].ImgURL"/></div>-->
 </div>
+<ul class="preview-thumbnail nav nav-tabs">
+  <li  *ngFor="let productimg of productImgArray" [id]="productimg.ImgURL" (click)="changeActiveImage(productimg)"><div class="my-img-thumb"><img [src]="productimg.ThumbURL100"></div></li>
+  <!--<li><div class="my-img-thumb"><img [src]="product.product_img[0].ThumbURL100"></div></li>-->
+  <!--<li><div class="my-img-thumb"><img [src]="product.product_img[0].ThumbURL100"></div></li>-->
+<!--<li ><a data-target="#pic-1" data-toggle="tab"><img  [src]="product.product_img[0].ThumbURL100"/></a></li>-->
+<!--<li><a data-target="#pic-2" data-toggle="tab"><img  [src]="product.product_img[1].ThumbURL100"/></a></li>-->
+<!--<li><a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126"/></a></li>-->
+</ul>
+</div>
+</div>
+<div class="col-md-6 ">
+<div class="details">
+<h3 class="product-title">{{product.product_name}}</h3>
+<div class="rating width-box" >
+<!--<div class="stars">-->
+  <star-rating-comp [starType]="'svg'"
+                    [rating]="rating"
+                    [size]="'medium'"
+                    [staticColor]="'negative'"
+                    [showHalfStars]="true"
+                    [labelVisible]="false"
+                    [disabled]="true">
+  </star-rating-comp>
+
+</div>
+
+<p class="product-description">{{product.product_description}}</p>
+<h4 class="price">current price: <span>{{product.product_cost | currency:'INR':true}}</span></h4>
+<!--<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>-->
+<h5 class="sizes">Dimensions:
+<span class="size" data-toggle="tooltip" title="small">{{product.product_dimension}} (inches)</span>
+</h5>
+<h5 class="colors">colors:
+  <span class="color red" [ngStyle]="{'background': product.product_color}"></span>
+  <!--<span class="color blue"></span>-->
+</h5>
+
+<div class="action">
+<button class=" btn btn-primary bt-color" type="button">ADD TO CART</button>
+<button class="btn btn-warning" type="button">RATE PRODUCT</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
 
 <hr>
 

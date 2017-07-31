@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ElementRef, AfterContentInit} from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router'
 
 import { ProductService} from '../../core/services/product/product.service'
@@ -9,14 +9,18 @@ import { IProduct } from '../../core/models/product.model'
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.css']
 })
-export class ProductDetailsComponent implements OnInit {
+export class ProductDetailsComponent implements OnInit,AfterContentInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private productService: ProductService
+    private productService: ProductService,
+    private elementRef: ElementRef
   ) { }
 
-  product: IProduct
+  activeImage:any;
+  product: IProduct;
+  productImgArray:any;
+  rating:any;
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(
@@ -27,16 +31,32 @@ export class ProductDetailsComponent implements OnInit {
     )
   }
 
+  ngAfterContentInit() {
+
+
+  }
+
+
   getProduct(productId){
     this.productService.getProduct(productId).subscribe(
       (response: IProduct) => {
-        this.product = response
+        this.product = response;
+        this.productImgArray=response.product_img;
+        console.log(this.product);
+        this.activeImage = this.productImgArray[0].ImgURL;
+        this.rating=this.product.product_avg_rating;
+        console.log("-->"+this.rating);
         return response
       },
       (error: Error) => {
         return error
       }
     )
+  }
+
+  changeActiveImage(productimg) {
+    console.log('productimg', productimg);
+    this.activeImage = productimg.ImgURL;
   }
 
 }
