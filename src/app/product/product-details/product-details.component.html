@@ -10,12 +10,11 @@
   <!--<div class="my-img tab-pane"><img [src]="product.product_img[0].ImgURL"/></div>-->
 </div>
 <ul class="preview-thumbnail nav nav-tabs">
-  <li  *ngFor="let productimg of productImgArray" [id]="productimg.ImgURL" (click)="changeActiveImage(productimg)"><div class="my-img-thumb"><img [src]="productimg.ThumbURL100"></div></li>
-  <!--<li><div class="my-img-thumb"><img [src]="product.product_img[0].ThumbURL100"></div></li>-->
-  <!--<li><div class="my-img-thumb"><img [src]="product.product_img[0].ThumbURL100"></div></li>-->
-<!--<li ><a data-target="#pic-1" data-toggle="tab"><img  [src]="product.product_img[0].ThumbURL100"/></a></li>-->
-<!--<li><a data-target="#pic-2" data-toggle="tab"><img  [src]="product.product_img[1].ThumbURL100"/></a></li>-->
-<!--<li><a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126"/></a></li>-->
+  <li  *ngFor="let productimg of productImgArray" [id]="productimg.ImgURL" (click)="changeActiveImage(productimg)">
+    <div class="my-img-thumb">
+      <img [src]="productimg.ThumbURL100">
+    </div>
+  </li>
 </ul>
 </div>
 </div>

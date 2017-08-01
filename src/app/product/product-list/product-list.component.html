@@ -1,7 +1,8 @@
 <app-sidebar>
 </app-sidebar>
-<div class="col-md-9">
 
+
+<div class="col-md-9 vertical-line">
   <h5>OUR PRODUCTS</h5>
   <hr>
 
@@ -13,7 +14,7 @@
         </div>
         <div class="caption">
           <p><a [routerLink]="['/product/details/', product.id]" >{{product.product_name}}t</a></p>
-          <button class="pull-right btn btn-primary btn-xs">Add To Cart</button>
+          <button (click)="addToCart(product)" class="pull-right btn btn-primary btn-xs">Add To Cart</button>
           <p><strong>{{product.product_cost | currency:'INR':true}}</strong></p>
           <fieldset  class="rating">
             <!--<span *ngFor="let r of [product.product_avg_rating]" class="glyphicon glyphicon-star"></span>-->

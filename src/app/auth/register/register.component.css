@@ -71,3 +71,10 @@ input[type=number]::-webkit-outer-spin-button {
   width: auto;
   border: none;
 }
+
+
+/*After validation field becomes red*/
+.error {
+    border: solid 1px red;
+    background-color: #ffe6e6
+}

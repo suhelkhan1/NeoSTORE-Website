@@ -1,5 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
+import { Router } from '@angular/router'
+
+//Auth service for user login
+import { AuthService } from '../../core/services/auth/auth.service'
+//User model for strong typings
+import { IUser } from '../../core/models/user.model'
+//Equal validator for confirm password
+import { EqualValidatorDirective } from '../../core/directives/equal-validator.directive' 
 
 @Component({
   selector: 'app-register',
@@ -8,7 +16,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   registerForm: FormGroup
   private email: FormControl
@@ -18,18 +29,19 @@ export class RegisterComponent implements OnInit {
   private gender: FormControl
 
   ngOnInit() {
+    this.registerFormValidation()
+  }
 
+  registerFormValidation(){
     this.email = new FormControl('', [
       Validators.required,
       Validators.email
     ])
     this.password = new FormControl('', [
-      Validators.required,
-      Validators.pattern('')
+      Validators.required
     ])
     this.confirmPassword = new FormControl('', [
-      Validators.required,
-      Validators.pattern('')
+      Validators.required
     ])
     this.phoneNumber = new FormControl('', [
       Validators.required,
@@ -47,6 +59,18 @@ export class RegisterComponent implements OnInit {
       phoneNumber: this.phoneNumber,
       gender: this.gender
     })
+  }
+
+  register(formValues){
+    this.authService.register(formValues).subscribe(
+      (response: IUser) => {
+        this.router.navigate(['/user/login'])
+        return response
+      },
+      (error: Error) => {
+        return error
+      }
+    )
   }
 
 }

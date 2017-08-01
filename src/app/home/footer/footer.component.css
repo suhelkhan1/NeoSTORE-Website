@@ -8,8 +8,8 @@
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
-  height: 60px;
-  /*background-color: #e7e7e7;*/
+  height: 100%;
+  background-color: #e7e7e7;
 }
 
 .footer .text-muted {

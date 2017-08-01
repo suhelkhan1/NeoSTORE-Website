@@ -41,10 +41,10 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li>
-            <a class="text-primary">
+            <a class="text-primary" [routerLink]="['checkout/cart']" >
               <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
               Cart 
-              <span class="badge">4</span>
+              <span  *ngIf="cartItems" class="badge">{{cartItems.length}}</span>
             </a>
         </li>
         <li class="dropdown">

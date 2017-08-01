@@ -4,7 +4,7 @@ import { PageNotFoundComponent } from './shared/error-pages/page-not-found/page-
 
 export const routes: Routes = [
     {
-        path: '',
+        path: 'home',
         loadChildren: './home/home.module#HomeModule'
     },
     {
@@ -12,12 +12,12 @@ export const routes: Routes = [
         loadChildren: './auth/auth.module#AuthModule'
     },
     {
-      path: 'product',
-      loadChildren: './product/product.module#ProductModule'
+        path: 'product',
+        loadChildren: './product/product.module#ProductModule'
     },
     {
-      path: 'checkout',
-      loadChildren: './checkout/checkout.module#CheckoutModule'
+        path: 'checkout',
+        loadChildren: './checkout/checkout.module#CheckoutModule'
     },
     {
         path: 'user',
@@ -28,20 +28,11 @@ export const routes: Routes = [
         loadChildren: './shared/shared.module#SharedModule'
     },
     {
-        path: '',
+        path: 'info',
         loadChildren: './information/information.module#InformationModule'
     },
     {
         path: '**',
         component: PageNotFoundComponent
     }
-    /*{ path: 'path2', component: Name2Component },
-    { path: 'path3', component: Name3Component },
-    { path: 'path4', component: Name4Component },
-    { path: '**', component: PageNotFoundComponent },*/
-
-    //{ path: 'staticPath', component: ... },
-    //{ path: '**', component: ... },
-    //{ path: 'oldPath', redirectTo: '/staticPath' },
-    //{ path: ..., component: ..., data: { message: 'Custom' }
 ];

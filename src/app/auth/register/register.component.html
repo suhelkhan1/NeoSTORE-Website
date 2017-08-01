@@ -17,29 +17,43 @@
 
         <p class="text-muted text-center">--OR USING--</p>
 
-        <form class="form-custom" autocomplete="on" [formGroup]="registerForm" (ngSubmit)="registerForm.valid && registerUser(registerForm.value)" novalidate>
+        <form class="form-custom" autocomplete="on" [formGroup]="registerForm" (ngSubmit)="registerForm.invalid || register(registerForm.value)" novalidate>
           <div class="form-group">
-            <input type="email" class="form-control" formControlName="email" [ngClass]="{ 'error' : email.invalid && (email.dirty || email.touched) }"
-              placeholder="Your Email Address">
-            <em class="text-danger" *ngIf="email.invalid && (email.dirty || email.touched)">Please enter valid email</em>
+            <input type="email" 
+                   class="form-control" 
+                   formControlName="email" 
+                   [ngClass]="{ 'error' : email.invalid && (email.dirty || email.touched) }"
+                   placeholder="Your Email Address">
+            <small class="text-danger" *ngIf="email.invalid && (email.dirty || email.touched)">Please enter valid email</small>
          
-            <input type="password" class="form-control" formControlName="password" placeholder="Choose Password" [ngClass]="{ 'error' : password.invalid && password.dirty }">
-            <em class="text-danger" *ngIf="password.invalid && password.dirty">Please enter valid password</em>
+            <input type="password" 
+                   class="form-control" 
+                   formControlName="password" 
+                   [ngClass]="{ 'error' : password.invalid && password.dirty }"                   
+                   placeholder="Choose Password">
+            <small class="text-danger" *ngIf="password.invalid && password.dirty">Please enter valid password</small>
          
-            <input type="password" class="form-control" formControlName="confirmPassword" [ngClass]="{ 'error' : confirmPassword.invalid && confirmPassword.dirty }"
-              placeholder="Confirm Password">
-            <em class="text-danger" *ngIf="confirmPassword.invalid && confirmPassword.dirty">Password does not matches</em>
+            <input type="password" 
+                   validateEqual="password"
+                   class="form-control" 
+                   formControlName="confirmPassword" 
+                   [ngClass]="{ 'error' : confirmPassword.invalid && confirmPassword.dirty }"
+                   placeholder="Confirm Password">
+            <small class="text-danger" *ngIf="confirmPassword.invalid && confirmPassword.dirty">Password does not matches</small>
                      
-            <input type="number" class="form-control" formControlName="phoneNumber" [ngClass]="{ 'error' : phoneNumber.invalid && phoneNumber.dirty }"
-              placeholder="Enter Phone Number">
-            <em class="text-danger" *ngIf="phoneNumber.invalid && phoneNumber.dirty">Please enter phone number</em>
+            <input type="number" 
+                   class="form-control" 
+                   formControlName="phoneNumber" 
+                   [ngClass]="{ 'error' : phoneNumber.invalid && phoneNumber.dirty }"
+                   placeholder="Enter Phone Number">
+            <small class="text-danger" *ngIf="phoneNumber.invalid && phoneNumber.dirty">Please enter phone number</small>
 
             <legend class="gender-legend">I'm</legend>
             <div class="checkbox" [ngClass]="{ 'error' : gender.invalid && gender.dirty }">
               <label><input type="radio" formControlName="gender" value="male" name="gender"> <strong>Male</strong> </label>
               <label><input type="radio" formControlName="gender" value="female" name="gender"> <strong>Female</strong> </label>
             </div>
-            <em class="text-danger" *ngIf="gender.invalid && gender.dirty">Please select</em>
+            <small class="text-danger" *ngIf="gender.invalid && gender.dirty">Please select</small>
          
             <button type="submit" [disabled]="registerForm.invalid" class="btn btn-lg btn-primary btn-block">Register</button>
           </div>
