@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs'
 
 import { CartService } from '../../core/services/cart/cart.service'
+import { AuthService } from '../../core/services/auth/auth.service'
 
 @Component({
   selector: 'app-header',
@@ -10,15 +12,19 @@ import { CartService } from '../../core/services/cart/cart.service'
 export class HeaderComponent implements OnInit {
 
   cartItems: any
+  isAuthenticated
 
   constructor(
-    private cartService: CartService
+    private cartService: CartService,
+    private authSerive: AuthService
   ) { 
     this.cartItems = this.cartService.getCartItems()
+    this.isAuthenticated = this.authSerive.isAuthenticated()
   }
 
   ngOnInit() {
     this.getCartItems()
+    this.isAuthenticated = this.authSerive.isAuthenticated()
   }
 
   getCartItems(){

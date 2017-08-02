@@ -1,6 +1,6 @@
 import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './shared/error-pages/page-not-found/page-not-found.component'
-
+import { AuthGuard } from './core/guards/auth/auth.guard'
 
 export const routes: Routes = [
     {
@@ -21,7 +21,8 @@ export const routes: Routes = [
     },
     {
         path: 'user',
-        loadChildren: './user/user.module#UserModule'
+        loadChildren: './user/user.module#UserModule',
+        canActivate: [AuthGuard]
     },
     {
         path: 'commons',

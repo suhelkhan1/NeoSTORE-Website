@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router'
 import { HttpModule } from '@angular/http'
 
 
-//Customs Module
+//Customs Modules
 import { HomeModule } from './home/home.module'
 import { SharedModule } from './shared/shared.module'
 import { AuthModule } from './auth/auth.module'
