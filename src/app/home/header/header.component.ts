@@ -9,11 +9,11 @@ import { CartService } from '../../core/services/cart/cart.service'
 })
 export class HeaderComponent implements OnInit {
 
-  cartItems: any
+  cartItems: any[]
 
   constructor(
     private cartService: CartService
-  ) { 
+  ) {
     this.cartItems = this.cartService.getCartItems()
   }
 
