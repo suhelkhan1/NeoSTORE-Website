@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
     console.log(formValues)
     this.authService.login(formValues).subscribe(
       (response: IUserLoginResponse) => {
+        this.refresh()
         this.router.navigate(['/home'])
         return response
       },
@@ -48,6 +49,10 @@ export class LoginComponent implements OnInit {
         return error
       }
     )
+  }
+
+  refresh(): void {
+    window.location.reload();
   }
 
 }

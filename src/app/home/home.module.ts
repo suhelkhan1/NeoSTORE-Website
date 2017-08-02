@@ -9,6 +9,7 @@ import { HomeRoutes as routes } from './home.routes'
 import { HomeComponent } from './home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { ProfileDropdownComponent } from './header/profile-dropdown/profile-dropdown.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { FooterComponent } from './footer/footer.component';
   declarations: [
     HomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ProfileDropdownComponent
   ],
   exports:[
     HeaderComponent,

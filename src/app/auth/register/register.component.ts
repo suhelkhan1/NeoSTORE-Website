@@ -7,7 +7,7 @@ import { AuthService } from '../../core/services/auth/auth.service'
 //User model for strong typings
 import { IUser } from '../../core/models/user.model'
 //Equal validator for confirm password
-import { EqualValidatorDirective } from '../../core/directives/equal-validator.directive' 
+//import { EqualValidatorDirective } from '../../core/directives/equal-validator.directive' 
 
 @Component({
   selector: 'app-register',
@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit {
   }
 
   registerFormValidation(){
-    this.email = new FormControl('', [
+    this.email = new FormControl('test@gmail.com', [
       Validators.required,
       Validators.email
     ])
@@ -62,9 +62,23 @@ export class RegisterComponent implements OnInit {
   }
 
   register(formValues){
-    this.authService.register(formValues).subscribe(
+    console.log(formValues)
+    let userInfo = {
+      first_name: '',
+      last_name: '',
+      gender: formValues.gender,
+      email: formValues.email,
+      password: formValues.password,
+      phone_no: formValues.phoneNumber,
+      username: '',
+      role: 'AppUser',
+      orderId: '',
+      shoppingcartId: '',
+      is_active: true
+    }
+    this.authService.register(userInfo).subscribe(
       (response: IUser) => {
-        this.router.navigate(['/user/login'])
+        this.router.navigate(['/auth/login'])
         return response
       },
       (error: Error) => {

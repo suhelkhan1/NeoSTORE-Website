@@ -73,6 +73,18 @@ export class AuthService {
     return this.loggedIn
   }
 
+  isAuthenticated(){
+    let current_user_accesToken = JSON.parse(localStorage.getItem('currentAppUser'))
+    let curent_user_userId = JSON.parse(localStorage.getItem('currentAppUserId'))
+    if(current_user_accesToken && curent_user_userId){
+        return this.http.get( this.url + '/' + curent_user_userId + '?access_token=' + current_user_accesToken).map((response: Response) => {
+          return true
+      }).catch(this.handleError)
+    } else {
+      return false
+    }
+  }
+
   handleError(error: Response) {    
     return Observable.throw(error.json());
   }

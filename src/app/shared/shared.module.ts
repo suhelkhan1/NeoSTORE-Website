@@ -7,6 +7,8 @@ import { BsRootModule } from 'ngx-bootstrap';
 import { SharedComponent } from './shared.component';
 import { PageNotFoundComponent } from './error-pages/page-not-found/page-not-found.component';
 
+import { EqualValidatorDirective } from './directives/equal-validator.directive'
+
 import { SharedRoutes as routes } from './shared.routes'
 @NgModule({
   imports: [
@@ -16,11 +18,13 @@ import { SharedRoutes as routes } from './shared.routes'
   ],
   declarations: [
   PageNotFoundComponent,
-  SharedComponent
+  SharedComponent,
+  EqualValidatorDirective
   ],
   exports:[
     BsRootModule,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    EqualValidatorDirective
   ]
 })
 export class SharedModule { }

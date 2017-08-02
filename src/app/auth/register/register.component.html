@@ -26,15 +26,18 @@
                    placeholder="Your Email Address">
             <small class="text-danger" *ngIf="email.invalid && (email.dirty || email.touched)">Please enter valid email</small>
          
-            <input type="password" 
+            <input type="password"
+                   validateEqual="confirmPassword"
+                   reverse="true"                   
                    class="form-control" 
                    formControlName="password" 
                    [ngClass]="{ 'error' : password.invalid && password.dirty }"                   
                    placeholder="Choose Password">
             <small class="text-danger" *ngIf="password.invalid && password.dirty">Please enter valid password</small>
          
-            <input type="password" 
+            <input type="password"
                    validateEqual="password"
+                   reverse="false"                     
                    class="form-control" 
                    formControlName="confirmPassword" 
                    [ngClass]="{ 'error' : confirmPassword.invalid && confirmPassword.dirty }"

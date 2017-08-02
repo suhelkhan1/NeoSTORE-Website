@@ -16,6 +16,7 @@ export class CartService {
   cartItems=[]
   url: string = 'http://0.0.0.0:3000/api/shoppingcart'
 
+
   addToCart(product): any{
     this.cartItems.push(product);
     localStorage.setItem('cartItems', JSON.stringify(this.cartItems))
