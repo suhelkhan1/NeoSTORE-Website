@@ -8,15 +8,6 @@
   border-color: #fff;
 }
 
-.borderless td,
-.borderless th {
-  border: none;
-}
-
-th {
-  width: 200px;
-}
-
 .panel-default>.panel-footer {
   background-color: #fff;
   border-color: #fff;

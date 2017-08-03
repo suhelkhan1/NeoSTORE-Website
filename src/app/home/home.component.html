@@ -9,7 +9,7 @@
         <li data-target="#carousel-example-generic" data-slide-to="2"></li>
       </ol>
       <div class="carousel-inner" role="listbox">
-        <div class="item active">
+        <div class="item">
           <img class="slide-image" src="http://www.bamboo-groove.com/wp-content/uploads/2014/03/header-furniture-1150x500.jpg" alt="">
           <div class="carousel-caption">
           </div>
@@ -19,7 +19,7 @@
           <div class="carousel-caption">
           </div>
         </div>
-        <div class="item">
+        <div class="item active">
           <img class="slide-image" src="https://az760333.vo.msecnd.net/-/media/property/lansdowne-resort/resort/lansdowne_interior_hospitality_suite_parlor3-crpd1150x500.jpg?ts=a699b0e0-40d0-48b7-84cf-b3e8e8aaa270" alt="">
           <div class="carousel-caption">
           </div>
@@ -36,135 +36,26 @@
   <!--<div class="new">-->
 </div>
 
-<h3 class="text-center">Featured Product</h3>
+<h3 class="text-center">Popular Products</h3>
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-4" *ngFor="let product of products" >
     <div class="thumbnail">
-      <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/soap-bubble-1958650_960_720.jpg" class="img-responsive">
+      <div class="img-thumb">
+        <img [src]="product.images[0].ThumbURL250" class="img-inside img-responsive">
+      </div>
       <div class="caption">
-        <h4><a href="#">First Product</a></h4>
-        <h4 class="col-lg-pull-1">$24.99</h4>
-        <div class="ratings">
-          <p>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-          </p>
-        </div>
+        <h4 class="text-center"><a [routerLink]="['/product/details/', product.id]" >{{product.product_name}}</a></h4>
+        <h4 class="text-center">{{product.product_cost | currency:'INR':true}}</h4>
+         <star-rating-comp [starType]="'svg'"
+                           [rating]="product.product_avg_rating"
+                           [size]="'medium'"
+                           [staticColor]="'negative'"                              
+                           [showHalfStars]="true"
+                           [disabled]="true">
+        </star-rating-comp>  
       </div>
     </div>
   </div>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <img src="http://img.etimg.com/thumb/msid-53906175,width-640,resizemode-4,imglength-432895/mercedes-maybach-6-the-car-of-your-dreams.jpg"
-        class="img-responsive">
-      <div class="caption">
-        <h4><a href="#">First Product</a></h4>
-        <h4 class="col-lg-pull-1">$24.99</h4>
-        <div class="ratings">
-          <p>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <img src="http://placehold.it/320x150" class="img-responsive">
-      <div class="caption">
-        <h4><a href="#">First Product</a></h4>
-        <h4 class="col-lg-pull-1">$24.99</h4>
-        <div class="ratings">
-          <p>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-<h3 class="text-center">You May Also Like</h3>
-<div class="row">
-  <div id="Carousel" class="carousel slide media-carousel">
-    <!-- Carousel items -->
-    <div class="carousel-inner" data-slide="1">
-      <div class="item active">
-        <div class="row">
-          <div class="col-md-3"><a href="#" class="thumbnail">
-                <img src="http://placehold.it/250x250" class="img-responsive">
-                <div class="caption">
-                  <h4 class="text-center">First Product</h4>
-                  <h4 class="col-lg-pull-1 text-center">$24.99</h4>
-                </div>
-              </a>
-          </div>
-          <div class="col-md-3"><a href="#" class="thumbnail">
-                <img src="http://placehold.it/250x250" class="img-responsive">
-                <div class="caption">
-                  <h4 class="text-center">First Product</h4>
-                  <h4 class="col-lg-pull-1 text-center">$24.99</h4>
-                </div>
-              </a>
-          </div>
-          <div class="col-md-3"><a href="#" class="thumbnail">
-                <img src="http://placehold.it/250x250" class="img-responsive">
-                <div class="caption">
-                  <h4 class="text-center">First Product</h4>
-                  <h4 class="col-lg-pull-1 text-center">$24.99</h4>
-                </div>
-              </a>
-          </div>
-          <div class="col-md-3"><a href="#" class="thumbnail">
-                <img src="http://placehold.it/250x250" class="img-responsive">
-                <div class="caption">
-                  <h4 class="text-center">First Product</h4>
-                  <h4 class="col-lg-pull-1 text-center">$24.99</h4>
-                </div>
-              </a>
-          </div>
-        </div>
-        <!--.row-->
-      </div>
-      <!--.item-->
-      <div class="item">
-        <div class="row">
-          <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-          <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-          <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-          <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-        </div>
-        <!--.row-->
-      </div>
-      <!--.item-->
-      <div class="item">
-        <div class="row">
-          <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-          <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-          <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-          <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-        </div>
-        <!--.row-->
-      </div>
-      <!--.item-->
-    </div>
-    <!--.carousel-inner-->
-    <a data-slide="prev" href="#Carousel" class="left carousel-control">‹</a>
-    <a data-slide="next" href="#Carousel" class="right carousel-control">›</a>
-  </div>
-  <!--.Carousel-->
 </div>
 
 <!--.container-->

@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { CartService } from './services/cart/cart.service'; //Cart Service
 import { AuthService } from './services/auth/auth.service';
 import { UserService } from './services/user/user.service'
+import { AddressService } from './services/user/address/address.service'
 
 /*+-+-+-+-+-+-+-+-+-+-+-+- GUARDS +-+-+-+-+-+-+-+-+-+-+-+-*/
 import { AuthGuard } from './guards/auth/auth.guard'
@@ -20,6 +21,7 @@ import { AuthGuard } from './guards/auth/auth.guard'
     CartService,
     AuthService,
     UserService,
+    AddressService,
     AuthGuard
   ],
   exports: [

@@ -11,12 +11,17 @@ export interface IProduct {
   product_isactive: true,
   product_material: string,
   id: string,
-  product_img: IProductImg[],
+  images: IProductImage[],
 }
 
-export interface IProductImg {
-  ImgUrl: string,
-  ThumbUrl100: string,
-  ThumbUrl250: string
+export interface IProductImage {
+    ImgURL: string,
+    ThumbURL100: string,
+    ThumbURL250: string
+    container: string
+    id: string
+    isActive: boolean
+    name: string
+    productId: string
+    type: string
 }
-

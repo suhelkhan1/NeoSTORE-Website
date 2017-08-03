@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>Addresses</h3>
+    <hr>
+  </div>
+  <div class="panel-body" *ngFor="let address of addresses">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <p>{{address.fulladdress}}</p>
+        <p>{{address.city}}-{{address.pincode}}</p>
+        <p>{{address.state}}</p>
+        <p>{{address.country}}</p>                
+      </div>
+      <div class="panel-footer">
+        <button [routerLink]="['/user/edit/address', address.id]" type="button" class="btn btn-default">
+          <i class="fa fa-pencil"></i>
+          Edit
+        </button>
+        <button type="button" class="btn btn-default">
+          <i class="fa fa-remove"></i>
+          Remove
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <hr>
+    <button [routerLink]="['/user/add/address']" type="button" class="btn btn-default btn-lg">Add new</button>
+  </div>
+</div>

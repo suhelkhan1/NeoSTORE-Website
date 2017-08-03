@@ -14,13 +14,19 @@ export class ProductService {
   url: string = 'http://10.0.100.213:3000/api/products'
 
   getProducts(): Observable<IProduct>{
-    return this.http.get(this.url).map( (response: Response) => {
+    return this.http.get(this.url + '?filter[include]=images').map( (response: Response) => {
+      return <IProduct>response.json()
+    } )
+  }
+
+  getPopularProducts(): Observable<IProduct>{
+    return this.http.get(this.url + '?filter[include]=images&{"limit":"6","skip":"0"}' ).map( (response: Response) => {
       return <IProduct>response.json()
     } )
   }
 
   getProduct(productId): Observable<IProduct>{
-    return this.http.get(this.url + '/' + productId ).map((response: Response)=>{
+    return this.http.get(this.url + productId ).map((response: Response)=>{
       return <IProduct>response.json()
     })
   }

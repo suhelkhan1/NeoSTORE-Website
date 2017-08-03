@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from  '@angular/router';
 
+import { SharedModule } from '../shared/shared.module'
+
 //3rd party modules imoprts
-//Rating Star Module
-import { StarRatingModule } from 'angular-star-rating'
 //Image zoom module
 import { ImageZoomModule } from 'angular2-image-zoom';
 
@@ -24,7 +24,7 @@ import { ProductRoutes as routes} from './product.routes';
     CommonModule,
     RouterModule.forChild(routes),
     ImageZoomModule,
-    StarRatingModule.forRoot()
+    SharedModule
   ],
   declarations: [ProductDetailsComponent, ProductComponent, ProductListComponent, SidebarComponent],
   providers:[

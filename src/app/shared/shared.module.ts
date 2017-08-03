@@ -2,8 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router'
 
-// imports
+// imports 3rd party modules
+//Angular boostrap
 import { BsRootModule } from 'ngx-bootstrap';
+//Rating Star Module
+import { StarRatingModule } from 'angular-star-rating'
+
 import { SharedComponent } from './shared.component';
 import { PageNotFoundComponent } from './error-pages/page-not-found/page-not-found.component';
 
@@ -14,7 +18,8 @@ import { SharedRoutes as routes } from './shared.routes'
   imports: [
     CommonModule,
     BsRootModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    StarRatingModule.forRoot()
   ],
   declarations: [
   PageNotFoundComponent,
@@ -24,7 +29,8 @@ import { SharedRoutes as routes } from './shared.routes'
   exports:[
     BsRootModule,
     PageNotFoundComponent,
-    EqualValidatorDirective
+    EqualValidatorDirective,
+    StarRatingModule
   ]
 })
 export class SharedModule { }

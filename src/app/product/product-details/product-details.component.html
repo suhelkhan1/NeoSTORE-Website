@@ -1,58 +1,57 @@
 <hr>
 
 <div class="card" *ngIf="product">
-<div class="row">
-<div class="wrapper">
-<div class="col-md-6">
-<div class="preview" >
-<div class="preview-pic tab-content" >
-  <div class="my-img tab-pane active"><img class="actual-img" src="{{activeImage}}" [imageZoom]="zoomedImageSrc" lensStyle="LENS" /></div>
-  <!--<div class="my-img tab-pane"><img [src]="product.product_img[0].ImgURL"/></div>-->
-</div>
-<ul class="preview-thumbnail nav nav-tabs">
-  <li  *ngFor="let productimg of productImgArray" [id]="productimg.ImgURL" (click)="changeActiveImage(productimg)">
-    <div class="my-img-thumb">
-      <img [src]="productimg.ThumbURL100">
+  <div class="row">
+    <div class="wrapper">
+      <div class="col-md-6">
+        <div class="preview">
+          <div class="preview-pic tab-content">
+            <div class="my-img tab-pane active"><img class="actual-img" src="{{activeImage}}" [imageZoom]="zoomedImageSrc" lensStyle="LENS" /></div>
+            <!--<div class="my-img tab-pane"><img [src]="product.product_img[0].ImgURL"/></div>-->
+          </div>
+          <ul class="preview-thumbnail nav nav-tabs">
+            <li *ngFor="let productimg of productImgArray" [id]="productimg.ImgURL" (click)="changeActiveImage(productimg)">
+              <div class="my-img-thumb">
+                <img [src]="productimg.ThumbURL100">
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6 ">
+        <div class="details">
+          <h3 class="product-title">{{product.product_name}}</h3>
+          <div class="rating width-box">
+            <!--<div class="stars">-->
+            <star-rating-comp [starType]="'svg'" 
+                              [rating]="rating" 
+                              [size]="'medium'" 
+                              [staticColor]="'negative'" 
+                              [showHalfStars]="true"
+                              [labelVisible]="false" 
+                              [disabled]="true">
+            </star-rating-comp>
+          </div>
+
+          <p class="product-description">{{product.product_description}}</p>
+          <h4 class="price">current price: <span>{{product.product_cost | currency:'INR':true}}</span></h4>
+          <!--<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>-->
+          <h5 class="sizes">Dimensions:
+            <span class="size" data-toggle="tooltip" title="small">{{product.product_dimension}} (inches)</span>
+          </h5>
+          <h5 class="colors">colors:
+            <span class="color red" [ngStyle]="{'background': product.product_color}"></span>
+            <!--<span class="color blue"></span>-->
+          </h5>
+
+          <div class="action">
+            <button class=" btn btn-primary bt-color" type="button">ADD TO CART</button>
+            <button class="btn btn-warning" type="button">RATE PRODUCT</button>
+          </div>
+        </div>
+      </div>
     </div>
-  </li>
-</ul>
-</div>
-</div>
-<div class="col-md-6 ">
-<div class="details">
-<h3 class="product-title">{{product.product_name}}</h3>
-<div class="rating width-box" >
-<!--<div class="stars">-->
-  <star-rating-comp [starType]="'svg'"
-                    [rating]="rating"
-                    [size]="'medium'"
-                    [staticColor]="'negative'"
-                    [showHalfStars]="true"
-                    [labelVisible]="false"
-                    [disabled]="true">
-  </star-rating-comp>
-
-</div>
-
-<p class="product-description">{{product.product_description}}</p>
-<h4 class="price">current price: <span>{{product.product_cost | currency:'INR':true}}</span></h4>
-<!--<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>-->
-<h5 class="sizes">Dimensions:
-<span class="size" data-toggle="tooltip" title="small">{{product.product_dimension}} (inches)</span>
-</h5>
-<h5 class="colors">colors:
-  <span class="color red" [ngStyle]="{'background': product.product_color}"></span>
-  <!--<span class="color blue"></span>-->
-</h5>
-
-<div class="action">
-<button class=" btn btn-primary bt-color" type="button">ADD TO CART</button>
-<button class="btn btn-warning" type="button">RATE PRODUCT</button>
-</div>
-</div>
-</div>
-</div>
-</div>
+  </div>
 </div>
 
 

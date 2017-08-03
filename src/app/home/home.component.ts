@@ -1,4 +1,7 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { ProductService } from '../core/services/product/product.service'
+import { IProduct } from '../core/models/product.model'
 
 @Component({
   selector: 'app-home',
@@ -8,32 +11,26 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   constructor(
-    private elementRef: ElementRef
+    private productService: ProductService,
+
   ) { }
 
+  products: IProduct
+
   ngOnInit() {
+    this.getPopularProducts()
   }
 
-  ngAfterViewInit(){
-    /*jQuery('.media-carousel .item').each(
-      ()=>{
-        let next = jQuery(this).next()
-        if(!next.length){
-          next = jQuery(this).siblings(':first')
-        }
-        next.children(':first-child').clone().appendTo(jQuery(this))
-        if(next.next().length > 0){
-          next.next().children(':first-child').clone().appendTo(jQuery(this))
-        } else {
-          jQuery(this).siblings(':first').children(':first-child').clone().appendTo(jQuery(this))
-        }
+  getPopularProducts() {
+    this.productService.getPopularProducts().subscribe(
+      (response: IProduct) => {
+        this.products = response
+        return response
+      },
+      (error :Error) => {
+        return error
       }
-    )*/
-    /*let element = this.elementRef.nativeElement.querySelectorAll('#Carousel')
-    console.log(element)
-    element.forEach(() => {
-      let next = element.next
-    });*/
+    )
   }
 
 }

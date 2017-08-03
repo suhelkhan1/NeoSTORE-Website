@@ -1,4 +1,4 @@
-import {Component, OnInit, ElementRef, AfterContentInit} from '@angular/core';
+import {Component, OnInit, ElementRef} from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router'
 
 import { ProductService} from '../../core/services/product/product.service'
@@ -9,7 +9,7 @@ import { IProduct } from '../../core/models/product.model'
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.css']
 })
-export class ProductDetailsComponent implements OnInit,AfterContentInit {
+export class ProductDetailsComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -17,10 +17,10 @@ export class ProductDetailsComponent implements OnInit,AfterContentInit {
     private elementRef: ElementRef
   ) { }
 
-  activeImage:any;
+  activeImage: any;
   product: IProduct;
-  productImgArray:any;
-  rating:any;
+  productImgArray: any;
+  rating: any;
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(
@@ -31,17 +31,11 @@ export class ProductDetailsComponent implements OnInit,AfterContentInit {
     )
   }
 
-  ngAfterContentInit() {
-
-
-  }
-
-
   getProduct(productId){
     this.productService.getProduct(productId).subscribe(
       (response: IProduct) => {
         this.product = response;
-        this.productImgArray=response.product_img;
+        this.productImgArray=response.images;
         console.log(this.product);
         this.activeImage = this.productImgArray[0].ImgURL;
         this.rating=this.product.product_avg_rating;

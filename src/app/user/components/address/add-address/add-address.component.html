@@ -1,0 +1,84 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h4><strong>Add new address</strong></h4>
+    <hr>
+
+    <button type="button" class="btn btn-default"><i class="fa fa-map-marker"></i> Set Current Location</button>
+    <br>
+    <br>
+    <form [formGroup]="addAddressForm" (ngSubmit)="addAddressForm.invalid || addAddress(addAddressForm.value)" novalidate>
+
+      <div class="row">
+        <div class="col-md-8">
+          <div class="form-group" >
+            <label for="fulladdress">Address</label>         
+            <textarea type="text" 
+                      class="form-control" 
+                      formControlName="fulladdress" 
+                      [ngClass]="{ 'error' : fulladdress.invalid && fulladdress.dirty }">
+            </textarea>
+          </div>
+          <small class="text-danger" *ngIf="fulladdress.invalid && fulladdress.dirty">Please enter proper first name</small>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group" >
+            <label for="pincode">Pincode</label>         
+            <input type="number" 
+                   class="form-control" 
+                   formControlName="pincode" 
+                   [ngClass]="{ 'error' : pincode.invalid && pincode.dirty }">
+          </div>
+          <small class="text-danger" *ngIf="pincode.invalid && pincode.dirty">Please enter proper first name</small>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group" >
+            <label for="city">City</label>         
+            <input type="text" 
+                   class="form-control" 
+                   formControlName="city" 
+                   [ngClass]="{ 'error' : city.invalid && city.dirty }">
+          </div>
+          <small class="text-danger" *ngIf="city.invalid && city.dirty">Please enter proper first name</small>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group" >
+            <label for="state">State</label>         
+            <input type="text" 
+                   class="form-control" 
+                   formControlName="state" 
+                   [ngClass]="{ 'error' : state.invalid && state.dirty }">
+          </div>
+          <small class="text-danger" *ngIf="state.invalid && state.dirty">Please enter proper first name</small>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group" >
+            <label for="country">Country</label>         
+            <input type="text" 
+                   class="form-control" 
+                   formControlName="country" 
+                   [ngClass]="{ 'error' : country.invalid && country.dirty }">
+          </div>
+          <small class="text-danger" *ngIf="country.invalid && country.dirty">Please enter proper first name</small>
+        </div>
+      </div>
+      
+      <hr>
+      <button type="submit" [disabled]="addAddressForm.invalid" class="btn btn-default btn-lg"><i class="fa fa-floppy-o"></i>Save</button>
+      <button [routerLink]="['/user/addresses']" type="button" class="btn btn-default btn-lg"><i class="fa fa-remove"></i>Cancel</button>
+    </form>
+
+
+  </div>
+</div>

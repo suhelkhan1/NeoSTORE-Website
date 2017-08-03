@@ -10,14 +10,13 @@
     <div class="col-md-4">
       <div class="thumbnail">
         <div class="img-thumb">
-          <img class="img-reposive" [src]="product.product_img[0].ThumbURL250" alt="product_image">
+          <img class="img-reposive" [src]="product.images[0].ThumbURL250" alt="product_image">
         </div>
         <div class="caption">
           <p><a [routerLink]="['/product/details/', product.id]" >{{product.product_name}}t</a></p>
           <button (click)="addToCart(product)" class="pull-right btn btn-primary btn-xs">Add To Cart</button>
           <p><strong>{{product.product_cost | currency:'INR':true}}</strong></p>
-          <fieldset  class="rating">
-            <!--<span *ngFor="let r of [product.product_avg_rating]" class="glyphicon glyphicon-star"></span>-->
+          <fieldset  class="rating">            
             <star-rating-comp [starType]="'svg'"
                               [rating]="product.product_avg_rating"
                               [size]="'medium'"
