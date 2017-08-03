@@ -26,7 +26,7 @@ export class ProductService {
   }
 
   getProduct(productId): Observable<IProduct>{
-    return this.http.get(this.url + productId ).map((response: Response)=>{
+    return this.http.get(this.url + '/' + productId + '?filter[include]=images' ).map((response: Response)=>{
       return <IProduct>response.json()
     })
   }

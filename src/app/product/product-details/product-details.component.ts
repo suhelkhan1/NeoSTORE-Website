@@ -2,6 +2,7 @@ import {Component, OnInit, ElementRef} from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router'
 
 import { ProductService} from '../../core/services/product/product.service'
+import { CartService } from '../../core/services/cart/cart.service'
 import { IProduct } from '../../core/models/product.model'
 
 @Component({
@@ -14,7 +15,8 @@ export class ProductDetailsComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private productService: ProductService,
-    private elementRef: ElementRef
+    private elementRef: ElementRef,
+    private cartService:CartService
   ) { }
 
   activeImage: any;
@@ -51,6 +53,10 @@ export class ProductDetailsComponent implements OnInit {
   changeActiveImage(productimg) {
     console.log('productimg', productimg);
     this.activeImage = productimg.ImgURL;
+  }
+
+  addToCart(product){
+    this.cartService.addToCart(product)
   }
 
 }

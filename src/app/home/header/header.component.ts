@@ -11,13 +11,15 @@ import { AuthService } from '../../core/services/auth/auth.service'
 })
 export class HeaderComponent implements OnInit {
 
+
   cartItems: any
   isAuthenticated
 
   constructor(
     private cartService: CartService,
     private authSerive: AuthService
-  ) { 
+  ) {
+
     this.cartItems = this.cartService.getCartItems()
     this.isAuthenticated = this.authSerive.isAuthenticated()
   }
