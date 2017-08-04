@@ -9,7 +9,8 @@ import { CartService } from '../../../core/services/cart/cart.service'
 })
 export class CartProductListComponent implements OnInit {
 
-  cartItems = []
+  cartItems
+  productQty: number = 1
 
   constructor(
     private cartService: CartService
@@ -28,6 +29,19 @@ export class CartProductListComponent implements OnInit {
   deleteCartItem(index){
     this.cartService.deleteCartItem(index)
     this.getCartItems()
+  }
+
+  upQuantity(){
+    this.productQty ++
+  }
+
+  downQuantity(){
+    if(this.productQty <= 1){
+      false
+    } else {
+      this.productQty --
+    }
+    
   }
 
 }

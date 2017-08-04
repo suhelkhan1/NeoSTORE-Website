@@ -1,0 +1,16 @@
+
+<div class="sidebar">
+  <div class="col-md-3">
+    <!--<p><a routerLink="/user/overview" routerLinkActive="active">Overview</a></p>-->
+    <!--<hr>-->
+    <p class="text-capitalize green">Categories</p>
+    <p *ngFor="let category of productCategories" >
+      <a (click)="getProductByCategory(category.id)">{{category.category_name}}</a>
+    </p>
+    <hr>
+    <p class="text-capitalize">COLOR</p>
+    <p><a routerLink="/user/addresses" routerLinkActive="active">My Address</a></p>
+  </div>
+</div>
+
+

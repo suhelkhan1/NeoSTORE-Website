@@ -34,7 +34,7 @@
           </div>
 
           <p class="product-description">{{product.product_description}}</p>
-          <h4 class="price">current price: <span>{{product.product_cost | currency:'INR':true}}</span></h4>
+          <h4 class="price">current price: <span>{{product.product_cost | currency:'INR':true:'1.0-0'}}</span></h4>
           <!--<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>-->
           <h5 class="sizes">Dimensions:
             <span class="size" data-toggle="tooltip" title="small">{{product.product_dimension}} (inches)</span>

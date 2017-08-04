@@ -6,6 +6,8 @@ import { CartService } from './services/cart/cart.service'; //Cart Service
 import { AuthService } from './services/auth/auth.service';
 import { UserService } from './services/user/user.service'
 import { AddressService } from './services/user/address/address.service'
+import { ProductCategoryService } from './services/product-category/product-category.service'
+import { ProductFilterService } from './services/product-filter/product-filter.service'
 
 /*+-+-+-+-+-+-+-+-+-+-+-+- GUARDS +-+-+-+-+-+-+-+-+-+-+-+-*/
 import { AuthGuard } from './guards/auth/auth.guard'
@@ -22,7 +24,9 @@ import { AuthGuard } from './guards/auth/auth.guard'
     AuthService,
     UserService,
     AddressService,
-    AuthGuard
+    AuthGuard,
+    ProductCategoryService,
+    ProductFilterService
   ],
   exports: [
   

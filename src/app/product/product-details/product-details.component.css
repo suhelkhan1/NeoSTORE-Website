@@ -52,6 +52,7 @@ img {
   max-width: 100%;
   display: block;
   text-align: center;
+  object-fit: cover;
 }
 
 .preview-thumbnail.nav-tabs li a {

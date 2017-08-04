@@ -32,4 +32,14 @@ export class AddressesComponent implements OnInit {
     )
   }
 
+  deleteAddress(addressId) {
+    this.addressService.deleteAddress(addressId).subscribe(
+      (response) => {
+        this.getAddress()
+        return response
+      },
+      error => error
+    )
+  }
+
 }

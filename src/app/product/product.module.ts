@@ -11,7 +11,7 @@ import { ImageZoomModule } from 'angular2-image-zoom';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductComponent } from './product.component';
 import { ProductListComponent } from './product-list/product-list.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { SidebarComponent } from './product-list/sidebar/sidebar.component';
 
 //Product Services
 import { ProductService } from '../core/services/product/product.service'

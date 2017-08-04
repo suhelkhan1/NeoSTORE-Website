@@ -95,8 +95,15 @@ export class EditAddressComponent implements OnInit {
 
   //Send the edited address to server
   editAddress(formValues) {
-    console.log(formValues)
-    this.addressService.editAddress(formValues).subscribe(
+    let address = {
+      fulladdress: formValues.fulladdress,
+      pincode: formValues.pincode,
+      city: formValues.city,
+      state: formValues.state,
+      country: formValues.country,
+      id: this.address.id
+    }
+    this.addressService.editAddress(address).subscribe(
       (response: IAddress) => {
         this.router.navigate(['/user/addresses'])
         return response

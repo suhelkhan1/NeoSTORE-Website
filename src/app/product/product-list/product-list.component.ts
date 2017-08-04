@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { ProductService } from '../../core/services/product/product.service'
 import { CartService } from '../../core/services/cart/cart.service'
@@ -31,6 +31,11 @@ export class ProductListComponent implements OnInit {
         return error
       }
     )
+  }
+
+  childPro(event){
+    console.log('child data:', event)
+    this.products = event
   }
 
   /*addToCart(product){

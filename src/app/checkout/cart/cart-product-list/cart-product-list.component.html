@@ -4,19 +4,22 @@
     <thead>
       <tr>
         <th>Product</th>
-        <th>Quantity</th>
+        <th class="text-center">Quantity</th>
         <th class="text-center">Price</th>
         <th class="text-center">Total</th>
         <th> </th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of cartItems; let i = index" [attr.data-index]="i" >
+      <tr *ngFor="let item of cartItems; let i = index" [attr.data-index]="i">
         <td class="col-sm-8 col-md-6">
           <div class="media">
-            <a class="thumbnail pull-left" href="#">
-              <img class="media-object" [src]="item.product_img[0].ThumbURL100" style="width: 72px; height: 72px;"> 
+            <div class="media-left">
+              <a href="#">
+              <img class="media-object cover" [src]="item.images[0].ThumbURL100" > 
             </a>
+            </div>
+
             <div class="media-body">
               <h4 class="media-heading"><a href="#">{{item.product_name}}</a></h4>
               <h5 class="media-heading"> by <a href="#">{{item.product_producer}}</a></h5>
@@ -24,14 +27,16 @@
             </div>
           </div>
         </td>
-        <td class="col-sm-1 col-md-1" style="text-align: center">
-          <input type="email" class="form-control" id="exampleInputEmail1" value="3">
+        <td class="col-sm-1 col-md-2 text-center">
+          <i (click)="downQuantity()" class="fa fa-minus-circle"></i>
+          <input type="number" [(ngModel)]="productQty" class="text-center quantity">
+          <i (click)="upQuantity()" class="fa fa-plus-circle"></i>
         </td>
-        <td class="col-sm-1 col-md-1 text-center"><strong>{{item.product_cost | currency:'INR':true}}</strong></td>
-        <td class="col-sm-1 col-md-1 text-center"><strong>$14.61</strong></td>
+        <td class="col-sm-1 col-md-1 text-center"><strong>{{item.product_cost | currency:'INR':true:'1.0-0'}}</strong></td>
+        <td class="col-sm-1 col-md-1 text-center"><strong>{{item.product_cost*productQty | currency:'INR':true:'1.0-0'}}</strong></td>
         <td class="col-sm-1 col-md-1">
-          <button (click)="deleteCartItem(i)" type="button" class="btn btn-danger">
-            <span class="glyphicon glyphicon-remove"></span> Remove
+          <button (click)="deleteCartItem(i)" type="button" class="btn btn-sm btn-danger">
+            <i class="fa fa-trash"></i>
           </button></td>
       </tr>
 
@@ -39,3 +44,7 @@
 
   </table>
 </div>
+
+
+<app-sidebar [cartItems]="cartItems" [productQty]="productQty" ></app-sidebar>
+
