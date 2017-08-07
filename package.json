@@ -23,6 +23,7 @@
     "@angular/router": "^4.0.0",
     "@types/jquery": "^3.2.9",
     "angular-star-rating": "^3.0.3",
+    "angular2-crumbs": "^1.2.1",
     "angular2-image-zoom": "^1.2.1",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",

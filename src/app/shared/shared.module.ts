@@ -1,25 +1,30 @@
+/*+-+-+-+-+-+-+-+-+-+-+-+- Angular Modules +-+-+-+-+-+-+-+-+-+-+-+-*/
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router'
 
-// imports 3rd party modules
-//Angular boostrap
-import { BsRootModule } from 'ngx-bootstrap';
-//Rating Star Module
-import { StarRatingModule } from 'angular-star-rating'
+/*+-+-+-+-+-+-+-+-+-+-+-+- 3rd Party Modules +-+-+-+-+-+-+-+-+-+-+-+-*/
+import { BsRootModule } from 'ngx-bootstrap'; //Ngx Bootstrap
+import { StarRatingModule } from 'angular-star-rating'; //Rating Star Module
+import { BreadcrumbModule } from 'angular2-crumbs'; //Angular2 Breadcrumbs
 
+/*+-+-+-+-+-+-+-+-+-+-+-+- Components +-+-+-+-+-+-+-+-+-+-+-+-*/
 import { SharedComponent } from './shared.component';
 import { PageNotFoundComponent } from './error-pages/page-not-found/page-not-found.component';
 
-import { EqualValidatorDirective } from './directives/equal-validator.directive'
+/*+-+-+-+-+-+-+-+-+-+-+-+- Directives +-+-+-+-+-+-+-+-+-+-+-+-*/
+import { EqualValidatorDirective } from './directives/equal-validator.directive';//Equal validators directive
 
+/*+-+-+-+-+-+-+-+-+-+-+-+- Routes +-+-+-+-+-+-+-+-+-+-+-+-*/
 import { SharedRoutes as routes } from './shared.routes'
+
 @NgModule({
   imports: [
     CommonModule,
     BsRootModule,
     RouterModule.forChild(routes),
-    StarRatingModule.forRoot()
+    StarRatingModule.forRoot(),
+    BreadcrumbModule.forRoot()
   ],
   declarations: [
   PageNotFoundComponent,
@@ -30,7 +35,8 @@ import { SharedRoutes as routes } from './shared.routes'
     BsRootModule,
     PageNotFoundComponent,
     EqualValidatorDirective,
-    StarRatingModule
+    StarRatingModule,
+    BreadcrumbModule
   ]
 })
 export class SharedModule { }

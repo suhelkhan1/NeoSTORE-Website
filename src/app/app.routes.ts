@@ -5,32 +5,39 @@ import { AuthGuard } from './core/guards/auth/auth.guard'
 export const routes: Routes = [
     {
         path: 'home',
-        loadChildren: './home/home.module#HomeModule'
+        loadChildren: './home/home.module#HomeModule',
+        data: { breadcrumb: 'Home'}
     },
     {
         path: 'auth',
-        loadChildren: './auth/auth.module#AuthModule'
+        loadChildren: './auth/auth.module#AuthModule',
+        data: { breadcrumb: 'Auth'}
     },
     {
         path: 'product',
-        loadChildren: './product/product.module#ProductModule'
+        loadChildren: './product/product.module#ProductModule',
+        data: { breadcrumb: 'Product'}
     },
     {
         path: 'checkout',
-        loadChildren: './checkout/checkout.module#CheckoutModule'
+        loadChildren: './checkout/checkout.module#CheckoutModule',
+        data: { breadcrumb: 'Checkout'}
     },
     {
         path: 'user',
         loadChildren: './user/user.module#UserModule',
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
+        data: { breadcrumb: 'User'}
     },
     {
         path: 'commons',
-        loadChildren: './shared/shared.module#SharedModule'
+        loadChildren: './shared/shared.module#SharedModule',
+        data: { breadcrumb: 'Shared'}                
     },
     {
         path: 'info',
-        loadChildren: './information/information.module#InformationModule'
+        loadChildren: './information/information.module#InformationModule',
+        data: { breadcrumb: 'Info'}
     },
     {
         path: '**',

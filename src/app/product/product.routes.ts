@@ -7,8 +7,9 @@ export const ProductRoutes =[
     path:'',
     component: ProductComponent,
     children: [
-      { path:'details/:id', component:ProductDetailsComponent},
-      { path:'list', component:ProductListComponent}
+      { path:'', redirectTo: 'list', pathMatch:'full'},
+      { path:'details/:id', component:ProductDetailsComponent, data: { breadcrumb: 'Product Details'} },
+      { path:'list', component:ProductListComponent, data: { breadcrumb: 'Product List'} }
     ]
   }
 ]

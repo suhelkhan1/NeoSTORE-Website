@@ -1,6 +1,13 @@
 
-<ol class="breadcrumb">
-  <li><a href="index.html">Home</a></li>
-  <li class="active">Products</li>
-</ol>
+<breadcrumb #parent>
+  <ol class="breadcrumb">
+    <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
+      <li>
+        <a *ngIf="!route.terminal" class="breadcrumb-item" [routerLink]="[route.url]">{{ route.displayName }}</a>
+        <a *ngIf="route.terminal"  class="breadcrumb-item active" [routerLink]="[route.url]">{{ route.displayName }}</a>
+      </li>
+    </ng-template>
+  </ol>
+</breadcrumb>
+
 <router-outlet></router-outlet>
