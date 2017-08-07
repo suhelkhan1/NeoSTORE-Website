@@ -1,29 +1,44 @@
-<app-sidebar (products)="childPro($event)" ></app-sidebar>
+<div class="row">
+  <app-sidebar (colorFilter)="getProductsByColor($event)" (categoryFilter)="getProductByCategory($event)"></app-sidebar>
 
 
-<div class="col-md-9 vertical-line">
-  <h5>OUR PRODUCTS</h5>
-  <hr>
-
-  <div *ngFor="let product of products; let i = index" [attr.data-index]="i">
-    <div class="col-md-4">
-      <div class="thumbnail">
-        <div class="img-thumb">
-          <img class="img-reposive" [src]="product.images[0].ThumbURL250" alt="product_image">
+  <div class="col-md-9 vertical-line">
+    <div class="row padding-row">
+      <h5 class="pull-left">{{title}}</h5>
+      <div class="pull-right">
+        <label>Sort By: </label>
+        <div class="btn-group" role="group" aria-label="SortBy">
+          <button (click)="sortByPopularProducts($event)"  type="button" class="btn btn-default">
+            <i class="fa fa-star" aria-hidden="true"></i>      
+          </button>
+          <button (click)="sortByHighPrice($event)" type="button" class="btn btn-default">
+            <i class="fa fa-inr" aria-hidden="true"></i>
+            <i class="fa fa-arrow-up" aria-hidden="true"></i>
+          </button>
+          <button (click)="sortByLowPrice($event)" type="button" class="btn btn-default">
+            <i class="fa fa-inr" aria-hidden="true"></i>
+            <i class="fa fa-arrow-down" aria-hidden="true"></i>
+          </button>
         </div>
-        <div class="caption">
-          <p><a [routerLink]="['/product/details/', product.id]" >{{product.product_name}}</a></p>
-          <button (click)="addToCart(product)" class="pull-right btn btn-primary btn-xs">Add To Cart</button>
-          <p><strong>{{product.product_cost | currency:'INR':true:'1.0-0'}}</strong></p>
-          <fieldset  class="rating">            
-            <star-rating-comp [starType]="'svg'"
-                              [rating]="product.product_avg_rating"
-                              [size]="'medium'"
-                              [staticColor]="'negative'"                              
-                              [showHalfStars]="true"
-                              [disabled]="true">
-            </star-rating-comp>            
-          </fieldset>
+      </div>
+    </div>
+    <br>
+    <div *ngFor="let product of products; let i = index" [attr.data-index]="i">
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <div class="img-thumb">
+            <img class="img-reposive" [src]="product.images[0].ThumbURL250" alt="product_image">
+          </div>
+          <div class="caption">
+            <p><a [routerLink]="['/product/details/', product.id]">{{product.product_name}}</a></p>
+            <button (click)="addToCart(product)" class="pull-right btn btn-primary btn-xs">Add To Cart</button>
+            <p><strong>{{product.product_cost | currency:'INR':true:'1.0-0'}}</strong></p>
+            <fieldset class="rating">
+              <star-rating-comp [starType]="'svg'" [rating]="product.product_avg_rating" [size]="'medium'" [staticColor]="'negative'" [showHalfStars]="true"
+                [disabled]="true">
+              </star-rating-comp>
+            </fieldset>
+          </div>
         </div>
       </div>
     </div>

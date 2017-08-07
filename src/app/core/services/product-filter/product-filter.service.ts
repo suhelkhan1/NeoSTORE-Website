@@ -3,6 +3,7 @@ import { Observable } from 'rxjs'
 import { Http, Response } from '@angular/http'
 
 import { IProductCategory } from '../../models/product-category.model'
+import { IColor } from '../../models/color.model'
 
 @Injectable()
 export class ProductFilterService {
@@ -20,8 +21,14 @@ export class ProductFilterService {
     }).catch(this.handleError)
   }
 
+  //Get products by colors
+  getProductsByColor(colorName): Observable<IColor> {
+    return this.http.get(this.url + '?filter={"where":{"product_color.color_name":{"like":"'+ colorName +'","options":"i"}}, "include":"images"}' ).map( (response:Response) => {
+    return <IProductCategory>response.json()
+    }).catch(this.handleError)
+  }
 
-   handleError(error: Response) { 
+  handleError(error: Response) { 
     return Observable.throw(error.json());
   }
 

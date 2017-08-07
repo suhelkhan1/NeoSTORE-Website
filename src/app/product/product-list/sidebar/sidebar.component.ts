@@ -5,6 +5,9 @@ import { IProductCategory } from '../../../core/models/product-category.model'
 
 import { ProductFilterService } from '../../../core/services/product-filter/product-filter.service'
 
+import { ColorService } from '../../../core/services/color/color.service'
+import { IColor } from '../../../core/models/color.model'
+
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -14,15 +17,23 @@ export class SidebarComponent implements OnInit {
 
   constructor(
     private productCategoryService: ProductCategoryService,
-    private productFilterService:ProductFilterService 
+    private productFilterService:ProductFilterService,
+    private colorService: ColorService 
   ) { }
 
   productCategories: IProductCategory
-  @Output() products: EventEmitter<any> = new EventEmitter<any>()
+  colors: IColor
+
+ /* @Output() products: EventEmitter<any> = new EventEmitter<any>()
+  @Output() title: EventEmitter<any> = new EventEmitter<any>()*/
+  @Output() categoryFilter: EventEmitter<any> = new EventEmitter<any>()
+  @Output() colorFilter: EventEmitter<any> = new EventEmitter<any>()
 
   ngOnInit() {
     this.getProductCategories()
+    this.getColors()
   }
+
 
   getProductCategories() {
     this.productCategoryService.getProductCategories().subscribe(
@@ -36,9 +47,29 @@ export class SidebarComponent implements OnInit {
     )
   }
 
-  getProductByCategory(categoryId){
-    this.productFilterService.getProductCategories(categoryId).subscribe(
-      response => this.products.emit(response),
+  getProductByCategory(id, category_name){
+    this.productFilterService.getProductCategories(id).subscribe(
+      (response) => {
+         let results = {
+          title : category_name,
+          products: response
+        }
+        this.categoryFilter.emit(results)
+      },
+      error => error
+    )
+  }
+
+  getProductcByColor(colorName){
+    this.productFilterService.getProductsByColor(colorName).subscribe(
+      response => this.colorFilter.emit(response),
+      error => error
+    )
+  }
+
+  getColors(){
+    this.colorService.getColors().subscribe(
+      response => this.colors = response,
       error => error
     )
   }

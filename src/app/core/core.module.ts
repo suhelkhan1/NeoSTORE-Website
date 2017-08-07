@@ -8,6 +8,8 @@ import { UserService } from './services/user/user.service'
 import { AddressService } from './services/user/address/address.service'
 import { ProductCategoryService } from './services/product-category/product-category.service'
 import { ProductFilterService } from './services/product-filter/product-filter.service'
+import { ProductSortService } from './services/product-sort/product-sort.service'
+import { ColorService } from './services/color/color.service'
 
 /*+-+-+-+-+-+-+-+-+-+-+-+- GUARDS +-+-+-+-+-+-+-+-+-+-+-+-*/
 import { AuthGuard } from './guards/auth/auth.guard'
@@ -26,7 +28,9 @@ import { AuthGuard } from './guards/auth/auth.guard'
     AddressService,
     AuthGuard,
     ProductCategoryService,
-    ProductFilterService
+    ProductFilterService,
+    ProductSortService,
+    ColorService
   ],
   exports: [
   

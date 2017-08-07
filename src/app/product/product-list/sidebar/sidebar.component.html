@@ -1,16 +1,60 @@
-
-<div class="sidebar">
+<!--<div class="sidebar">
   <div class="col-md-3">
-    <!--<p><a routerLink="/user/overview" routerLinkActive="active">Overview</a></p>-->
-    <!--<hr>-->
     <p class="text-capitalize green">Categories</p>
     <p *ngFor="let category of productCategories" >
-      <a (click)="getProductByCategory(category.id)">{{category.category_name}}</a>
+      <a (click)="getProductByCategory(category.id, category.category_name)">{{category.category_name}}</a>
     </p>
     <hr>
     <p class="text-capitalize">COLOR</p>
-    <p><a routerLink="/user/addresses" routerLinkActive="active">My Address</a></p>
+    <p><a routerLink="" routerLinkActive="active">My Colors</a></p>
+  </div>
+</div>-->
+
+<div class="col-md-3">
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingOne">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#categories">
+            <i class="fa fa-lg fa-angle-double-down"></i> Categories
+          </a>
+        </h4>
+      </div>
+      <div id="categories" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div class="list-group">
+          <li class="list-group-item" *ngFor="let category of productCategories">
+            <a (click)="getProductByCategory(category.id, category.category_name)">
+              <i class="fa fa-dot-circle-o"></i>
+              {{category.category_name}}
+            </a>
+          </li>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingOne">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#colors">
+            <i class="fa fa-lg fa-angle-double-down"></i> Colors
+          </a>
+        </h4>
+      </div>
+      <div id="colors" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div class="list-group-item">
+          <ul class="list-inline">
+            <li *ngFor="let color of colors">
+              <button type="button"
+                      (click)="getProductcByColor(color.color_name)"
+                      [tooltip]="color.color_name"
+                      placement="top"                    
+                      class="color-box" 
+                      [ngStyle]="{'background': color.color_code}">
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
-

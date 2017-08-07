@@ -19,3 +19,8 @@ img {
 .vertical-line {
   border-left: 1px solid #eee;
 }
+
+.padding-row {
+  padding-left: 30px;
+  padding-right: 30px;
+}
