@@ -16,7 +16,7 @@ export const routes: Routes = [
     {
         path: 'product',
         loadChildren: './product/product.module#ProductModule',
-        data: { breadcrumb: 'Product'}
+        data: { breadcrumb: 'Products'}
     },
     {
         path: 'checkout',

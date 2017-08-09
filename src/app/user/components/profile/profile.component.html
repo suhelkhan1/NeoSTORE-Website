@@ -5,30 +5,30 @@
   </div>
   <div class="panel-body">
     <table class="table borderless">
-      <tbody>
+      <tbody *ngIf="user" >
         <tr>
           <th>First Name</th>
-          <td>Sohail</td>
+          <td>{{user.first_name}}</td>
         </tr>
         <tr>
           <th>Last Name</th>
-          <td>Khan</td>
+          <td>{{user.last_name}}</td>
         </tr>
         <tr>
           <th>Gender</th>
-          <td>Male</td>
+          <td>{{user.gender}}</td>
         </tr>
         <tr>
           <th>Date of Birth</th>
-          <td>15 March 1993</td>
+          <td>{{user.birth_date}}</td>
         </tr>
         <tr>
           <th>Mobile Number</th>
-          <td>+918767375751</td>
+          <td>+{{user.phone_no}}</td>
         </tr>
         <tr>
           <th>Email</th>
-          <td>suhel.khan@neosofttech.com</td>
+          <td>{{user.email}}</td>
         </tr>
       </tbody>
     </table>

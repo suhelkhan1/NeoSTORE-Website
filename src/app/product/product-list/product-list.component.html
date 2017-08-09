@@ -6,25 +6,31 @@
     <div class="row padding-row">
       <h5 class="pull-left">{{title}}</h5>
       <div class="pull-right">
-        <label>Sort By: </label>
-        <div class="btn-group" role="group" aria-label="SortBy">
-          <button (click)="sortByPopularProducts($event)"  type="button" class="btn btn-default">
-            <i class="fa fa-star" aria-hidden="true"></i>      
-          </button>
-          <button (click)="sortByHighPrice($event)" type="button" class="btn btn-default">
-            <i class="fa fa-inr" aria-hidden="true"></i>
-            <i class="fa fa-arrow-up" aria-hidden="true"></i>
-          </button>
-          <button (click)="sortByLowPrice($event)" type="button" class="btn btn-default">
-            <i class="fa fa-inr" aria-hidden="true"></i>
-            <i class="fa fa-arrow-down" aria-hidden="true"></i>
-          </button>
-        </div>
+        <tabset type="pills">
+          <tab (select)="sortByPopularProducts()" [active]="false" >
+            <template tabHeading>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </template>
+          </tab>
+          <tab (select)="sortByHighPrice()">
+            <template tabHeading>
+              <i class="fa fa-inr" aria-hidden="true"></i>
+              <i class="fa fa-arrow-up" aria-hidden="true"></i>
+            </template>
+          </tab>
+          <tab (select)="sortByLowPrice()">
+            <template tabHeading>
+              <i class="fa fa-inr" aria-hidden="true"></i>
+              <i class="fa fa-arrow-down" aria-hidden="true"></i>
+            </template>
+          </tab>
+        </tabset>
       </div>
+      <h5 class="pull-right">Sort By : </h5>
     </div>
     <br>
-    <div *ngFor="let product of products; let i = index" [attr.data-index]="i">
-      <div class="col-md-4">
+    <div *ngIf="productArray" [@listAnimation]="productArray.length" >
+      <div class="col-md-4" *ngFor="let product of productArray">
         <div class="thumbnail">
           <div class="img-thumb">
             <img class="img-reposive" [src]="product.images[0].ThumbURL250" alt="product_image">

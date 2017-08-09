@@ -11,7 +11,7 @@ export class UserService {
   constructor(
     private http: Http
   ) { }
-  url = 'http://10.0.100.213:3000/api/addresses'
+  url = 'http://10.0.100.213:3000/api/user_accounts'
   current_user_accesToken: string
   curent_user_userId: string
 

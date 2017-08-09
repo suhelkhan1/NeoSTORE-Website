@@ -1,10 +1,11 @@
+/*+-+-+-+-+-+-+-+-+-+-+-+- Angular Modules +-+-+-+-+-+-+-+-+-+-+-+-*/
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router'
 import { HttpModule } from '@angular/http'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
-//Customs Modules
+/*+-+-+-+-+-+-+-+-+-+-+-+- App Modules +-+-+-+-+-+-+-+-+-+-+-+-*/
 import { HomeModule } from './home/home.module'
 import { SharedModule } from './shared/shared.module'
 import { AuthModule } from './auth/auth.module'
@@ -13,12 +14,10 @@ import { ProductModule } from './product/product.module'
 import { CheckoutModule }from './checkout/checkout.module'
 import { InformationModule }from './information/information.module'
 
-
+/*+-+-+-+-+-+-+-+-+-+-+-+- App components +-+-+-+-+-+-+-+-+-+-+-+-*/
 import { AppComponent } from './app.component';
 
-
-
-//Main App route
+/*+-+-+-+-+-+-+-+-+-+-+-+- App routes +-+-+-+-+-+-+-+-+-+-+-+-*/
 import { routes } from './app.routes';
 
 @NgModule({
@@ -35,7 +34,8 @@ import { routes } from './app.routes';
     CoreModule,
     ProductModule,
     CheckoutModule,
-    InformationModule
+    InformationModule,
+    BrowserAnimationsModule
   ],
   providers: [
   ],

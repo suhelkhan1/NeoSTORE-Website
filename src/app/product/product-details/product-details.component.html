@@ -6,8 +6,7 @@
       <div class="col-md-6">
         <div class="preview">
           <div class="preview-pic tab-content">
-            <div class="my-img tab-pane active"><img class="actual-img" src="{{activeImage}}" [imageZoom]="zoomedImageSrc" lensStyle="LENS" /></div>
-            <!--<div class="my-img tab-pane"><img [src]="product.product_img[0].ImgURL"/></div>-->
+            <div class="my-img active"><img class="actual-img" src="{{activeImage}}" [imageZoom]="zoomedImageSrc" lensStyle="LENS" /></div>            
           </div>
           <ul class="preview-thumbnail nav nav-tabs">
             <li *ngFor="let productimg of productImgArray" [id]="productimg.ImgURL" (click)="changeActiveImage(productimg)">
@@ -20,9 +19,8 @@
       </div>
       <div class="col-md-6 ">
         <div class="details">
-          <h3 class="product-title">{{product.product_name}}</h3>
+          <h3 class="text-danger">{{product.product_name}}</h3>
           <div class="rating width-box">
-            <!--<div class="stars">-->
             <star-rating-comp [starType]="'svg'" 
                               [rating]="rating" 
                               [size]="'medium'" 
@@ -33,16 +31,12 @@
             </star-rating-comp>
           </div>
 
-          <p class="product-description">{{product.product_description}}</p>
-          <h4 class="price">current price: <span>{{product.product_cost | currency:'INR':true:'1.0-0'}}</span></h4>
-          <!--<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>-->
-          <h5 class="sizes">Dimensions:
-            <span class="size" data-toggle="tooltip" title="small">{{product.product_dimension}} (inches)</span>
-          </h5>
-          <h5 class="colors">colors:
-            <span class="color red" [ngStyle]="{'background': product.product_color.color_name}"></span>
-            <!--<span class="color blue"></span>-->
-          </h5>
+          <p class="text-default">{{product.product_description}}</p>
+          <h4 class="text-danger">Price: <span class="text-success">{{product.product_cost | currency:'INR':true:'1.0-0'}}</span></h4>          
+          <h4 class="text-danger">Dimensions: <span class="text-success">{{product.product_dimension}} (inches)</span></h4>
+          <h4 class="text-danger">Color:
+            <span class="color" [ngStyle]="{'background': product.product_color.color_code}"></span>            
+          </h4>
 
           <div class="action">
             <button class=" btn btn-primary bt-color" type="button">ADD TO CART</button>
@@ -55,89 +49,4 @@
 
 </div>
 
-
-
 <hr>
-
-<h4>YOU MAY ALSO LIKE</h4>
-<div class="row">
-  <div id="adv_team_4_columns_carousel" class="carousel slide four_shows_one_move team_columns_carousel_wrapper" data-ride="carousel"
-    data-interval="2000" data-pause="hover">
-    <!--========= Wrapper for slides =========-->
-    <div class="carousel-inner" role="listbox">
-      <!--========= 1st slide =========-->
-      <div class="item">
-        <div class="col-md-3 team_columns_item_image">
-          <img src="http://placehold.it/250x250" alt="slider 01">
-          <div class="team_columns_item_caption">
-            <h4>product name -1</h4>
-            <hr>
-            <h5>cost</h5>
-          </div>
-        </div>
-        <div class="col-md-3 team_columns_item_image cloneditem-1">
-          <img src="http://placehold.it/250x250" alt="slider 02">
-          <div class="team_columns_item_caption">
-            <h4>pro name-2</h4>
-            <hr>
-            <h5>cost</h5>
-          </div>
-        </div>
-        <div class="col-md-3 team_columns_item_image cloneditem-2">
-          <img src="http://placehold.it/250x250" alt="slider 02">
-          <div class="team_columns_item_caption">
-            <h4>pro name-3</h4>
-            <hr>
-            <h5>cost</h5>
-          </div>
-        </div>
-        <div class="col-md-3 team_columns_item_image cloneditem-3">
-          <img src="http://placehold.it/250x250" alt="slider 02">
-          <div class="team_columns_item_caption">
-            <h4>pro name-4</h4>
-            <hr>
-            <h5>cost</h5>
-          </div>
-        </div>
-      </div>
-      <!--========= 2nd slide =========-->
-      <div class="item active">
-        <div class="col-md-3 team_columns_item_image">
-          <img src="http://placehold.it/250x250" alt="slider 01">
-          <div class="team_columns_item_caption">
-            <h4>pro name=5</h4>
-            <hr>
-            <h5>cost</h5>
-          </div>
-        </div>
-        <div class="col-md-3 team_columns_item_image cloneditem-1">
-          <img src="http://placehold.it/250x250" alt="slider 02">
-          <div class="team_columns_item_caption">
-            <h4>pro name 6</h4>
-            <hr>
-            <h5>cost</h5>
-          </div>
-        </div>
-        <div class="col-md-3 team_columns_item_image cloneditem-2">
-          <img src="http://placehold.it/250x250" alt="slider 02">
-          <div class="team_columns_item_caption">
-            <h4>pro name 7</h4>
-            <hr>
-            <h5>cost</h5>
-          </div>
-        </div>
-        <div class="col-md-3 team_columns_item_image cloneditem-3">
-          <img src="http://placehold.it/250x250" alt="slider 02">
-          <div class="team_columns_item_caption">
-            <h4>pro name 8</h4>
-            <hr>
-            <h5>cost</h5>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <a class="left carousel-control" data-slide="prev" href="#adv_team_4_columns_carousel">‹</a>
-    <a class="right carousel-control" data-slide="next" href="#adv_team_4_columns_carousel">›</a>
-  </div>
-</div>
