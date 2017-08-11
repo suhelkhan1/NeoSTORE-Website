@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 /*+-+-+-+-+-+-+-+-+-+-+-+- SERVICES +-+-+-+-+-+-+-+-+-+-+-+-*/
 import { CartService } from './services/cart/cart.service'; //Cart Service
-import { AuthService } from './services/auth/auth.service';
+import { AuthServiceLocal } from './services/auth/auth.service';
 import { UserService } from './services/user/user.service'
 import { AddressService } from './services/user/address/address.service'
 import { ProductCategoryService } from './services/product-category/product-category.service'
@@ -25,7 +25,7 @@ import { AuthGuard } from './guards/auth/auth.guard'
   ],
   providers: [
     CartService,
-    AuthService,
+    AuthServiceLocal,
     UserService,
     AddressService,
     AuthGuard,

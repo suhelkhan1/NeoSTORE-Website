@@ -5,7 +5,7 @@ import { IUserLoginResponse } from '../../models/user-login.model'
 import { IUser } from '../../models/user.model'
 
 @Injectable()
-export class AuthService {
+export class AuthServiceLocal {
 
   constructor(
     private http: Http

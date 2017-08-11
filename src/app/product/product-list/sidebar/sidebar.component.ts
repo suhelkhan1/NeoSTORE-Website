@@ -51,8 +51,9 @@ export class SidebarComponent implements OnInit {
     this.productFilterService.getProductCategories(id).subscribe(
       (response) => {
          let results = {
-          title : category_name,
-          products: response
+           id: id,
+           title : category_name,
+           products: response
         }
         this.categoryFilter.emit(results)
       },

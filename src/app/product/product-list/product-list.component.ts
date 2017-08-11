@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 
 import { trigger, state, style, animate, keyframes, transition, query, stagger } from '@angular/animations';
 
@@ -19,8 +19,8 @@ import { TabsetComponent } from 'ngx-bootstrap';
 
         query(':enter', style({ opacity: 0 }), {optional: true}),
 
-        query(':enter', stagger('300ms', [
-          animate('1s ease-in', keyframes([
+        query(':enter', stagger('100ms', [
+          animate('0.3s ease-in', keyframes([
             style({opacity: 0, transform: 'translateY(-75%)', offset: 0}),
             style({opacity: .5, transform: 'translateY(35px)',  offset: 0.3}),
             style({opacity: 1, transform: 'translateY(0)',     offset: 1.0}),
@@ -42,12 +42,29 @@ export class ProductListComponent implements OnInit {
   products: any
   ratings: any
   cart = []
-  title: string = 'All Categories'
+  categoryTitle: string = 'All Categories'
+  categoryId: string 
   productArray: any[] = []
+  skip: number = 0
 
 
   ngOnInit() {
-    this.productService.getProducts().subscribe(
+    this.getProducts(this.skip)
+  }
+
+
+  lazyLoadingProducts(){
+    this.skip = this.skip + 6
+    if(this.skip <= 0 ){
+      //event.target.classList.add('')
+      false
+    } else {
+      this.getProducts(this.skip)
+    }
+  }
+
+  getProducts(skip){
+    this.productService.getProducts(skip).subscribe(
       (response: IProduct) => {
         this.products = response
         this.ratings = response.product_avg_rating
@@ -63,30 +80,44 @@ export class ProductListComponent implements OnInit {
   }
 
   getProductByCategory(event){
-    this.products = event.products
-    this.title = event.title
+    this.productArray = event.products
+    this.categoryTitle = event.title
+    this.categoryId = event.id
   }
 
   getProductsByColor(event){
-    this.products = event
+    this.productArray = event
   }
 
-
   sortByPopularProducts(){
-    this.productSortService.getPopularProducts().subscribe(
-      (response: IProduct) => {
-        this.products = response
-      },
-      (error : Error) => {
-        return error
-      }
-    )
+    if(this.categoryId === undefined){
+      this.getPopularProducts()
+    } else {
+      this.getPopularProductsWithCategory()
+    }
   }
 
   sortByHighPrice(){
-    this.productSortService.getPriceHighToLowProducts().subscribe(
+    if(this.categoryId === undefined){
+      this.getPriceHighToLowProducts()
+    } else {
+      this.getPriceHighToLowProductsWithCategory()
+    }
+  }
+
+  sortByLowPrice(){
+    if(this.categoryId === undefined){
+      this.getPriceLowToHighProducts()
+    } else {
+      this.getPriceLowToHighProductsWithCategory()
+    }
+  }
+
+  getPopularProducts(){
+    this.productSortService.getPopularProducts().subscribe(
       (response: IProduct) => {
         this.products = response
+        this.productArray = this.products
       },
       (error : Error) => {
         return error
@@ -94,16 +125,66 @@ export class ProductListComponent implements OnInit {
     )
   }
 
-  sortByLowPrice(){
-    this.productSortService.getPriceLowToHighProducts().subscribe(
+  getPopularProductsWithCategory(){
+    this.productSortService.getPopularProductsWithCategory(this.categoryId).subscribe(
       (response: IProduct) => {
         this.products = response
+        this.productArray = this.products
       },
       (error : Error) => {
         return error
       }
     )
   }
+
+  getPriceHighToLowProducts(){
+    this.productSortService.getPriceHighToLowProducts().subscribe(
+      (resposne) => {
+        this.products = resposne
+        this.productArray = this.products
+      },
+      (error : Error) => {
+        return error
+      }
+    )
+  }
+
+  getPriceHighToLowProductsWithCategory(){
+    this.productSortService.getPriceHighToLowProductsWithCategory(this.categoryId).subscribe(
+      (resposne) => {
+        this.products = resposne
+        this.productArray = this.products
+      },
+      (error : Error) => {
+        return error
+      }
+    )
+  }
+
+  getPriceLowToHighProducts(){
+    this.productSortService.getPriceLowToHighProducts().subscribe(
+      (resposne) => {
+        this.products = resposne
+        this.productArray = this.products
+      },
+      (error : Error) => {
+        return error
+      }
+    )
+  }
+
+  getPriceLowToHighProductsWithCategory(){
+    this.productSortService.getPriceLowToHighProductsWithCategory(this.categoryId).subscribe(
+      (resposne) => {
+        this.products = resposne
+        this.productArray = this.products
+      },
+      (error : Error) => {
+        return error
+      }
+    )
+  }
+
 
   addToCart(product){
    this.cartService.addToCart(product)

@@ -4,7 +4,7 @@
 
   <div class="col-md-9 vertical-line">
     <div class="row padding-row">
-      <h5 class="pull-left">{{title}}</h5>
+      <h5 class="pull-left">{{categoryTitle}}</h5>
       <div class="pull-right">
         <tabset type="pills">
           <tab (select)="sortByPopularProducts()" [active]="false" >
@@ -30,14 +30,19 @@
     </div>
     <br>
     <div *ngIf="productArray" [@listAnimation]="productArray.length" >
-      <div class="col-md-4" *ngFor="let product of productArray">
+      <div class="col-md-4" 
+           *ngFor="let product of productArray"
+           infinite-scroll
+           [infiniteScrollDistance]="skip"
+           [infiniteScrollThrottle]="300"
+           (scrolled) ="lazyLoadingProducts()" >
         <div class="thumbnail">
           <div class="img-thumb">
             <img class="img-reposive" [src]="product.images[0].ThumbURL250" alt="product_image">
           </div>
-          <div class="caption">
+          <div class="caption elipse-product">
             <p><a [routerLink]="['/product/details/', product.id]">{{product.product_name}}</a></p>
-            <button (click)="addToCart(product)" class="pull-right btn btn-primary btn-xs">Add To Cart</button>
+            <button (click)="addToCart(product)" class="pull-right btn btn-danger btn-xs">Add To Cart</button>
             <p><strong>{{product.product_cost | currency:'INR':true:'1.0-0'}}</strong></p>
             <fieldset class="rating">
               <star-rating-comp [starType]="'svg'" [rating]="product.product_avg_rating" [size]="'medium'" [staticColor]="'negative'" [showHalfStars]="true"
@@ -48,5 +53,6 @@
         </div>
       </div>
     </div>
+
   </div>
 </div>

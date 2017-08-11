@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
 
+//For Social login
+import { AuthService } from "angular2-social-login";
 //Auth service for user login
-import { AuthService } from '../../core/services/auth/auth.service'
+import { AuthServiceLocal } from '../../core/services/auth/auth.service'
 //User login response model for strong typings
 import { IUserLoginResponse } from '../../core/models/user-login.model'
 
@@ -12,16 +14,20 @@ import { IUserLoginResponse } from '../../core/models/user-login.model'
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
   constructor(
-    private authService: AuthService,
+    private authServiceLocal: AuthServiceLocal,
+    private authServiceSocail: AuthService,
     private router: Router
   ) { }
 
   loginForm: FormGroup
   private email: FormControl
   private password: FormControl
+
+  private user
+  private sub
 
   ngOnInit() {
     this.email = new FormControl('test@test.com',[
@@ -39,7 +45,7 @@ export class LoginComponent implements OnInit {
 
   login(formValues){
     console.log(formValues)
-    this.authService.login(formValues).subscribe(
+    this.authServiceLocal.login(formValues).subscribe(
       (response: IUserLoginResponse) => {
         this.refresh()
         this.router.navigate(['/home'])
@@ -48,6 +54,15 @@ export class LoginComponent implements OnInit {
       (error: Error) => {
         return error
       }
+    ) 
+  }
+
+  socailLogin(provider){
+    this.sub = this.authServiceSocail.login(provider).subscribe(
+      (data) => {
+        console.log('Socail response', data)
+        this.user = data
+      }
     )
   }
 
@@ -55,4 +70,29 @@ export class LoginComponent implements OnInit {
     window.location.reload();
   }
 
+  ngOnDestroy(){
+    //this.sub.unsubscribe();
+  }
+
+
+/*<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1977563699187803',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+    FB.AppEvents.logPageView();   
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+*/
 }

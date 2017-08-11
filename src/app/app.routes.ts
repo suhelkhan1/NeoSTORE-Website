@@ -1,4 +1,4 @@
-import { Routes, RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
 import { PageNotFoundComponent } from './shared/error-pages/page-not-found/page-not-found.component'
 import { AuthGuard } from './core/guards/auth/auth.guard'
 

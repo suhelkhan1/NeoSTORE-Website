@@ -17,21 +17,76 @@ export class ProductSortService {
 
   //Sort Products by average ratings
   getPopularProducts(): Observable<IProduct>{
-    return this.http.get(this.url + '?filter={"order": "product_avg_rating  DESC", "include":"images"}' ).map( (response:Response) => {
+    return this.http
+               .get(
+                 this.url + `?filter={                  
+                   "order": "product_avg_rating  DESC",
+                   "include":"images"
+                }`
+               )
+               .map( (response:Response) => {
+      return <IProduct>response.json()
+    }).catch(this.handleError)
+  }
+
+  getPopularProductsWithCategory(categoryId): Observable<IProduct>{
+    return this.http
+               .get(
+                 this.url + `?filter={
+                   "where": { "categoryId" : "`+ categoryId +`" }, 
+                   "order": "product_avg_rating  DESC",
+                   "include":"images"
+                }`
+               )
+               .map( (response:Response) => {
       return <IProduct>response.json()
     }).catch(this.handleError)
   }
 
   //Sort Products by price high to low
   getPriceHighToLowProducts(): Observable<IProduct>{
-    return this.http.get(this.url + '?filter={"order": "product_cost  DESC", "include":"images"}' ).map( (response:Response) => {
+    return this.http
+               .get(this.url + `?filter={
+                 "order": "product_cost  DESC", "include":"images"
+                }` 
+               )
+               .map( (response:Response) => {
+      return <IProduct>response.json()
+    }).catch(this.handleError)
+  }
+
+  getPriceHighToLowProductsWithCategory(categoryId): Observable<IProduct>{
+    return this.http
+               .get(this.url + `?filter={
+                 "where": { "categoryId" : "`+ categoryId +`" }, 
+                 "order": "product_cost  DESC", "include":"images"
+                }` 
+               )
+               .map( (response:Response) => {
       return <IProduct>response.json()
     }).catch(this.handleError)
   }
 
   //Sort Products by price low to high
   getPriceLowToHighProducts(): Observable<IProduct>{
-    return this.http.get(this.url + '?filter={"order": "product_cost  ASC", "include":"images"}' ).map( (response:Response) => {
+    return this.http
+               .get(this.url + `?filter={
+                 "order": "product_cost  ASC", "include":"images"
+                }` 
+               )
+               .map( (response:Response) => {
+      return <IProduct>response.json()
+    }).catch(this.handleError)
+  }
+
+  getPriceLowToHighProductsWithCategory(categoryId): Observable<IProduct>{
+    return this.http
+               .get(this.url + `?filter={
+                 "where": { "categoryId" : "`+ categoryId +`" }, 
+                 "order": "product_cost  ASC", "include":"images"
+                }` 
+               )
+               .map( (response:Response) => {
       return <IProduct>response.json()
     }).catch(this.handleError)
   }
@@ -42,3 +97,4 @@ export class ProductSortService {
 
 
 }
+

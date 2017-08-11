@@ -13,8 +13,8 @@ export class ProductService {
 
   url: string = 'http://10.0.100.213:3000/api/products'
 
-  getProducts(): Observable<IProduct>{
-    return this.http.get(this.url + '?filter={"include":"images"}').map( (response: Response) => {
+  getProducts(skip): Observable<IProduct>{
+    return this.http.get(this.url + '?filter={"include":"images" ,"limit":"6", "skip":"'+ skip +'"}').map( (response: Response) => {
       return <IProduct>response.json()
     } ).catch(this.handleError)
   }

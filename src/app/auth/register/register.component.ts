@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
 
 //Auth service for user login
-import { AuthService } from '../../core/services/auth/auth.service'
+import { AuthServiceLocal } from '../../core/services/auth/auth.service'
 //User model for strong typings
 import { IUser } from '../../core/models/user.model'
 //Equal validator for confirm password
@@ -17,7 +17,7 @@ import { IUser } from '../../core/models/user.model'
 export class RegisterComponent implements OnInit {
 
   constructor(
-    private authService: AuthService,
+    private authServiceLocal: AuthServiceLocal,
     private router: Router
   ) { }
 
@@ -76,7 +76,7 @@ export class RegisterComponent implements OnInit {
       shoppingcartId: '',
       is_active: true
     }
-    this.authService.register(userInfo).subscribe(
+    this.authServiceLocal.register(userInfo).subscribe(
       (response: IUser) => {
         this.router.navigate(['/auth/login'])
         return response

@@ -4,13 +4,13 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 import { Observable } from 'rxjs/Observable';
 
 
-import { AuthService } from '../../services/auth/auth.service'
+import { AuthServiceLocal } from '../../services/auth/auth.service'
 
 @Injectable()
 export class AuthGuard implements CanActivate {
 
   constructor(
-    private authService: AuthService,
+    private authServiceLocal: AuthServiceLocal,
     private router: Router
   ){}
 
@@ -18,7 +18,7 @@ export class AuthGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
       
-      this.isAuthenticated = this.authService.isAuthenticated()
+      this.isAuthenticated = this.authServiceLocal.isAuthenticated()
       if (this.isAuthenticated) {
           return true
       } 

@@ -8,10 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+    if(this.cartItems){
+      this.subTotalCalc()
+    }
+  }
 
   @Input() cartItems: any[]
-  @Input() productQty
+  @Input() productQty: number[]
 
 
   subTotal: number = 0
@@ -24,7 +28,8 @@ export class SidebarComponent implements OnInit {
   subTotalCalc(){
     console.log(this.cartItems)
     for(let item of this.cartItems){
-      this.subTotal =  this.subTotal + (item.product_cost * this.productQty)
+      let i = 0; i++
+      this.subTotal =  this.subTotal + (item.product_cost * this.productQty[i])
       console.log('SubTotal:', this.subTotal)
     }
   }

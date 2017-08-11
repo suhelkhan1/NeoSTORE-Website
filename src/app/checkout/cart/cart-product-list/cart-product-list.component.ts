@@ -10,20 +10,29 @@ import { CartService } from '../../../core/services/cart/cart.service'
 export class CartProductListComponent implements OnInit {
 
   cartItems
-  productQty: number = 1
+  public productQty: number[];
+
+  subTotal: number = 0
+  gandTotal: number = 0
 
   constructor(
     private cartService: CartService
   ) {
+    this.productQty = [1]
+    //this.productQty = this.productQty.map((el:any)=>0);
     //this.cartItems = this.cartService.getCartItems()
   }
 
   ngOnInit() {
     this.getCartItems()
+    this.subTotalCalc()
   }
 
   getCartItems(){
     this.cartItems = this.cartService.getCartItems()
+    for(let item of this.cartItems){
+      this.productQty.push(1)
+    }
   }
 
   deleteCartItem(index){
@@ -31,17 +40,27 @@ export class CartProductListComponent implements OnInit {
     this.getCartItems()
   }
 
-  upQuantity(){
-    this.productQty ++
+  upQuantity(index:number){
+    this.productQty[index] ++
+    this.subTotalCalc()
   }
 
-  downQuantity(){
-    if(this.productQty <= 1){
+  downQuantity(index:number){
+    if(this.productQty[index] <= 1){
       false
     } else {
-      this.productQty --
+      this.productQty[index] --;
+      this.subTotalCalc
     }
-    
+  }
+
+  subTotalCalc(){
+    let i = 0;
+    for(let item of this.cartItems){
+      this.subTotal =  this.subTotal + (item.product_cost * this.productQty[i])
+      console.log('SubTotal:', this.subTotal)
+      i++
+    }
   }
 
 }

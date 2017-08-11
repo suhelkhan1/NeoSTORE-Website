@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router'
 
 import { UserService } from '../../../core/services/user/user.service'
-import { AuthService } from '../../../core/services/auth/auth.service'
+import { AuthServiceLocal } from '../../../core/services/auth/auth.service'
 import { IUser } from '../../../core/models/user.model'
 
 @Component({
@@ -14,7 +14,7 @@ export class ProfileDropdownComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private authService: AuthService,
+    private authServiceLocal: AuthServiceLocal,
     private router: Router
   ) {}
 
@@ -39,7 +39,7 @@ export class ProfileDropdownComponent implements OnInit {
   }
 
   logout(){
-    this.authService.logout().subscribe(
+    this.authServiceLocal.logout().subscribe(
       (response) => {
         this.refresh()
         this.router.navigate(['/home'])

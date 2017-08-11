@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms'
 import { BsRootModule } from 'ngx-bootstrap'; //Ngx Bootstrap
 import { StarRatingModule } from 'angular-star-rating'; //Rating Star Module
 import { BreadcrumbModule } from 'angular2-crumbs'; //Angular2 Breadcrumbs
+import { InfiniteScrollModule } from 'angular2-infinite-scroll'; //Angular2 Infinite Scroll
 
 /*+-+-+-+-+-+-+-+-+-+-+-+- Components +-+-+-+-+-+-+-+-+-+-+-+-*/
 import { SharedComponent } from './shared.component';
@@ -23,11 +24,12 @@ import { SharedRoutes as routes } from './shared.routes';
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     BsRootModule,
-    RouterModule.forChild(routes),
     StarRatingModule.forRoot(),
     BreadcrumbModule,
-    FormsModule
+    InfiniteScrollModule,
+    RouterModule.forChild(routes)
   ],
   declarations: [
   PageNotFoundComponent,
@@ -37,10 +39,11 @@ import { SharedRoutes as routes } from './shared.routes';
   ],
   exports:[
     BsRootModule,
-    PageNotFoundComponent,
-    EqualValidatorDirective,
     StarRatingModule,
     BreadcrumbModule,
+    InfiniteScrollModule,
+    EqualValidatorDirective,
+    PageNotFoundComponent,
     ProductSearchComponent
   ]
 })

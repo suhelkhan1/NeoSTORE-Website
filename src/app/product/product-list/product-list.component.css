@@ -24,3 +24,31 @@ img {
   padding-left: 30px;
   padding-right: 30px;
 }
+
+.padding-pagination {
+  padding-bottom: 10px;
+}
+
+.elipse-product {
+  text-overflow: ellipsis;
+  max-width: 20ch;
+  white-space: nowrap; 
+}
+
+/*.danger .active a,
+.danger .active a:hover {
+    background-color: #d9534f !important;
+}
+*/
+
+/*.nav-pills > .active > a, .nav-pills > .active > a:hover {
+    background-color: #d9534f;
+}*/
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+  background-color: #d9534f !important;
+}
+
+a.nav-link, a.nav-link:focus, a.nav-link:hover {
+      color: #d9534f;
+}

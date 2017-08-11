@@ -29,11 +29,11 @@
         </td>
         <td class="col-sm-1 col-md-2 text-center">
           <i (click)="downQuantity()" class="fa fa-minus-circle"></i>
-          <input type="number" [(ngModel)]="productQty" class="text-center quantity">
-          <i (click)="upQuantity()" class="fa fa-plus-circle"></i>
+          <input type="number" [(ngModel)]="productQty[i]" class="text-center quantity">
+          <i (click)="upQuantity(i)" class="fa fa-plus-circle"></i>
         </td>
         <td class="col-sm-1 col-md-1 text-center"><strong>{{item.product_cost | currency:'INR':true:'1.0-0'}}</strong></td>
-        <td class="col-sm-1 col-md-1 text-center"><strong>{{item.product_cost*productQty | currency:'INR':true:'1.0-0'}}</strong></td>
+        <td class="col-sm-1 col-md-1 text-center"><strong>{{item.product_cost*productQty[i] | currency:'INR':true:'1.0-0'}}</strong></td>
         <td class="col-sm-1 col-md-1">
           <button (click)="deleteCartItem(i)" type="button" class="btn btn-sm btn-danger">
             <i class="fa fa-trash"></i>
@@ -46,5 +46,33 @@
 </div>
 
 
-<app-sidebar [cartItems]="cartItems" [productQty]="productQty" ></app-sidebar>
+<!--<app-sidebar [cartItems]="cartItems" [productQty]="productQty" ></app-sidebar>
+-->
 
+<div class="col-md-4 ">
+  <!--REVIEW ORDER-->
+  <div class="panel panel-default">
+    <div class="panel-heading text-center panel-heading-custom">
+      <h4>Review Order</h4>
+    </div>
+    <div class="panel-body" *ngIf="cartItems" >
+      <div class="col-md-12">
+        <strong>Subtotal (# items {{cartItems.length}})</strong>
+        <div class="pull-right"><span>{{subTotal | currency:'INR':true:'1.0-0'}}</span></div>
+        <hr>
+      </div>
+      <div class="col-md-12">
+        <strong>Tax</strong>
+        <div class="pull-right"><span>200.00</span></div>
+        <hr>
+      </div>
+      <div class="col-md-12">
+        <strong>Order Total</strong>
+        <div class="pull-right"><span>{{grandTotal}}</span></div>
+        <hr>
+      </div>
+      <button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button>
+    </div>
+  </div>
+  <!--REVIEW ORDER END-->
+</div>
