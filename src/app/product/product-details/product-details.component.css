@@ -144,6 +144,14 @@ hr {
 
 }
 
+.share-container {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+ }
+ 
+
+
 
 /*****************unused*************/
 

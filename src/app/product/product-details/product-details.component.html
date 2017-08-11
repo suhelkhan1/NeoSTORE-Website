@@ -33,18 +33,25 @@
 
           <hr>
 
-          <h4 class="action text-danger">Price: <span class="text-success">{{product.product_cost | currency:'INR':true:'1.0-0'}}</span></h4>          
-          <h4 class=" text-danger">Color:
+          <h4 >Price: <span class="text-success">{{product.product_cost | currency:'INR':true:'1.0-0'}}</span></h4>          
+          <h4 >Color:
             <span class="color" [ngStyle]="{'background': product.product_color.color_code}"></span>            
           </h4>
 
+          
+
           <div class="action">
-            <h4 class="text-danger">Share on
+            <h4>Share on
               <i class="fa fa-share-alt fa-lg"></i>              
             </h4>
-            <button class="btn btn-primary btn-sm"><i class="fa fa-facebook fa-lg"></i></button>
-            <button class="btn btn-info btn-sm"><i class="fa fa-twitter fa-lg"></i></button>
-            <button class="btn btn-danger btn-sm"><i class="fa fa-google-plus fa-lg"></i></button>
+            <div class="share-container">
+              <share-buttons [reddit]="false" 
+                             [tumblr]="false" 
+                             [stumbleUpOn]="false"
+                             [pinterest]="false" 
+                             [url]="'https://www.myntra.com/tops/rare/rare-women-mustard-embroidered-top/1790513/buy'">
+              </share-buttons>
+            </div>
           </div>
 
           <div class="action">
@@ -64,13 +71,15 @@
             </tab>
             <tab heading="Features">
               <h5 class="caption">Dimensions: {{product.product_dimension}} (Width*Hieght in inc)</h5>
+              <h5 class="caption">Material: {{product.product_material}}</h5>
+              <h5 class="caption">Manufacturer: {{product.product_producer}}</h5>
             </tab>
           </tabset>
         </div>
       </div>
-      
     </div>
   </div>
-
 </div>
+    
+<hr>
 

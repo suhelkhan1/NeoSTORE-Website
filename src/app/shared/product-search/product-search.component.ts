@@ -27,7 +27,6 @@ export class ProductSearchComponent implements OnInit {
         for(let res of response) {
          this.statesComplex.push(res.product_name) 
         }
-        console.log(this.statesComplex)
       },
       error => error
     )

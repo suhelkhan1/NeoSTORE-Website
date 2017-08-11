@@ -9,6 +9,7 @@ import { BsRootModule } from 'ngx-bootstrap'; //Ngx Bootstrap
 import { StarRatingModule } from 'angular-star-rating'; //Rating Star Module
 import { BreadcrumbModule } from 'angular2-crumbs'; //Angular2 Breadcrumbs
 import { InfiniteScrollModule } from 'angular2-infinite-scroll'; //Angular2 Infinite Scroll
+import { ShareButtonsModule } from 'ngx-sharebuttons';// Angular socail share buttons
 
 /*+-+-+-+-+-+-+-+-+-+-+-+- Components +-+-+-+-+-+-+-+-+-+-+-+-*/
 import { SharedComponent } from './shared.component';
@@ -27,6 +28,7 @@ import { SharedRoutes as routes } from './shared.routes';
     FormsModule,
     BsRootModule,
     StarRatingModule.forRoot(),
+    ShareButtonsModule.forRoot(),
     BreadcrumbModule,
     InfiniteScrollModule,
     RouterModule.forChild(routes)
@@ -42,6 +44,7 @@ import { SharedRoutes as routes } from './shared.routes';
     StarRatingModule,
     BreadcrumbModule,
     InfiniteScrollModule,
+    ShareButtonsModule,
     EqualValidatorDirective,
     PageNotFoundComponent,
     ProductSearchComponent

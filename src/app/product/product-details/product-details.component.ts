@@ -38,10 +38,8 @@ export class ProductDetailsComponent implements OnInit {
       (response: IProduct) => {
         this.product = response;
         this.productImgArray=response.images;
-        console.log(this.product);
         this.activeImage = this.productImgArray[0].ImgURL;
         this.rating=this.product.product_avg_rating;
-        console.log("-->"+this.rating);
         return response
       },
       (error: Error) => {
@@ -51,7 +49,6 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   changeActiveImage(productimg) {
-    console.log('productimg', productimg);
     this.activeImage = productimg.ImgURL;
   }
 
