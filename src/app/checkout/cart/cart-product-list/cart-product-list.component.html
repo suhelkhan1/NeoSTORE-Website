@@ -1,6 +1,6 @@
-<!---->
+<hr>
 <div class="col-md-8">
-  <table class="table table-hover">
+  <table class="table table-hover" *ngIf="cartItems.length > 1" >
     <thead>
       <tr>
         <th>Product</th>
@@ -41,7 +41,6 @@
       </tr>
 
     </tbody>
-
   </table>
 </div>
 
@@ -49,13 +48,13 @@
 <!--<app-sidebar [cartItems]="cartItems" [productQty]="productQty" ></app-sidebar>
 -->
 
-<div class="col-md-4 ">
+<div class="col-md-4 " *ngIf="cartItems.length > 1">
   <!--REVIEW ORDER-->
   <div class="panel panel-default">
     <div class="panel-heading text-center panel-heading-custom">
       <h4>Review Order</h4>
     </div>
-    <div class="panel-body" *ngIf="cartItems" >
+    <div class="panel-body"  >
       <div class="col-md-12">
         <strong>Subtotal (# items {{cartItems.length}})</strong>
         <div class="pull-right"><span>{{subTotal | currency:'INR':true:'1.0-0'}}</span></div>
@@ -71,8 +70,15 @@
         <div class="pull-right"><span>{{grandTotal | currency:'INR':true:'1.0-0'}}</span></div>
         <hr>
       </div>
-      <button type="button" [routerLink]="['/checkout/address']" class="btn btn-primary btn-lg btn-block">Checkout</button>
+      <button type="button" [disabled]="cartItems.length < 1" [routerLink]="['/checkout/address']" class="btn btn-primary btn-lg btn-block">Checkout</button>
     </div>
   </div>
   <!--REVIEW ORDER END-->
 </div>
+
+<div class="col-md-12" *ngIf="cartItems.length < 1">
+  <div class="text-center muted-text">
+    <span>Cart is empty</span>
+  </div>
+</div>
+

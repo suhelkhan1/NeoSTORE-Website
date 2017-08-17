@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router'
 
+import { BsModalService } from 'ngx-bootstrap/modal'
+
 @Component({
   selector: 'app-checkout-header',
   templateUrl: './checkout-header.component.html',

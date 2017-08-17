@@ -1,40 +1,43 @@
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
+  <div class="container">
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" [routerLink]="['/']" >
+        <i class="fa fa-shopping-bag fa-lg" aria-hidden="true"> <strong >NeoSTORE</strong> </i>
+      </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse">
-      <ol class="nav navbar-nav ">
+      <ul class="nav navbar-nav ">
         <li [ngClass]="{ 'active': isActiveRoute('cart')}" >
             <a [ngClass]="{'can-click': checkIfClickable('cart') }" 
                [routerLink]="getRouterLink('cart')">Bag</a>
         </li>
+        <li class="line"></li>
         <li [ngClass]="{ 'active': isActiveRoute('address')}">
             <a [ngClass]="{'can-click': checkIfClickable('address')}" 
                [routerLink]="getRouterLink('address')">Delivery</a>            
         </li>
+        <li class="line"></li>
         <li [ngClass]="{ 'active': isActiveRoute('payment')}">
             <a [ngClass]="{'can-click': checkIfClickable('payment')}" 
                [routerLink]="getRouterLink('payment')">Payment</a>            
         </li>
+      </ul>
+
+      <ol class="nav navbar-nav navbar-right">
+        <li>
+          <a disabled ><i class="fa fa-lock fa-lg" aria-hidden="true"></i> 100% SECURE</a>
+        </li>        
       </ol>
     </div>
   </div>
 </nav>
-
-<!--
-<div class="checkout-header">
-  <div class="full-container">
-    <a class="navbar-brand" routerLink="/"><img src="assets/logo.png" alt="Angular Spree"></a>
-    <ol class="checkout-steps">
-      <li class="step step1">
-        <a [ngClass]="{'can-click': checkIfClickable('cart'), 'active': isActiveRoute('cart')}" [routerLink]="getRouterLink('cart')">Bag</a>
-      </li>
-      <li class="divider"></li>
-      <li class="step step2">
-        <a [ngClass]="{'can-click': checkIfClickable('address'), 'active': isActiveRoute('address')}" [routerLink]="getRouterLink('address')">Delivery</a>
-      </li>
-      <li class="divider"></li>
-      <li class="step step3">
-        <a [ngClass]="{'can-click': checkIfClickable('payment'), 'active': isActiveRoute('payment')}" [routerLink]="getRouterLink('payment')">Payment</a>
-      </li>
-    </ol>
-  </div>
-</div>-->

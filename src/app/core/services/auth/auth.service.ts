@@ -89,16 +89,25 @@ export class AuthServiceLocal {
     return this.loggedIn
   }
 
-  isAuthenticated(){
+  isAuthenticated(): Promise<boolean>{
     let current_user_accesToken = JSON.parse(localStorage.getItem('currentAppUser'))
     let curent_user_userId = JSON.parse(localStorage.getItem('currentAppUserId'))
-    if(current_user_accesToken && curent_user_userId){
-        return this.http.get( this.url + '/' + curent_user_userId + '?access_token=' + current_user_accesToken).map((response: Response) => {
-          return true
-      }).catch(this.handleError)
+    if(current_user_accesToken == null){ 
+      return Promise.resolve(false)
     } else {
-      return false
+      return this.http
+             .get(this.url + curent_user_userId + '?access_token=' + current_user_accesToken)
+             .toPromise()
+             .then( (response)=>{
+               return response.ok
+             })
+             .catch(this.handleErrorPromise)
     }
+  }
+
+  private handleErrorPromise(error: any): Promise<any> {
+      console.error('An error occurred', error);
+      return Promise.reject(false);
   }
 
   handleError(error: Response) {    
