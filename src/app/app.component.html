@@ -1,7 +1,10 @@
-<app-header></app-header>
+<app-header *ngIf="currentUrl && !isCheckoutRoute()"></app-header>
+<app-checkout-header [currentStep]="currentStep" *ngIf="currentUrl && isCheckoutRoute()"></app-checkout-header>
 
 <div class="container">
     <router-outlet></router-outlet>
 </div>
-<app-footer></app-footer>
+
+<app-checkout-footer *ngIf="currentUrl && isCheckoutRoute()"></app-checkout-footer>
+<app-footer *ngIf="currentUrl && !isCheckoutRoute()"></app-footer>
 

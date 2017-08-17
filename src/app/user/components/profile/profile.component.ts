@@ -24,6 +24,7 @@ export class ProfileComponent implements OnInit {
     this.userService.getUserDetails().subscribe(
       (response: IUser) => {
         this.user = response
+        this.user.birth_date = new Date(response.birth_date).toDateString()
         return response
       },
       (error: Error) => {

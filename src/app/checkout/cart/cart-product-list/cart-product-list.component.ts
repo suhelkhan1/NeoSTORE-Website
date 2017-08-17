@@ -13,7 +13,9 @@ export class CartProductListComponent implements OnInit {
   public productQty: number[];
 
   subTotal: number = 0
-  gandTotal: number = 0
+  grandTotal: number = 0
+  gstRate: number = 5
+  taxTotal: number = 0
 
   constructor(
     private cartService: CartService
@@ -26,6 +28,7 @@ export class CartProductListComponent implements OnInit {
   ngOnInit() {
     this.getCartItems()
     this.subTotalCalc()
+    this.calulateTax()
   }
 
   getCartItems(){
@@ -38,11 +41,14 @@ export class CartProductListComponent implements OnInit {
   deleteCartItem(index){
     this.cartService.deleteCartItem(index)
     this.getCartItems()
+    this.subTotalCalc()
+    this.calulateTax()
   }
 
   upQuantity(index:number){
     this.productQty[index] ++
     this.subTotalCalc()
+    this.calulateTax()
   }
 
   downQuantity(index:number){
@@ -50,17 +56,34 @@ export class CartProductListComponent implements OnInit {
       false
     } else {
       this.productQty[index] --;
-      this.subTotalCalc
+      this.subTotalCalc()
+      this.calulateTax()
     }
   }
 
   subTotalCalc(){
     let i = 0;
+    this.subTotal = 0
     for(let item of this.cartItems){
       this.subTotal =  this.subTotal + (item.product_cost * this.productQty[i])
-      console.log('SubTotal:', this.subTotal)
       i++
     }
+    this.calculateGrandTotal()
+  }
+
+  calulateTax(){
+    let i = 0;
+    this.taxTotal = 0
+    for(let item of this.cartItems){
+      let itemCost = item.product_cost * this.productQty[i]
+      this.taxTotal =  this.taxTotal + itemCost - ( itemCost - (itemCost * this.gstRate)/100 )
+      i++
+    }
+    this.calculateGrandTotal()
+  }
+
+  calculateGrandTotal(){
+    this.grandTotal = this.subTotal + this.taxTotal
   }
 
 }

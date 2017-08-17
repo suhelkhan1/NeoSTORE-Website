@@ -4,6 +4,8 @@ import { AddressesComponent } from './components/address/addresses/addresses.com
 import { OrdersComponent } from './components/orders/orders.component'
 import { AddAddressComponent } from './components/address/add-address/add-address.component'
 import { EditAddressComponent } from './components/address/edit-address/edit-address.component'
+import { EditProfileComponent } from './components/profile/edit-profile/edit-profile.component'
+
 
 export const UserRoutes = [
   {
@@ -15,7 +17,8 @@ export const UserRoutes = [
       { path: 'orders', component: OrdersComponent },
       { path: 'addresses', component: AddressesComponent },
       { path: 'add/address', component: AddAddressComponent},
-      { path: 'edit/address/:id', component: EditAddressComponent}
+      { path: 'edit/address/:id', component: EditAddressComponent},
+      { path: 'edit/profile', component: EditProfileComponent}
     ]
   },
 ]; 

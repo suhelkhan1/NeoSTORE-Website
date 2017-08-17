@@ -30,6 +30,22 @@ export class AuthServiceLocal {
     }).catch(this.handleError)
   }
 
+  socailLogin(socailResponse): Observable<IUserLoginResponse>{
+    let headers = new Headers({ 'Content-Type': 'application/json'});
+    let options = new RequestOptions({headers: headers});
+    return this.http.post(this.url + 'loginSocial', JSON.stringify(socailResponse), options).map((response: Response) => {
+      let user = <IUserLoginResponse>response.json();
+      console.log('User Service', user)
+      if (user && user.id) {
+          // store user details and jwt token in local storage to keep user logged in between page refreshes
+          localStorage.setItem('currentAppUser', JSON.stringify(user.id));
+          localStorage.setItem('currentAppUserId', JSON.stringify(user.userId));
+          this.loggedIn = true
+          return response.json();
+      }
+    }).catch(this.handleError)
+  }
+
   register(userInfo){   
     let headers = new Headers({ 'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});

@@ -59,9 +59,19 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   socailLogin(provider){
     this.sub = this.authServiceSocail.login(provider).subscribe(
-      (data) => {
-        console.log('Socail response', data)
-        this.user = data
+      (response) => {
+        console.log('Socail response', response)
+        //this.user = response
+        this.authServiceLocal.socailLogin(response).subscribe(
+          (response: IUserLoginResponse) => {
+            this.refresh()
+            this.router.navigate(['/home'])
+            return response
+          },
+          (error: Error) => {
+            return error
+          }
+        ) 
       }
     )
   }

@@ -10,7 +10,8 @@ import { AddressesComponent } from './components/address/addresses/addresses.com
 import { OrdersComponent } from './components/orders/orders.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AddAddressComponent } from './components/address/add-address/add-address.component';
-import { EditAddressComponent } from './components/address/edit-address/edit-address.component'
+import { EditAddressComponent } from './components/address/edit-address/edit-address.component';
+import { EditProfileComponent } from './components/profile/edit-profile/edit-profile.component'
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { EditAddressComponent } from './components/address/edit-address/edit-add
     OrdersComponent,
     ProfileComponent,
     AddAddressComponent,
-    EditAddressComponent
+    EditAddressComponent,
+    EditProfileComponent
   ]
 })
 export class UserModule { }

@@ -28,8 +28,8 @@
           </div>
         </td>
         <td class="col-sm-1 col-md-2 text-center">
-          <i (click)="downQuantity()" class="fa fa-minus-circle"></i>
-          <input type="number" [(ngModel)]="productQty[i]" class="text-center quantity">
+          <i (click)="downQuantity(i)" class="fa fa-minus-circle"></i>
+          <input type="number" disabled [(ngModel)]="productQty[i]" class="text-center quantity">
           <i (click)="upQuantity(i)" class="fa fa-plus-circle"></i>
         </td>
         <td class="col-sm-1 col-md-1 text-center"><strong>{{item.product_cost | currency:'INR':true:'1.0-0'}}</strong></td>
@@ -62,16 +62,16 @@
         <hr>
       </div>
       <div class="col-md-12">
-        <strong>Tax</strong>
-        <div class="pull-right"><span>200.00</span></div>
+        <strong>GST({{gstRate}}%)</strong>
+        <div class="pull-right"><span>{{taxTotal | currency:'INR':true:'1.0-0'}}</span></div>
         <hr>
       </div>
       <div class="col-md-12">
         <strong>Order Total</strong>
-        <div class="pull-right"><span>{{grandTotal}}</span></div>
+        <div class="pull-right"><span>{{grandTotal | currency:'INR':true:'1.0-0'}}</span></div>
         <hr>
       </div>
-      <button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button>
+      <button type="button" [routerLink]="['/checkout/address']" class="btn btn-primary btn-lg btn-block">Checkout</button>
     </div>
   </div>
   <!--REVIEW ORDER END-->

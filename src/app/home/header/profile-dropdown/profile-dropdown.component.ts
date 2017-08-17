@@ -26,7 +26,7 @@ export class ProfileDropdownComponent implements OnInit {
   }
 
   //Check user login or not. If logged in then provide the user details
-  getUserDetails(){
+/*  getUserDetails(){
     this.userService.getUserDetails().subscribe(
       (response: IUser) => {
         this.user = response
@@ -36,7 +36,7 @@ export class ProfileDropdownComponent implements OnInit {
         return error
       }
     )
-  }
+  }*/
 
   logout(){
     this.authServiceLocal.logout().subscribe(

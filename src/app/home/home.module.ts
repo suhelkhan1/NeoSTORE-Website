@@ -10,6 +10,8 @@ import { HomeComponent } from './home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProfileDropdownComponent } from './header/profile-dropdown/profile-dropdown.component';
+import { CheckoutFooterComponent } from './checkout-footer/checkout-footer.component';
+import { CheckoutHeaderComponent } from './checkout-header/checkout-header.component';
 
 @NgModule({
   imports: [
@@ -21,11 +23,15 @@ import { ProfileDropdownComponent } from './header/profile-dropdown/profile-drop
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    ProfileDropdownComponent
+    ProfileDropdownComponent,
+    CheckoutFooterComponent,
+    CheckoutHeaderComponent
   ],
   exports:[
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    CheckoutFooterComponent,
+    CheckoutHeaderComponent
   ]
 })
 export class HomeModule { }
