@@ -1,0 +1,32 @@
+<!-- <p>
+  rate-modal works!
+</p> -->
+
+<button type="button" class="btn btn-primary" (click)="openModal(template)">Rate Product</button>
+<!--MODAL-->
+<template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Rate Product</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+       <div class="rating width-box">
+          <star-rating-comp [starType]="'svg'"
+                            [rating]="rating"
+                            [size]="'medium'"
+                            [staticColor]="'negative'"
+                            [showHalfStars]="true"
+                            [labelVisible]="false"
+                            [disabled]="false"
+                            (onClick)="onClick($event)">
+          </star-rating-comp>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="closeFirstModal()">Rate</button>
+      </div>
+  </template>
+<!--MODAL-->
+

@@ -5,7 +5,7 @@
       <div class="col-md-6">
         <div class="preview">
           <div class="preview-pic tab-content">
-            <div class="my-img active"><img class="actual-img" src="{{activeImage}}" [imageZoom]="zoomedImageSrc" lensStyle="LENS" /></div>            
+            <div class="my-img active"><img class="actual-img" src="{{activeImage}}" [imageZoom]="zoomedImageSrc" lensStyle="LENS" /></div>
           </div>
           <ul class="preview-thumbnail nav nav-tabs">
             <li *ngFor="let productimg of productImgArray" [id]="productimg.ImgURL" (click)="changeActiveImage(productimg)">
@@ -21,34 +21,34 @@
           <h3 class="text-danger">{{product.product_name}}</h3>
 
           <div class="rating width-box">
-            <star-rating-comp [starType]="'svg'" 
-                              [rating]="rating" 
-                              [size]="'medium'" 
-                              [staticColor]="'negative'" 
+            <star-rating-comp [starType]="'svg'"
+                              [rating]="rating"
+                              [size]="'medium'"
+                              [staticColor]="'negative'"
                               [showHalfStars]="true"
-                              [labelVisible]="false" 
+                              [labelVisible]="false"
                               [disabled]="true">
             </star-rating-comp>
           </div>
 
           <hr>
 
-          <h4 >Price: <span class="text-success">{{product.product_cost | currency:'INR':true:'1.0-0'}}</span></h4>          
+          <h4 >Price: <span class="text-success">{{product.product_cost | currency:'INR':true:'1.0-0'}}</span></h4>
           <h4 >Color:
-            <span class="color" [ngStyle]="{'background': product.product_color.color_code}"></span>            
+            <span class="color" [ngStyle]="{'background': product.product_color.color_code}"></span>
           </h4>
 
-          
+
 
           <div class="action">
             <h4>Share on
-              <i class="fa fa-share-alt fa-lg"></i>              
+              <i class="fa fa-share-alt fa-lg"></i>
             </h4>
             <div class="share-container">
-              <share-buttons [reddit]="false" 
-                             [tumblr]="false" 
+              <share-buttons [reddit]="false"
+                             [tumblr]="false"
                              [stumbleUpOn]="false"
-                             [pinterest]="false" 
+                             [pinterest]="false"
                              [url]="'https://www.myntra.com/tops/rare/rare-women-mustard-embroidered-top/1790513/buy'">
               </share-buttons>
             </div>
@@ -56,7 +56,8 @@
 
           <div class="action">
             <button class=" btn btn-primary bt-color" type="button">ADD TO CART</button>
-            <button class="btn btn-warning" type="button">RATE PRODUCT</button>
+            <!-- <button class="btn btn-warning" type="button" (click)="openModal(template)">RATE PRODUCT</button> -->
+                <app-rate-modal [product]="product" ></app-rate-modal>
           </div>
         </div>
       </div>
@@ -80,6 +81,10 @@
     </div>
   </div>
 </div>
-    
+
+<!-- <app-rate-modal [isAuthenticated]="isAuthenticated"></app-rate-modal> -->
+
 <hr>
+
+
 

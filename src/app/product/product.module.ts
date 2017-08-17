@@ -14,9 +14,11 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProductComponent } from './product.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { SidebarComponent } from './product-list/sidebar/sidebar.component';
+import { RateModalComponent } from './product-details/rate-modal/rate-modal.component';
 
 /*+-+-+-+-+-+-+-+-+-+-+-+- Product Routes +-+-+-+-+-+-+-+-+-+-+-+-*/
 import { ProductRoutes as routes} from './product.routes';
+
 
 @NgModule({
   imports: [
@@ -29,7 +31,8 @@ import { ProductRoutes as routes} from './product.routes';
     ProductDetailsComponent, 
     ProductComponent, 
     ProductListComponent, 
-    SidebarComponent
+    SidebarComponent, 
+    RateModalComponent
   ],
   providers:[
   ]

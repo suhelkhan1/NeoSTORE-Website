@@ -12,6 +12,7 @@ import { ProductSortService } from './services/product-sort/product-sort.service
 import { ColorService } from './services/color/color.service'
 import { ProductSearchService } from './services/product-search/product-search.service'
 import { ProductService } from './services/product/product.service'
+import { RatingService } from './services/rating/rating.service'
 
 /*+-+-+-+-+-+-+-+-+-+-+-+- GUARDS +-+-+-+-+-+-+-+-+-+-+-+-*/
 import { AuthGuard } from './guards/auth/auth.guard'
@@ -34,7 +35,8 @@ import { AuthGuard } from './guards/auth/auth.guard'
     ProductSortService,
     ColorService,
     ProductSearchService,
-    ProductService
+    ProductService,
+    RatingService
   ],
   exports: [
   
