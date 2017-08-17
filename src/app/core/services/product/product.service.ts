@@ -20,7 +20,7 @@ export class ProductService {
   }
 
   getPopularProducts(): Observable<IProduct>{
-    return this.http.get(this.url + '?filter={"include":"images" ,"limit":"6", "skip":"0"}').map( (response: Response) => {
+    return this.http.get(this.url + '?filter={"order": "product_avg_rating  DESC","include":"images" ,"limit":"6", "skip":"0"}').map( (response: Response) => {
       return <IProduct>response.json()
     } ).catch(this.handleError)
   }
