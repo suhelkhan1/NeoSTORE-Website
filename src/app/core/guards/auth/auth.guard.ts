@@ -14,19 +14,30 @@ export class AuthGuard implements CanActivate {
     private router: Router
   ){}
 
-  isAuthenticated
+  //isAuthenticated: boolean = false
 
+  /*canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    let isAuthenticated: boolean = false
+    this.authServiceLocal.isAuthenticated().then(response => isAuthenticated = response)
+
+    if(isAuthenticated){
+      return true
+    }
+
+    // not logged in so redirect to login page with the return url
+    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
+    return false
+  }*/
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-      
-      this.isAuthenticated = this.authServiceLocal.isAuthenticated()
-      if (this.isAuthenticated) {
-          return true
-      } 
+    let isAuthenticated
 
-      // not logged in so redirect to login page with the return url
+    isAuthenticated = this.authServiceLocal.isAuthenticated()
+    if(isAuthenticated){
+      return true
+    } else {
       this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
       return false
-  
+    }
   }
   /*canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean{
     return this.canActivate(route, state);
