@@ -11,16 +11,29 @@ export class CartService {
   constructor(
     private http: Http
   ) {
-    //localStorage.setItem('cartItems', JSON.stringify(this.cartItems))
+    localStorage.setItem('cartItems', JSON.stringify(this.cartItems))
   }
   cartItems=[]
   url: string = 'http://0.0.0.0:3000/api/shoppingcart'
 
 
   addToCart(product): any{
-    this.cartItems.push(product);
-    localStorage.setItem('cartItems', JSON.stringify(this.cartItems))
-    console.log('Product inserted:', product.product_name)
+    var present=false;
+    var checkCart=JSON.parse(localStorage.getItem('cartItems'))
+    
+    for(var i=0;i<checkCart.length;i++){
+      if(checkCart[i].id==product.id){
+        present=true;
+        break
+        }
+    }
+    if(!present){
+      console.log('Product inserted:', product.product_name)
+      this.cartItems.push(product);
+      localStorage.setItem('cartItems', JSON.stringify(this.cartItems))
+    }
+    
+    //console.log('Product inserted:', product.product_name)
     return this.cartItems
   }
 
