@@ -6,7 +6,7 @@ import { CartService } from '../../core/services/cart/cart.service'
 import { IProduct } from '../../core/models/product.model'
 import { AuthServiceLocal } from '../../core/services/auth/auth.service'
 
-
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 
 @Component({
@@ -22,7 +22,8 @@ export class ProductDetailsComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private productService: ProductService,
     private cartService:CartService,
-    private authServiceLocal: AuthServiceLocal
+    private authServiceLocal: AuthServiceLocal,
+    private toastr: ToastsManager
   ) { 
     this.isAuthenticated = this.authServiceLocal.isAuthenticated()
 
@@ -65,5 +66,6 @@ export class ProductDetailsComponent implements OnInit {
 
   addToCart(product){
     this.cartService.addToCart(product)
+    this.toastr.success('Added to cart')
   }
 }

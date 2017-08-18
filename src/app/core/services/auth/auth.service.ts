@@ -9,7 +9,7 @@ export class AuthServiceLocal {
 
   constructor(
     private http: Http
-  ) { }
+  ) {}
 
   url = 'http://10.0.100.213:3000/api/user_accounts/';
   loggedIn: boolean = false
@@ -89,10 +89,11 @@ export class AuthServiceLocal {
     return this.loggedIn
   }
 
-  isAuthenticated(): Promise<boolean>{
+  /*isAuthenticated(): Promise<any>{
     let current_user_accesToken = JSON.parse(localStorage.getItem('currentAppUser'))
     let curent_user_userId = JSON.parse(localStorage.getItem('currentAppUserId'))
-    if(current_user_accesToken == null){ 
+    if(current_user_accesToken == null){
+      this.loggedIn = false 
       return Promise.resolve(false)
     } else {
       return this.http
@@ -103,7 +104,18 @@ export class AuthServiceLocal {
              })
              .catch(this.handleErrorPromise)
     }
+  }*/
+
+  isAuthenticated(): Observable<boolean>{
+    let current_user_accesToken = JSON.parse(localStorage.getItem('currentAppUser'))
+    let curent_user_userId = JSON.parse(localStorage.getItem('currentAppUserId'))
+    return this.http
+             .get(this.url + curent_user_userId + '?access_token=' + current_user_accesToken)
+             .map( (response: Response) => {
+               return response.ok
+             })
   }
+
 
   private handleErrorPromise(error: any): Promise<any> {
       console.error('An error occurred', error);

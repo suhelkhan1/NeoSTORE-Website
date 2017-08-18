@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router'
 
 @Component({
@@ -14,17 +14,13 @@ export class AppComponent implements OnInit {
   checkoutUrls = ['/checkout/cart', '/checkout/address', '/checkout/payment']
   
   constructor(
-    private router: Router
+    private router: Router,
   ){
-   router
-      .events
-      .filter(e => e instanceof NavigationEnd)
-      .subscribe((e: NavigationEnd) => {
-        this.currentUrl = e.url;
-        console.log('current url', this.currentUrl)
-        this.findCurrentStep(this.currentUrl);      
-        //window.scrollTo(0, 0);
-      });
+    router.events.filter(e => e instanceof NavigationEnd).subscribe((e: NavigationEnd) => {
+      this.currentUrl = e.url;
+      this.findCurrentStep(this.currentUrl);      
+      //window.scrollTo(0, 0);
+    });
   }
 
   ngOnInit(){
@@ -47,7 +43,6 @@ export class AppComponent implements OnInit {
     const currRouteFragments = currentRoute.split('/');
     const length = currRouteFragments.length;
     this.currentStep = currentRoute.split('/')[length - 1];
-    console.log('Current step', this.currentStep)
   }
 
 }

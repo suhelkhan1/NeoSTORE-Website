@@ -19,21 +19,14 @@ export class HeaderComponent implements OnInit {
     private cartService: CartService,
     private authServiceLocal: AuthServiceLocal
   ) {
-
     this.cartItems = this.cartService.getCartItems()
-    this.authServiceLocal.isAuthenticated().then( response => this.isAuthenticated = response)
   }
 
   ngOnInit() {
     this.getCartItems()
-    this.authServiceLocal.isAuthenticated()
-      .then( (response) => {
-        this.isAuthenticated = response
-        console.log('User Auth', this.isAuthenticated)
-        return response
-      })
-      .catch(error => console.log(error));
-
+    this.authServiceLocal.isAuthenticated().subscribe(
+      response => this.isAuthenticated = response
+    )
   }
 
   getCartItems(){

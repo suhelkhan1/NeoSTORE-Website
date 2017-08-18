@@ -10,11 +10,15 @@ import { StarRatingModule } from 'angular-star-rating'; //Rating Star Module
 import { BreadcrumbModule } from 'angular2-crumbs'; //Angular2 Breadcrumbs
 import { InfiniteScrollModule } from 'angular2-infinite-scroll'; //Angular2 Infinite Scroll
 import { ShareButtonsModule } from 'ngx-sharebuttons';// Angular socail share buttons
+import { ToastModule, ToastOptions } from 'ng2-toastr' // Angular Toaster
 
 /*+-+-+-+-+-+-+-+-+-+-+-+- Components +-+-+-+-+-+-+-+-+-+-+-+-*/
 import { SharedComponent } from './shared.component';
 import { PageNotFoundComponent } from './error-pages/page-not-found/page-not-found.component';
 import { ProductSearchComponent } from './product-search/product-search.component'
+
+/*+-+-+-+-+-+-+-+-+-+-+-+- Services +-+-+-+-+-+-+-+-+-+-+-+-*/
+import { ToastrService } from './services/toastr/toastr.service';
 
 /*+-+-+-+-+-+-+-+-+-+-+-+- Directives +-+-+-+-+-+-+-+-+-+-+-+-*/
 import { EqualValidatorDirective } from './directives/equal-validator.directive';//Equal validators directive
@@ -31,13 +35,17 @@ import { SharedRoutes as routes } from './shared.routes';
     ShareButtonsModule.forRoot(),
     BreadcrumbModule,
     InfiniteScrollModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ToastModule.forRoot()
   ],
   declarations: [
-  PageNotFoundComponent,
-  SharedComponent,
-  EqualValidatorDirective,
-  ProductSearchComponent
+    PageNotFoundComponent,
+    SharedComponent,
+    EqualValidatorDirective,
+    ProductSearchComponent
+  ],
+  providers:[
+    { provide: ToastOptions, useClass: ToastrService },
   ],
   exports:[
     BsRootModule,
@@ -47,7 +55,8 @@ import { SharedRoutes as routes } from './shared.routes';
     ShareButtonsModule,
     EqualValidatorDirective,
     PageNotFoundComponent,
-    ProductSearchComponent
+    ProductSearchComponent,
+    ToastModule
   ]
 })
 export class SharedModule { }

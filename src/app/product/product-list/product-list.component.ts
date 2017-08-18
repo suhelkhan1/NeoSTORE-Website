@@ -7,7 +7,9 @@ import { ProductSortService } from '../../core/services/product-sort/product-sor
 import { CartService } from '../../core/services/cart/cart.service'
 import { IProduct } from '../../core/models/product.model'
 
+
 import { TabsetComponent } from 'ngx-bootstrap';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
   selector: 'app-product-list',
@@ -34,7 +36,8 @@ export class ProductListComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private productSortService: ProductSortService,
-    private cartService: CartService
+    private cartService: CartService,
+    private toastr: ToastsManager
   ) {
     this.productArray
   }
@@ -188,6 +191,7 @@ export class ProductListComponent implements OnInit {
 
   addToCart(product){
    this.cartService.addToCart(product)
+   this.toastr.custom('Added to cart')
     //this.cartService.addToCartApi(product)
   }
 }

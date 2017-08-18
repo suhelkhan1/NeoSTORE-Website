@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+
+
 /*+-+-+-+-+-+-+-+-+-+-+-+- SERVICES +-+-+-+-+-+-+-+-+-+-+-+-*/
 import { CartService } from './services/cart/cart.service'; //Cart Service
 import { AuthServiceLocal } from './services/auth/auth.service';

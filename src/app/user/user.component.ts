@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
+import { AuthServiceLocal } from '../core/services/auth/auth.service'
 
 @Component({
   selector: 'app-user',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private authServiceLocal: AuthServiceLocal,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.authServiceLocal.isAuthenticated().subscribe(
+      (response) => {
+        return response
+      },
+      (error) => {
+        this.router.navigate(['/login'])
+      }
+    )
   }
 
 }

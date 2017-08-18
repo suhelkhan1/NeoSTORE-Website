@@ -22,21 +22,7 @@ export class ProfileDropdownComponent implements OnInit {
   @Input() isAuthenticated
 
   ngOnInit() {
-    /*this.getUserDetails()*/
   }
-
-  //Check user login or not. If logged in then provide the user details
-/*  getUserDetails(){
-    this.userService.getUserDetails().subscribe(
-      (response: IUser) => {
-        this.user = response
-        return response
-      },
-      (error: Error) => {
-        return error
-      }
-    )
-  }*/
 
   logout(){
     this.authServiceLocal.logout().subscribe(

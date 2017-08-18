@@ -11,9 +11,9 @@ export class ToastrService {
 import { ToastOptions, ToastsManager } from 'ng2-toastr';
 
 export class ToastrService extends ToastOptions {
-  animate = 'flyLeft'; // you can override any options available
+  animate = 'fade'; // you can override any options available
   newestOnTop = false;
-  showCloseButton = true;
+  showCloseButton = false;
   dismiss = 'auto'
   toastLife = 2000
 }
