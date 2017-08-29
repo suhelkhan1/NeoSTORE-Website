@@ -1,7 +1,6 @@
 /*+-+-+-+-+-+-+-+-+-+-+-+- Angular Modules +-+-+-+-+-+-+-+-+-+-+-+-*/
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router'
 import { HttpModule } from '@angular/http'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -18,7 +17,13 @@ import { InformationModule }from './information/information.module'
 import { AppComponent } from './app.component';
 
 /*+-+-+-+-+-+-+-+-+-+-+-+- App routes +-+-+-+-+-+-+-+-+-+-+-+-*/
-import { routes } from './app.routes';
+import { AppRoutingModule } from './app.routes';
+
+/**
+ * The app module
+ * 
+ * The bootstrapper module for entire application {@link AppModule}
+ */
 
 @NgModule({
   declarations: [
@@ -26,8 +31,8 @@ import { routes } from './app.routes';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes),
     HttpModule,
+    AppRoutingModule,
     SharedModule,
     HomeModule,
     AuthModule,

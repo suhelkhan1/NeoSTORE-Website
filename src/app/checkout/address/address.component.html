@@ -12,7 +12,7 @@
         <p>{{address.country}}</p>                
       </div>
       <div class="panel-footer">
-        <input type="radio" name="address" > Select
+        <input (click)="selectAddress(address)" type="radio" name="address" > Select
         <a [routerLink]="['/user/edit/address', address.id]" type="button" class=" btn-default">
           <i class="fa fa-pencil"></i>
           Edit
@@ -22,7 +22,7 @@
   </div>
   <div class="panel-footer">
     <hr>
-    <button [routerLink]="['/user/add/address']" type="button" class="btn btn-default btn-lg">
+    <button [disabled]="!this.selectedAddress.length" (click)="goToPayment()" type="button" class="btn btn-default btn-lg">
       Next <i class="fa fa-angle-double-right"></i>
     </button>
   </div>

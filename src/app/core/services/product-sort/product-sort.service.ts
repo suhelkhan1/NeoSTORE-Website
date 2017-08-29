@@ -3,6 +3,7 @@ import { Observable } from 'rxjs'
 import { Http, Response } from '@angular/http'
 
 import { IProduct } from '../../models/product.model'
+import { productUrl } from '../../apiUrls';
 
 @Injectable()
 export class ProductSortService {
@@ -11,7 +12,6 @@ export class ProductSortService {
     private http: Http
   ) { }
 
-  url = 'http://10.0.100.213:3000/api/products'
   
 
 
@@ -19,7 +19,7 @@ export class ProductSortService {
   getPopularProducts(): Observable<IProduct>{
     return this.http
                .get(
-                 this.url + `?filter={                  
+                 productUrl + `?filter={                  
                    "order": "product_avg_rating  DESC",
                    "include":"images"
                 }`
@@ -32,7 +32,7 @@ export class ProductSortService {
   getPopularProductsWithCategory(categoryId): Observable<IProduct>{
     return this.http
                .get(
-                 this.url + `?filter={
+                 productUrl + `?filter={
                    "where": { "categoryId" : "`+ categoryId +`" }, 
                    "order": "product_avg_rating  DESC",
                    "include":"images"
@@ -46,7 +46,7 @@ export class ProductSortService {
   //Sort Products by price high to low
   getPriceHighToLowProducts(): Observable<IProduct>{
     return this.http
-               .get(this.url + `?filter={
+               .get(productUrl + `?filter={
                  "order": "product_cost  DESC", "include":"images"
                 }` 
                )
@@ -57,7 +57,7 @@ export class ProductSortService {
 
   getPriceHighToLowProductsWithCategory(categoryId): Observable<IProduct>{
     return this.http
-               .get(this.url + `?filter={
+               .get(productUrl + `?filter={
                  "where": { "categoryId" : "`+ categoryId +`" }, 
                  "order": "product_cost  DESC", "include":"images"
                 }` 
@@ -70,7 +70,7 @@ export class ProductSortService {
   //Sort Products by price low to high
   getPriceLowToHighProducts(): Observable<IProduct>{
     return this.http
-               .get(this.url + `?filter={
+               .get(productUrl + `?filter={
                  "order": "product_cost  ASC", "include":"images"
                 }` 
                )
@@ -81,7 +81,7 @@ export class ProductSortService {
 
   getPriceLowToHighProductsWithCategory(categoryId): Observable<IProduct>{
     return this.http
-               .get(this.url + `?filter={
+               .get(productUrl + `?filter={
                  "where": { "categoryId" : "`+ categoryId +`" }, 
                  "order": "product_cost  ASC", "include":"images"
                 }` 

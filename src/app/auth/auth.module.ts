@@ -15,7 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
 /*+-+-+-+-+-+-+-+-+-+-+-+- Auth Routes +-+-+-+-+-+-+-+-+-+-+-+-*/
-import { AuthRoutes as routes} from './auth.routes'
+import { AuthRoutingModule } from './auth.routes'
 
 /*+-+-+-+-+-+-+-+-+-+-+-+- Social Login Providers +-+-+-+-+-+-+-+-+-+-+-+-*/
 let providers = {
@@ -28,10 +28,16 @@ let providers = {
     }
   };
 
+/**
+ * The Authentication Module 
+ * This module includes {@link LoginComponent} and {@link RegisterComponent} components.
+ * Auth module provides login and register pages for user.
+ */
+
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
+    AuthRoutingModule,
     SharedModule,
     ReactiveFormsModule,
     FormsModule,

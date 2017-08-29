@@ -1,13 +1,24 @@
+//Angular Core utilities
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 
+//Angular Animation utilities
 import { trigger, state, style, animate, keyframes, transition, query, stagger } from '@angular/animations';
 
+//Product services for sorting and  geting products
 import { ProductService } from '../../core/services/product/product.service'
 import { ProductSortService } from '../../core/services/product-sort/product-sort.service'
-import { CartService } from '../../core/services/cart/cart.service'
 import { IProduct } from '../../core/models/product.model'
 
+//Cart Service for localstorage i.e whithout logged in users
+import { CartService } from '../../core/services/cart/cart.service'
 
+//Cart service for logged in users
+import { CartServerService } from '../../core/services/cart-server/cart-server.service'
+
+//Service for user authentication 
+import { AuthServiceLocal } from '../../core/services/auth/auth.service';
+
+//3rd party imports
 import { TabsetComponent } from 'ngx-bootstrap';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
@@ -37,6 +48,8 @@ export class ProductListComponent implements OnInit {
     private productService: ProductService,
     private productSortService: ProductSortService,
     private cartService: CartService,
+    private cartServerService: CartServerService,
+    private authServiceLocal: AuthServiceLocal,
     private toastr: ToastsManager
   ) {
     this.productArray
@@ -49,10 +62,16 @@ export class ProductListComponent implements OnInit {
   categoryId: string 
   productArray: any[] = []
   skip: number = 0
-
+  isAuthenticated: boolean = false
+  currentUser = JSON.parse(localStorage.getItem('currentAppUserId'))
 
   ngOnInit() {
     this.getProducts(this.skip)
+    if(this.currentUser !== null){
+      this.authServiceLocal.isAuthenticated().subscribe(
+      response => this.isAuthenticated = response
+      )
+    }
   }
 
 
@@ -190,8 +209,22 @@ export class ProductListComponent implements OnInit {
 
 
   addToCart(product){
-   this.cartService.addToCart(product)
-   this.toastr.custom('Added to cart')
-    //this.cartService.addToCartApi(product)
+
+    let cart = {
+      userid: JSON.parse(localStorage.getItem('currentAppUserId')),
+      products:[{
+          productId: product.id,
+          qty: 1  
+      }]
+    }
+    console.log('Cart items', cart)
+    if(this.isAuthenticated){
+      this.cartServerService.addToCartServer(cart).subscribe(
+        response => response
+      )
+    } else {
+      this.cartService.addToCart(product)
+      this.toastr.custom('Added to cart')
+    }
   }
 }

@@ -17,13 +17,13 @@ import { SidebarComponent } from './product-list/sidebar/sidebar.component';
 import { RateModalComponent } from './product-details/rate-modal/rate-modal.component';
 
 /*+-+-+-+-+-+-+-+-+-+-+-+- Product Routes +-+-+-+-+-+-+-+-+-+-+-+-*/
-import { ProductRoutes as routes} from './product.routes';
+import { ProductRoutingModule } from './product.routes';
 
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
+    ProductRoutingModule,
     ImageZoomModule,
     SharedModule
   ],

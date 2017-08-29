@@ -15,14 +15,14 @@
         <td class="col-sm-8 col-md-6">
           <div class="media">
             <div class="media-left">
-              <a href="#">
+              <a >
               <img class="media-object cover" [src]="item.images[0].ThumbURL100" > 
             </a>
             </div>
 
             <div class="media-body">
-              <h4 class="media-heading"><a href="#">{{item.product_name}}</a></h4>
-              <h5 class="media-heading"> by <a href="#">{{item.product_producer}}</a></h5>
+              <h4 class="media-heading"><a >{{item.product_name}}</a></h4>
+              <h5 class="media-heading"> by <a >{{item.product_producer}}</a></h5>
               <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
             </div>
           </div>
@@ -45,11 +45,7 @@
 </div>
 
 
-<!--<app-sidebar [cartItems]="cartItems" [productQty]="productQty" ></app-sidebar>
--->
-
 <div class="col-md-4 " *ngIf="cartItems.length >= 1">
-  <!--REVIEW ORDER-->
   <div class="panel panel-default">
     <div class="panel-heading text-center panel-heading-custom">
       <h4>Review Order</h4>
@@ -70,15 +66,15 @@
         <div class="pull-right"><span>{{grandTotal | currency:'INR':true:'1.0-0'}}</span></div>
         <hr>
       </div>
-      <button type="button" [disabled]="cartItems.length < 1" [routerLink]="['/checkout/address']" class="btn btn-primary btn-lg btn-block">Checkout</button>
+      <button type="button" (click)="goToAddress(cartItems)" [disabled]="cartItems.length < 1" class="btn btn-primary btn-lg btn-block">Checkout</button>
     </div>
   </div>
-  <!--REVIEW ORDER END-->
 </div>
 
 <div class="col-md-12" *ngIf="cartItems.length < 1">
   <div class="text-center muted-text">
-    <span>Cart is empty</span>
+    <span>Cart is empty add products <a [routerLink]="['/product/list']" >from list</a>
+    </span>
   </div>
 </div>
 

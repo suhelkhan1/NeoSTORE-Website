@@ -30,6 +30,15 @@ export class LoginComponent implements OnInit, OnDestroy {
   private sub
 
   ngOnInit() {
+    this.loginFormValidation()
+  }
+
+ /** 
+  * Function loginFormValidation does the validation on login form using 
+  * Reactive Forms from Angular
+  */
+
+  loginFormValidation(){
     this.email = new FormControl('test@test.com',[
       Validators.required,
       Validators.email

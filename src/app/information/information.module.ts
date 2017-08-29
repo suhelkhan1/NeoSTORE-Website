@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
-import { InformationRoutingModule } from './information.routes';
+import { InfomationRoutingModules } from './information.routes';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { TermsConditionsComponent } from './terms-conditions/terms-conditions.component';
 import { GuaranteeReturnPolicyComponent } from './guarantee-return-policy/guarantee-return-policy.component';
@@ -10,7 +11,7 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 @NgModule({
   imports: [
     CommonModule,
-    InformationRoutingModule
+    InfomationRoutingModules
   ],
   declarations: [
     ContactUsComponent,

@@ -5,7 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms'
 
 
 import { UserComponent } from './user.component';
-import { UserRoutes as routes } from './user.routes';
+import { UserRoutingModules } from './user.routes';
 import { AddressesComponent } from './components/address/addresses/addresses.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -16,7 +16,7 @@ import { EditProfileComponent } from './components/profile/edit-profile/edit-pro
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
+    UserRoutingModules,
     ReactiveFormsModule
   ],
   declarations: [

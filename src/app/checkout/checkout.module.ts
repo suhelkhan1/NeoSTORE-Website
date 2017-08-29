@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from  '@angular/router'
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { CheckoutComponent } from './checkout.component';
-import {CartModule}from './cart/cart.module'
+import { CartModule }from './cart/cart.module'
 
-import {ProductRoutes as routes} from './checkout.routes';
+import { CheckoutRoutingModule } from './checkout.routes';
 import { AddressComponent } from './address/address.component';
 import { PaymentComponent } from './payment/payment.component'
 
@@ -13,7 +14,8 @@ import { PaymentComponent } from './payment/payment.component'
   imports: [
     CommonModule,
     CartModule,
-    RouterModule.forChild(routes)
+    ReactiveFormsModule,
+    CheckoutRoutingModule
   ],
   declarations: [
     CheckoutComponent,

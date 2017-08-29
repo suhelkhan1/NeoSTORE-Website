@@ -1,8 +1,9 @@
-import { Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './shared/error-pages/page-not-found/page-not-found.component'
 import { AuthGuard } from './core/guards/auth/auth.guard'
+import { NgModule } from '@angular/core';
 
-export const routes: Routes = [
+export const AppRoutes: Routes = [
     {
         path: 'home',
         loadChildren: './home/home.module#HomeModule',
@@ -40,7 +41,20 @@ export const routes: Routes = [
         data: { breadcrumb: 'Info'}
     },
     {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+    },
+    {
         path: '**',
         component: PageNotFoundComponent
     }
 ];
+
+@NgModule({
+  imports: [RouterModule.forRoot(AppRoutes)],
+  exports: [RouterModule]
+})
+
+export class AppRoutingModule { }
+

@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router'
 
 import { SharedModule } from '../shared/shared.module'
 
-import { HomeRoutes as routes } from './home.routes'
+import { HomeRoutingModule } from './home.routes'
 
 import { HomeComponent } from './home.component';
 import { HeaderComponent } from './header/header.component';
@@ -16,7 +16,7 @@ import { CheckoutHeaderComponent } from './checkout-header/checkout-header.compo
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
+    HomeRoutingModule,
     SharedModule
   ],
   declarations: [

@@ -36,7 +36,7 @@
           <a class="text-primary" [routerLink]="['checkout/cart']">
             <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
             Cart 
-            <span  *ngIf="cartItems" class="badge">{{cartItems.length}}</span>
+            <span  *ngIf="cartItems" class="badge">{{cartItems.count}}</span>
           </a>
         </li>
       </ul>

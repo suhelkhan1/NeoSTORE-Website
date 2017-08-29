@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { CartService } from '../../../core/services/cart/cart.service'
+import { CartServerService } from '../../../core/services/cart-server/cart-server.service';
+import { AuthServiceLocal } from '../../../core/services/auth/auth.service';
+import { CheckoutService } from '../../../core/services/checkout/checkout.service';
+import { ICart } from '../../../core/models/cart.model';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-cart-product-list',
@@ -9,16 +15,22 @@ import { CartService } from '../../../core/services/cart/cart.service'
 })
 export class CartProductListComponent implements OnInit {
 
-  cartItems
+  cartItems: any[] = []
   public productQty: number[];
 
   subTotal: number = 0
   grandTotal: number = 0
   gstRate: number = 5
   taxTotal: number = 0
+  isAuthenticate: boolean = false
+  currentUser = JSON.parse(localStorage.getItem('currentAppUserId'))
 
   constructor(
-    private cartService: CartService
+    private cartService: CartService,
+    private authServiceLocal: AuthServiceLocal,
+    private cartServerService: CartServerService,
+    private checkoutService: CheckoutService,
+    private router: Router
   ) {
     this.productQty = [1]
     //this.productQty = this.productQty.map((el:any)=>0);
@@ -26,21 +38,71 @@ export class CartProductListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getCartItems()
-    this.subTotalCalc()
-    this.calulateTax()
+    if(this.currentUser !== null){
+      this.authServiceLocal.isAuthenticated().subscribe(
+        (response) => {
+          this.isAuthenticate = response
+          if(this.isAuthenticate){
+            this.cartItems = this.cartService.getCartItems()
+            if(this.cartItems.length > 0){
+              let products = []
+              for(let item of this.cartItems){
+                products.push({
+                  productId: item.id,
+                  qty: 1
+                })
+              }
+              let cart = {
+                userid: this.currentUser,
+                products: products
+              }
+              this.cartServerService.addToCartServer(cart).subscribe(
+                (response) => {                  
+                  localStorage.setItem('cartItems', '[]')
+                  this.getServerCart()
+                }
+              )
+            } else {
+              this.getServerCart()
+            }
+          } else {
+            this.getLocalCart()
+          }
+        },
+        (error) =>{
+          this.getLocalCart()
+        }
+      )
+    } else {
+      this.getLocalCart()
+    }
   }
 
-  getCartItems(){
+  getServerCart(){
+    this.cartServerService.getCartServer(this.currentUser).subscribe(
+      (response) => {
+        this.cartItems = response
+        for(let item of this.cartItems){
+          this.productQty.push(1)
+        }
+        this.subTotalCalc()
+        this.calulateTax()
+      }
+    )
+  }
+
+  getLocalCart(){
     this.cartItems = this.cartService.getCartItems()
     for(let item of this.cartItems){
       this.productQty.push(1)
     }
+    this.subTotalCalc()
+    this.calulateTax()
   }
 
   deleteCartItem(index){
     this.cartService.deleteCartItem(index)
-    this.getCartItems()
+    this.getLocalCart()
     this.subTotalCalc()
     this.calulateTax()
   }
@@ -84,6 +146,11 @@ export class CartProductListComponent implements OnInit {
 
   calculateGrandTotal(){
     this.grandTotal = this.subTotal + this.taxTotal
+  }
+
+  goToAddress(data){
+    this.checkoutService.addCart(data)
+    this.router.navigate(['/checkout/address'])
   }
 
 }

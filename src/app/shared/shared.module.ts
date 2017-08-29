@@ -33,7 +33,7 @@ import { SharedRoutes as routes } from './shared.routes';
     BsRootModule,
     StarRatingModule.forRoot(),
     ShareButtonsModule.forRoot(),
-    BreadcrumbModule,
+    //BreadcrumbModule.forRoot(),
     InfiniteScrollModule,
     RouterModule.forChild(routes),
     ToastModule.forRoot()
@@ -50,7 +50,7 @@ import { SharedRoutes as routes } from './shared.routes';
   exports:[
     BsRootModule,
     StarRatingModule,
-    BreadcrumbModule,
+    //BreadcrumbModule,
     InfiniteScrollModule,
     ShareButtonsModule,
     EqualValidatorDirective,

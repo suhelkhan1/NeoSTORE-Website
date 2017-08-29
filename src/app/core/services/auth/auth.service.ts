@@ -3,6 +3,8 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http'
 import { Observable } from 'rxjs'
 import { IUserLoginResponse } from '../../models/user-login.model'
 import { IUser } from '../../models/user.model'
+import { userUrl } from '../../apiUrls';
+
 
 @Injectable()
 export class AuthServiceLocal {
@@ -11,14 +13,13 @@ export class AuthServiceLocal {
     private http: Http
   ) {}
 
-  url = 'http://10.0.100.213:3000/api/user_accounts/';
   loggedIn: boolean = false
   accessToken: string
 
   login(loginCrendentials): Observable<IUserLoginResponse>{
     let headers = new Headers({ 'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});
-    return this.http.post(this.url + 'login', JSON.stringify(loginCrendentials), options).map((response: Response) => {
+    return this.http.post(userUrl + 'login', JSON.stringify(loginCrendentials), options).map((response: Response) => {
       let user = <IUserLoginResponse>response.json();
       if (user && user.id) {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -33,7 +34,7 @@ export class AuthServiceLocal {
   socailLogin(socailResponse): Observable<IUserLoginResponse>{
     let headers = new Headers({ 'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});
-    return this.http.post(this.url + 'loginSocial', JSON.stringify(socailResponse), options).map((response: Response) => {
+    return this.http.post(userUrl + 'loginSocial', JSON.stringify(socailResponse), options).map((response: Response) => {
       let user = <IUserLoginResponse>response.json();
       console.log('User Service', user)
       if (user && user.id) {
@@ -49,7 +50,7 @@ export class AuthServiceLocal {
   register(userInfo){   
     let headers = new Headers({ 'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});
-    return this.http.post(this.url, JSON.stringify(userInfo), options).map( (response: Response) => {
+    return this.http.post(userUrl, JSON.stringify(userInfo), options).map( (response: Response) => {
       return <IUser>response.json()
     }).catch(this.handleError)
   }
@@ -58,7 +59,7 @@ export class AuthServiceLocal {
     this.accessToken = JSON.parse(localStorage.getItem('currentAppUser'))
     let headers = new Headers({ 'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});
-    return this.http.post(this.url + 'logout?access_token=' + this.accessToken, options).map( (response: Response)=>{
+    return this.http.post(userUrl + 'logout?access_token=' + this.accessToken, options).map( (response: Response)=>{
       // remove user from local storage to log user out
       localStorage.removeItem('currentAppUser');
       localStorage.removeItem('currentAppUserId');
@@ -69,7 +70,7 @@ export class AuthServiceLocal {
    resetPassword(email): Observable<string>{   
     let headers = new Headers({ 'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});
-    return this.http.post(this.url +'reset', JSON.stringify(email), options).map( (response: Response) => {
+    return this.http.post(userUrl +'reset', JSON.stringify(email), options).map( (response: Response) => {
       return <string>response.json()
     }).catch(this.handleError)
   }
@@ -80,7 +81,7 @@ export class AuthServiceLocal {
     let password = {
       newPassword: setInfo.password
     }
-    return this.http.post(this.url +'reset-password'+'?access_token='+ setInfo.token , JSON.stringify(password), options).map( (response: Response) => {
+    return this.http.post(userUrl +'reset-password'+'?access_token='+ setInfo.token , JSON.stringify(password), options).map( (response: Response) => {
       return <string>response.json()
     }).catch(this.handleError)
   }
@@ -97,7 +98,7 @@ export class AuthServiceLocal {
       return Promise.resolve(false)
     } else {
       return this.http
-             .get(this.url + curent_user_userId + '?access_token=' + current_user_accesToken)
+             .get(userUrl + curent_user_userId + '?access_token=' + current_user_accesToken)
              .toPromise()
              .then( (response)=>{
                return response.ok
@@ -110,7 +111,7 @@ export class AuthServiceLocal {
     let current_user_accesToken = JSON.parse(localStorage.getItem('currentAppUser'))
     let curent_user_userId = JSON.parse(localStorage.getItem('currentAppUserId'))
     return this.http
-             .get(this.url + curent_user_userId + '?access_token=' + current_user_accesToken)
+             .get(userUrl + curent_user_userId + '?access_token=' + current_user_accesToken)
              .map( (response: Response) => {
                return response.ok
              })
