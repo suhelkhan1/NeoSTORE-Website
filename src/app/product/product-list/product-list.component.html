@@ -40,8 +40,8 @@
           <div class="img-thumb">
             <img class="img-reposive" [src]="product.images[0].ThumbURL250" alt="product_image">
           </div>
-          <div class="caption elipse-product">
-            <p><a [routerLink]="['/product/details/', product.id]">{{product.product_name}}</a></p>
+          <div class="caption">
+            <p class="elipse-product"><a [routerLink]="['/product/details/', product.id]">{{product.product_name}}</a></p>
             <button (click)="addToCart(product)" class="pull-right btn btn-danger btn-xs">Add To Cart</button>
             <p><strong>{{product.product_cost | currency:'INR':true:'1.0-0'}}</strong></p>
             <fieldset class="rating">

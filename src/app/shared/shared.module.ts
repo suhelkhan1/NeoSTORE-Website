@@ -25,6 +25,7 @@ import { EqualValidatorDirective } from './directives/equal-validator.directive'
 
 /*+-+-+-+-+-+-+-+-+-+-+-+- Routes +-+-+-+-+-+-+-+-+-+-+-+-*/
 import { SharedRoutes as routes } from './shared.routes';
+import { ThankyouComponent } from './thankyou/thankyou.component';
 
 @NgModule({
   imports: [
@@ -42,7 +43,8 @@ import { SharedRoutes as routes } from './shared.routes';
     PageNotFoundComponent,
     SharedComponent,
     EqualValidatorDirective,
-    ProductSearchComponent
+    ProductSearchComponent,
+    ThankyouComponent
   ],
   providers:[
     { provide: ToastOptions, useClass: ToastrService },

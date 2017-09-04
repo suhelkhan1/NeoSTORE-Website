@@ -18,14 +18,6 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a [routerLink]="['/']">HOME</a></li>
-        <!--<li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CATEGORIES<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-          </ul>
-        </li>-->
       </ul>
 
       <app-product-search></app-product-search>
@@ -36,7 +28,7 @@
           <a class="text-primary" [routerLink]="['checkout/cart']">
             <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
             Cart 
-            <span  *ngIf="cartItems" class="badge">{{cartItems.count}}</span>
+            <span  *ngIf="cartItems" class="badge">{{cartItems.cartCount}}</span>
           </a>
         </li>
       </ul>

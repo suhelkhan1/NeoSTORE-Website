@@ -30,9 +30,9 @@ img {
 }
 
 .elipse-product {
-  text-overflow: ellipsis;
-  max-width: 20ch;
-  white-space: nowrap; 
+  overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; 
 }
 
 /*.danger .active a,

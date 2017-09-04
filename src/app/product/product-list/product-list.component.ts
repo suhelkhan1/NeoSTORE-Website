@@ -220,7 +220,10 @@ export class ProductListComponent implements OnInit {
     console.log('Cart items', cart)
     if(this.isAuthenticated){
       this.cartServerService.addToCartServer(cart).subscribe(
-        response => response
+        response => {
+          this.toastr.custom('Added to cart')
+          return response
+        }
       )
     } else {
       this.cartService.addToCart(product)

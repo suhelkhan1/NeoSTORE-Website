@@ -21,6 +21,7 @@ export class PaymentComponent implements OnInit {
   expiryMonth: FormControl
   expiryYear: FormControl
   cvc: FormControl
+  isSubmit: boolean = false
 
   constructor(
     private checkoutService: CheckoutService,
@@ -67,6 +68,16 @@ export class PaymentComponent implements OnInit {
       expiryYear: this.expiryYear,
       cvc: this.cvc,
     })
+  }
+
+  payment(card){
+    this.isSubmit = true
+    this.checkoutService.payment(card).subscribe(
+      (response) => {
+        this.router.navigate(['/commons/thankyou'])
+        return response
+      }
+    )
   }
 
 

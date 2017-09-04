@@ -1,4 +1,6 @@
-import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core'
+import { Component, OnInit} from '@angular/core'
+import { OrderService } from '../../../core/services/order/order.service';
+import { PdfGenerateService } from '../../../core/services/pdf/pdf-generate.service';
 
 
 @Component({
@@ -6,39 +8,34 @@ import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core'
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.css']
 })
-export class OrdersComponent implements OnInit, AfterViewInit {
+export class OrdersComponent implements OnInit {
+
+  orders: any[] = []
 
   constructor(
-    private elementRef: ElementRef
+    private orderService: OrderService,
+    private pdfGenerateService: PdfGenerateService
   ) { }
   
   ngOnInit() {
+    this.getOrders()
   }
 
+  getOrders(){
+    this.orderService.getOrders().subscribe(
+      (response) => {
+        //this.orders = response
+        for(let res of response){
+          res.order.createon = new Date(res.order.createon).toDateString()
+          this.orders.push(res)
+          console.log(this.orders)
+        }
+      }
+    )
+  }
 
-
-  ngAfterViewInit(){
-    // var elements = this.elementRef.nativeElement.querySelectorAll('.fdi-Carousel .item');
-    // Array.prototype.forEach.call(elements, function(el, i){
-    //   console.log('i:', i)
-    //   console.log('el:', el)
-    //   var next = el.nextElementSibling
-    //   if (!next['children'].length){
-    //     next = Array.prototype.filter.call(el.parentNode.children[i].nextSibling, function(child){
-    //       return child !== el;
-    //     });
-    //   }
-    //   next.children[0].firstElementChild.cloneNode().appendChild(el)
-    //   if(next.nextElementSibling["children"].length > 0) {
-    //     next.nextElementSibling.children[0].firstElementChild.cloneNode().appendChild(el)
-    //   } else {
-    //     Array.prototype.filter.call(el.parentNode.children[i].nextSibling, function(child){
-    //       return child.children[0].firstElementChild.cloneNode().appendChild(el);
-    //     });
-    //   }
-    //   console.log('Next:',next)
-    // });
-
+  downloadPdf(order){
+    this.pdfGenerateService.generatePdf(order)
   }
 
 }

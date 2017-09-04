@@ -12,7 +12,8 @@ export class CartServerService {
 
   constructor(
     private http: Http
-  ) { }
+  ) {
+  }
 
   getCartServer(userId): Observable<any>{
     return this.http.get(cartUrl + 'getCart?userid=' + userId).map((response: Response) => {
@@ -30,11 +31,7 @@ export class CartServerService {
 
 
   cartLength(userId){
-    return fetch(cartUrl + `count?filter={
-                 "where":{
-                   "userid": "`+userId+`"
-                 }
-              }`)
+    return fetch(cartUrl + 'cartcount/'+ userId)
               .then((response) => {
                 return response.json();
               })

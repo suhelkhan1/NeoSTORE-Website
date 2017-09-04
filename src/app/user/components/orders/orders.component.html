@@ -1,3 +1,26 @@
-<p>
-  Order works!
-</p>
+<div class="panel panel-default" *ngFor="let or of orders">
+  <div class="panel-heading text-muted">
+    <span [ngClass]="{'text-warning': or.order.orderstatus=='transit' }">
+      <strong>{{or.order.orderstatus | uppercase}}</strong>
+    </span>
+    <span>Order No: {{or.order.id}}</span>
+    <div>
+      <small>Placed on {{or.order.createon}} / {{or.order.ordertotal | currency:'INR':true:'1.0-0'}}</small>
+    </div>
+    <hr>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-3" *ngFor="let product of or.products">
+        <div class="thumbnail">
+          <img [src]="product.images.ThumbURL100" alt="product_image" class="img-rounded">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <button type="button" class="btn btn-success" (click)="downloadPdf(or)">Download invoice as PDF</button>
+  </div>
+</div>
+
+<hr>

@@ -8,3 +8,4 @@ export const categoryUrl = domain + 'api/categories';
 export const ratingUrl = domain + 'api/ratings/';
 export const userUrl = domain + 'api/user_accounts/';
 export const addressUrl = domain + 'api/addresses/';
+export const orderUrl = domain + 'api/orders/'
