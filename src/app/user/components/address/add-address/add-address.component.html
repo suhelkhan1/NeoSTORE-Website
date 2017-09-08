@@ -3,7 +3,7 @@
     <h4><strong>Add new address</strong></h4>
     <hr>
 
-    <button type="button" class="btn btn-default"><i class="fa fa-map-marker"></i> Set Current Location</button>
+    <button (click)="setCurrentPosition()" type="button" class="btn btn-default"><i class="fa fa-map-marker"></i> Set Current Location</button>
     <br>
     <br>
     <form [formGroup]="addAddressForm" (ngSubmit)="addAddressForm.invalid || addAddress(addAddressForm.value)" novalidate>

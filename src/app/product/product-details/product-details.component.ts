@@ -34,8 +34,11 @@ export class ProductDetailsComponent implements OnInit {
   productImgArray: any;
   rating: any;
   isAuthenticated
+  url: any;
 
   ngOnInit() {
+    this.url = location.href
+    console.log(this.url)
     this.activatedRoute.params.subscribe(
       (params: Params) => {
         let productId = params['id']
@@ -66,6 +69,6 @@ export class ProductDetailsComponent implements OnInit {
 
   addToCart(product){
     this.cartService.addToCart(product)
-    this.toastr.success('Added to cart')
+    this.toastr.custom('Added to cart')
   }
 }

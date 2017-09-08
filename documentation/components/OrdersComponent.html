@@ -178,6 +178,12 @@
                                     <a href="../components/HomeComponent.html" >HomeComponent</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../components/LocateUsComponent.html" >LocateUsComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/LocationComponent.html" >LocationComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/LoginComponent.html" >LoginComponent</a>
                                 </li>
                                 <li class="link">
@@ -224,6 +230,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../components/TermsConditionsComponent.html" >TermsConditionsComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/ThankyouComponent.html" >ThankyouComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/UserComponent.html" >UserComponent</a>
@@ -295,7 +304,19 @@
                                     <a href="../injectables/CartService.html" >CartService</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../injectables/CheckoutService.html" >CheckoutService</a>
+                                </li>
+                                <li class="link">
                                     <a href="../injectables/ColorService.html" >ColorService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/LocationService.html" >LocationService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/OrderService.html" >OrderService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/PdfGenerateService.html" >PdfGenerateService</a>
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/ProductCategoryService.html" >ProductCategoryService</a>
@@ -566,6 +587,12 @@
                                            <a href="../components/HomeComponent.html" >HomeComponent</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../components/LocateUsComponent.html" >LocateUsComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/LocationComponent.html" >LocationComponent</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../components/LoginComponent.html" >LoginComponent</a>
                                        </li>
                                        <li class="link">
@@ -612,6 +639,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../components/TermsConditionsComponent.html" >TermsConditionsComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/ThankyouComponent.html" >ThankyouComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/UserComponent.html" >UserComponent</a>
@@ -683,7 +713,19 @@
                                            <a href="../injectables/CartService.html" >CartService</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../injectables/CheckoutService.html" >CheckoutService</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../injectables/ColorService.html" >ColorService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/LocationService.html" >LocationService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/OrderService.html" >OrderService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/PdfGenerateService.html" >PdfGenerateService</a>
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/ProductCategoryService.html" >ProductCategoryService</a>
@@ -833,7 +875,6 @@
     </p>
     <p class="comment">
                 <code><a href="https://angular.io/docs/ts/latest/api/core/index/OnInit-interface.html" target="_blank" >OnInit</a></code>
-                <code><a href="https://angular.io/docs/ts/latest/api/core/index/AfterViewInit-interface.html" target="_blank" >AfterViewInit</a></code>
     </p>
 
 
@@ -881,6 +922,20 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                 <a href="#orders">orders</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <h6><b>Methods</b></h6>
                     </td>
                 </tr>
@@ -888,7 +943,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                 <a href="#ngAfterViewInit">ngAfterViewInit</a>
+                                 <a href="#downloadPdf">downloadPdf</a>
+                            </li>
+                            <li>
+                                 <a href="#getOrders">getOrders</a>
                             </li>
                             <li>
                                  <a href="#ngOnInit">ngOnInit</a>
@@ -906,12 +964,12 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <code>constructor(elementRef: <a href="https://angular.io/docs/ts/latest/api/core/index/ElementRef-class.html" target="_blank">ElementRef</a>)</code>
+                            <code>constructor(orderService: <a href="../injectables/OrderService.html">OrderService</a>, pdfGenerateService: <a href="../injectables/PdfGenerateService.html">PdfGenerateService</a>)</code>
                         </td>
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/user/components/orders/orders.component.ts:9</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/user/components/orders/orders.component.ts:13</a></div>
                                 </td>
                             </tr>
     
@@ -930,20 +988,52 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <a name="ngAfterViewInit"></a>
-                            <b> ngAfterViewInit</b>
+                            <a name="downloadPdf"></a>
+                            <b> downloadPdf</b>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-    <code>ngAfterViewInit()</code>
+    <code>downloadPdf(order: )</code>
                         </td>
                     </tr>
     
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/user/components/orders/orders.component.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/user/components/orders/orders.component.ts:37</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="getOrders"></a>
+                            <b> getOrders</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>getOrders()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/user/components/orders/orders.component.ts:24</a></div>
                                 </td>
                             </tr>
     
@@ -975,7 +1065,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/user/components/orders/orders.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/user/components/orders/orders.component.ts:20</a></div>
                                 </td>
                             </tr>
     
@@ -992,11 +1082,48 @@
             </table>
     </section>
 
+    <section>
+        
+            <h3 id="inputs">
+                Properties
+            </h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="orders"></a>
+                            <b> orders</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>orders:     <code>any[]</code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code>any[]</code>
+    
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/user/components/orders/orders.component.ts:13</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+    </section>
 </div>
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { Component, OnInit, AfterViewInit, ElementRef } from &#x27;@angular/core&#x27;
+        <pre class="line-numbers"><code class="language-typescript">import { Component, OnInit} from &#x27;@angular/core&#x27;
+import { OrderService } from &#x27;../../../core/services/order/order.service&#x27;;
+import { PdfGenerateService } from &#x27;../../../core/services/pdf/pdf-generate.service&#x27;;
 
 
 @Component({
@@ -1004,39 +1131,34 @@
   templateUrl: &#x27;./orders.component.html&#x27;,
   styleUrls: [&#x27;./orders.component.css&#x27;]
 })
-export class OrdersComponent implements OnInit, AfterViewInit {
+export class OrdersComponent implements OnInit {
+
+  orders: any[] &#x3D; []
 
   constructor(
-    private elementRef: ElementRef
+    private orderService: OrderService,
+    private pdfGenerateService: PdfGenerateService
   ) { }
   
   ngOnInit() {
+    this.getOrders()
   }
 
+  getOrders(){
+    this.orderService.getOrders().subscribe(
+      (response) &#x3D;&gt; {
+        //this.orders &#x3D; response
+        for(let res of response){
+          res.order.createon &#x3D; new Date(res.order.createon).toDateString()
+          this.orders.push(res)
+          console.log(this.orders)
+        }
+      }
+    )
+  }
 
-
-  ngAfterViewInit(){
-    // var elements &#x3D; this.elementRef.nativeElement.querySelectorAll(&#x27;.fdi-Carousel .item&#x27;);
-    // Array.prototype.forEach.call(elements, function(el, i){
-    //   console.log(&#x27;i:&#x27;, i)
-    //   console.log(&#x27;el:&#x27;, el)
-    //   var next &#x3D; el.nextElementSibling
-    //   if (!next[&#x27;children&#x27;].length){
-    //     next &#x3D; Array.prototype.filter.call(el.parentNode.children[i].nextSibling, function(child){
-    //       return child !&#x3D;&#x3D; el;
-    //     });
-    //   }
-    //   next.children[0].firstElementChild.cloneNode().appendChild(el)
-    //   if(next.nextElementSibling[&quot;children&quot;].length &gt; 0) {
-    //     next.nextElementSibling.children[0].firstElementChild.cloneNode().appendChild(el)
-    //   } else {
-    //     Array.prototype.filter.call(el.parentNode.children[i].nextSibling, function(child){
-    //       return child.children[0].firstElementChild.cloneNode().appendChild(el);
-    //     });
-    //   }
-    //   console.log(&#x27;Next:&#x27;,next)
-    // });
-
+  downloadPdf(order){
+    this.pdfGenerateService.generatePdf(order)
   }
 
 }
@@ -1044,9 +1166,34 @@ export class OrdersComponent implements OnInit, AfterViewInit {
     </div>
 
     <div class="tab-pane fade" id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;p&gt;
-  Order works!
-&lt;/p&gt;</code></pre>
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;panel panel-default&quot; *ngFor&#x3D;&quot;let or of orders&quot;&gt;
+  &lt;div class&#x3D;&quot;panel-heading text-muted&quot;&gt;
+    &lt;span [ngClass]&#x3D;&quot;{&#x27;text-warning&#x27;: or.order.orderstatus&#x3D;&#x3D;&#x27;transit&#x27; }&quot;&gt;
+      &lt;strong&gt;{{or.order.orderstatus | uppercase}}&lt;/strong&gt;
+    &lt;/span&gt;
+    &lt;span&gt;Order No: {{or.order.id}}&lt;/span&gt;
+    &lt;div&gt;
+      &lt;small&gt;Placed on {{or.order.createon}} / &lt;/small&gt;
+      &lt;small class&#x3D;&quot;text-success&quot;&gt;&lt;strong&gt;{{or.order.ordertotal | currency:&#x27;INR&#x27;:true:&#x27;1.0-0&#x27;}}&lt;/strong&gt;&lt;/small&gt;
+    &lt;/div&gt;
+    &lt;hr&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;panel-body&quot;&gt;
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+      &lt;div class&#x3D;&quot;col-md-3&quot; *ngFor&#x3D;&quot;let product of or.products&quot;&gt;
+        &lt;div class&#x3D;&quot;thumbnail&quot;&gt;
+          &lt;img [src]&#x3D;&quot;product.images.ThumbURL100&quot; alt&#x3D;&quot;product_image&quot; class&#x3D;&quot;img-rounded&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;panel-footer&quot;&gt;
+    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-success&quot; (click)&#x3D;&quot;downloadPdf(or)&quot;&gt;Download invoice as PDF&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+</code></pre>
     </div>
 
     <div class="tab-pane fade" id="tree">
@@ -1072,8 +1219,8 @@ export class OrdersComponent implements OnInit, AfterViewInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><p>  Order works!</p></div>'
-    var COMPONENTS = [{'name': 'AddAddressComponent', 'selector': 'app-add-address'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressesComponent', 'selector': 'app-addresses'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CartProductListComponent', 'selector': 'app-cart-product-list'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'CheckoutFooterComponent', 'selector': 'app-checkout-footer'},{'name': 'CheckoutHeaderComponent', 'selector': 'app-checkout-header'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'EditAddressComponent', 'selector': 'app-edit-address'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'GuaranteeReturnPolicyComponent', 'selector': 'app-guarantee-return-policy'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PaymentComponent', 'selector': 'app-payment'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ProductComponent', 'selector': 'app-product'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductListComponent', 'selector': 'app-product-list'},{'name': 'ProductSearchComponent', 'selector': 'app-product-search'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProfileDropdownComponent', 'selector': 'app-profile-dropdown'},{'name': 'RateModalComponent', 'selector': 'app-rate-modal'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SharedComponent', 'selector': 'app-shared'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'TermsConditionsComponent', 'selector': 'app-terms-conditions'},{'name': 'UserComponent', 'selector': 'app-user'}];
+        var COMPONENT_TEMPLATE = '<div><div class="panel panel-default" *ngFor="let or of orders">  <div class="panel-heading text-muted">    <span [ngClass]="{\'text-warning\': or.order.orderstatus==\'transit\' }">      <strong>{{or.order.orderstatus | uppercase}}</strong>    </span>    <span>Order No: {{or.order.id}}</span>    <div>      <small>Placed on {{or.order.createon}} / </small>      <small class="text-success"><strong>{{or.order.ordertotal | currency:\'INR\':true:\'1.0-0\'}}</strong></small>    </div>    <hr>  </div>  <div class="panel-body">    <div class="row">      <div class="col-md-3" *ngFor="let product of or.products">        <div class="thumbnail">          <img [src]="product.images.ThumbURL100" alt="product_image" class="img-rounded">        </div>      </div>    </div>  </div>  <div class="panel-footer">    <button type="button" class="btn btn-success" (click)="downloadPdf(or)">Download invoice as PDF</button>  </div></div><hr></div>'
+    var COMPONENTS = [{'name': 'AddAddressComponent', 'selector': 'app-add-address'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressesComponent', 'selector': 'app-addresses'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CartProductListComponent', 'selector': 'app-cart-product-list'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'CheckoutFooterComponent', 'selector': 'app-checkout-footer'},{'name': 'CheckoutHeaderComponent', 'selector': 'app-checkout-header'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'EditAddressComponent', 'selector': 'app-edit-address'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'GuaranteeReturnPolicyComponent', 'selector': 'app-guarantee-return-policy'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LocateUsComponent', 'selector': 'app-locate-us'},{'name': 'LocationComponent', 'selector': 'app-location'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PaymentComponent', 'selector': 'app-payment'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ProductComponent', 'selector': 'app-product'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductListComponent', 'selector': 'app-product-list'},{'name': 'ProductSearchComponent', 'selector': 'app-product-search'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProfileDropdownComponent', 'selector': 'app-profile-dropdown'},{'name': 'RateModalComponent', 'selector': 'app-rate-modal'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SharedComponent', 'selector': 'app-shared'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'TermsConditionsComponent', 'selector': 'app-terms-conditions'},{'name': 'ThankyouComponent', 'selector': 'app-thankyou'},{'name': 'UserComponent', 'selector': 'app-user'}];
     var DIRECTIVES = [{'name': 'EqualValidatorDirective', 'selector': '[validateEqual][formControlName],[validateEqual][formControl],[validateEqual][ngModel]'}];
     var ACTUAL_COMPONENT = {'name': 'OrdersComponent'};
 </script>

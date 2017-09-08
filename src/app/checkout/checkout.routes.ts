@@ -5,10 +5,11 @@ import { CartComponent } from './cart/cart.component'
 
 import { AuthGuard } from '../core/guards/auth/auth.guard'
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { CheckoutComponent } from './checkout.component';
 
-export const CheckoutRoutes =[
+
+const CheckoutRoutes: Routes =[
   {
     path: '',
     component: CheckoutComponent,

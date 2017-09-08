@@ -8,15 +8,15 @@ import { cartUrl } from '../../apiUrls';
 
 @Injectable()
 export class CartServerService {
-
-
+  currentUser = JSON.parse(localStorage.getItem('currentAppUserId'))
+  
   constructor(
     private http: Http
   ) {
-  }
+}
 
   getCartServer(userId): Observable<any>{
-    return this.http.get(cartUrl + 'getCart?userid=' + userId).map((response: Response) => {
+    return this.http.get(cartUrl + 'getCart?userid=' + userId ).map((response: Response) => {
       return <any>response.json();
     }).catch(this.handleError)
   }
@@ -30,11 +30,27 @@ export class CartServerService {
   }
 
 
-  cartLength(userId){
-    return fetch(cartUrl + 'cartcount/'+ userId)
+  cartLength(){
+    return fetch(cartUrl + 'cartcount/'+ this.currentUser)
               .then((response) => {
                 return response.json();
               })
+  }
+
+  deleteCart(cartId){
+    let headers = new Headers({ 'Content-Type': 'application/json'});
+    let options = new RequestOptions({headers: headers});
+    return this.http.delete(cartUrl + cartId ,options).map((response: Response) => {
+      return <any>response.json();
+    }).catch(this.handleError)
+  }
+
+  updateCartQty(cartItem){
+    let headers = new Headers({ 'Content-Type': 'application/json'});
+    let options = new RequestOptions({headers: headers});
+    return this.http.patch(cartUrl + cartItem.id, JSON.stringify(cartItem) ,options).map((response: Response) => {
+      return <any>response.json();
+    }).catch(this.handleError)
   }
 
   handleError(error: Response) {    

@@ -5,7 +5,8 @@
         <div class="input-group search-bar">
           <input [(ngModel)]="groupSelected"
                  [typeahead]="statesComplex"
-                 typeaheadOptionField="name"                 
+                 typeaheadOptionField="name"
+                 (typeaheadOnSelect)="typeaheadOnSelect($event)"               
                  name="groupSelected"
                  class="form-control"/>
 

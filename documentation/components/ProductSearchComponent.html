@@ -178,6 +178,12 @@
                                     <a href="../components/HomeComponent.html" >HomeComponent</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../components/LocateUsComponent.html" >LocateUsComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/LocationComponent.html" >LocationComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/LoginComponent.html" >LoginComponent</a>
                                 </li>
                                 <li class="link">
@@ -224,6 +230,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../components/TermsConditionsComponent.html" >TermsConditionsComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/ThankyouComponent.html" >ThankyouComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/UserComponent.html" >UserComponent</a>
@@ -295,7 +304,19 @@
                                     <a href="../injectables/CartService.html" >CartService</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../injectables/CheckoutService.html" >CheckoutService</a>
+                                </li>
+                                <li class="link">
                                     <a href="../injectables/ColorService.html" >ColorService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/LocationService.html" >LocationService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/OrderService.html" >OrderService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/PdfGenerateService.html" >PdfGenerateService</a>
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/ProductCategoryService.html" >ProductCategoryService</a>
@@ -566,6 +587,12 @@
                                            <a href="../components/HomeComponent.html" >HomeComponent</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../components/LocateUsComponent.html" >LocateUsComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/LocationComponent.html" >LocationComponent</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../components/LoginComponent.html" >LoginComponent</a>
                                        </li>
                                        <li class="link">
@@ -612,6 +639,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../components/TermsConditionsComponent.html" >TermsConditionsComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/ThankyouComponent.html" >ThankyouComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/UserComponent.html" >UserComponent</a>
@@ -683,7 +713,19 @@
                                            <a href="../injectables/CartService.html" >CartService</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../injectables/CheckoutService.html" >CheckoutService</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../injectables/ColorService.html" >ColorService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/LocationService.html" >LocationService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/OrderService.html" >OrderService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/PdfGenerateService.html" >PdfGenerateService</a>
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/ProductCategoryService.html" >ProductCategoryService</a>
@@ -823,7 +865,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/shared/product-search/product-search.component.ts</code>
+    <code>src/app/shared/components/product-search/product-search.component.ts</code>
 </p>
 
 
@@ -909,6 +951,9 @@
                             <li>
                                  <a href="#ngOnInit">ngOnInit</a>
                             </li>
+                            <li>
+                                 <a href="#typeaheadOnSelect">typeaheadOnSelect</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -922,12 +967,12 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <code>constructor(productSearchService: <a href="../injectables/ProductSearchService.html">ProductSearchService</a>)</code>
+                            <code>constructor(productSearchService: <a href="../injectables/ProductSearchService.html">ProductSearchService</a>, router: <a href="https://angular.io/docs/ts/latest/api/router/index/Router-class.html" target="_blank">Router</a>)</code>
                         </td>
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/shared/product-search/product-search.component.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/shared/components/product-search/product-search.component.ts:11</a></div>
                                 </td>
                             </tr>
     
@@ -959,7 +1004,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/shared/product-search/product-search.component.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/shared/components/product-search/product-search.component.ts:25</a></div>
                                 </td>
                             </tr>
     
@@ -991,7 +1036,39 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/shared/product-search/product-search.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/shared/components/product-search/product-search.component.ts:18</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="typeaheadOnSelect"></a>
+                            <b> typeaheadOnSelect</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>typeaheadOnSelect(event: )</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/shared/components/product-search/product-search.component.ts:40</a></div>
                                 </td>
                             </tr>
     
@@ -1035,7 +1112,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/shared/product-search/product-search.component.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/shared/components/product-search/product-search.component.ts:22</a></div>
                                 </td>
                             </tr>
     
@@ -1064,7 +1141,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/shared/product-search/product-search.component.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/shared/components/product-search/product-search.component.ts:23</a></div>
                                 </td>
                             </tr>
     
@@ -1077,8 +1154,9 @@
 
     <div class="tab-pane fade tab-source-code" id="source">
         <pre class="line-numbers"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
 
-import { ProductSearchService } from &#x27;../../core/services/product-search/product-search.service&#x27;
+import { ProductSearchService } from &#x27;../../../core/services/product-search/product-search.service&#x27;
 
 @Component({
   selector: &#x27;app-product-search&#x27;,
@@ -1088,7 +1166,8 @@ import { ProductSearchService } from &#x27;../../core/services/product-search/pr
 export class ProductSearchComponent implements OnInit {
 
   constructor(
-    private productSearchService: ProductSearchService
+    private productSearchService: ProductSearchService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -1103,27 +1182,19 @@ export class ProductSearchComponent implements OnInit {
       (response) &#x3D;&gt; {
         //this.statesComplex &#x3D; JSON.stringify(response)
         for(let res of response) {
-         this.statesComplex.push(res.product_name) 
+         this.statesComplex.push({
+           name: res.product_name,
+           id: res.id
+         }) 
         }
       },
       error &#x3D;&gt; error
     )
   }
 
- /* &#x27;Alabama&#x27;, &#x27;Alaska&#x27;, &#x27;Arizona&#x27;, &#x27;Arkansas&#x27;,
-    &#x27;California&#x27;, &#x27;Colorado&#x27;,
-    &#x27;Connecticut&#x27;, &#x27;Delaware&#x27;, &#x27;Florida&#x27;, &#x27;Georgia&#x27;, &#x27;Hawaii&#x27;, &#x27;Idaho&#x27;,
-    &#x27;Illinois&#x27;, &#x27;Indiana&#x27;, &#x27;Iowa&#x27;,
-    &#x27;Kansas&#x27;, &#x27;Kentucky&#x27;, &#x27;Louisiana&#x27;, &#x27;Maine&#x27;, &#x27;Maryland&#x27;, &#x27;Massachusetts&#x27;,
-    &#x27;Michigan&#x27;, &#x27;Minnesota&#x27;,
-    &#x27;Mississippi&#x27;, &#x27;Missouri&#x27;, &#x27;Montana&#x27;, &#x27;Nebraska&#x27;, &#x27;Nevada&#x27;, &#x27;New Hampshire&#x27;,
-    &#x27;New Jersey&#x27;, &#x27;New Mexico&#x27;,
-    &#x27;New York&#x27;, &#x27;North Dakota&#x27;, &#x27;North Carolina&#x27;, &#x27;Ohio&#x27;, &#x27;Oklahoma&#x27;, &#x27;Oregon&#x27;,
-    &#x27;Pennsylvania&#x27;, &#x27;Rhode Island&#x27;,
-    &#x27;South Carolina&#x27;, &#x27;South Dakota&#x27;, &#x27;Tennessee&#x27;, &#x27;Texas&#x27;, &#x27;Utah&#x27;, &#x27;Vermont&#x27;,
-    &#x27;Virginia&#x27;, &#x27;Washington&#x27;,
-    &#x27;West Virginia&#x27;, &#x27;Wisconsin&#x27;, &#x27;Wyoming&#x27;
-*/
+  typeaheadOnSelect(event){
+    this.router.navigate([&#x27;/product/details/&#x27;, event.item.id])
+  }
 
 }
 </code></pre>
@@ -1137,7 +1208,8 @@ export class ProductSearchComponent implements OnInit {
         &lt;div class&#x3D;&quot;input-group search-bar&quot;&gt;
           &lt;input [(ngModel)]&#x3D;&quot;groupSelected&quot;
                  [typeahead]&#x3D;&quot;statesComplex&quot;
-                 typeaheadOptionField&#x3D;&quot;name&quot;                 
+                 typeaheadOptionField&#x3D;&quot;name&quot;
+                 (typeaheadOnSelect)&#x3D;&quot;typeaheadOnSelect($event)&quot;               
                  name&#x3D;&quot;groupSelected&quot;
                  class&#x3D;&quot;form-control&quot;/&gt;
 
@@ -1177,8 +1249,8 @@ export class ProductSearchComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><form autocomplete="off" class="pull-left" #searchForm="ngForm" >  <div class="row">    <div class="col-md-12">      <div class="form-group">        <div class="input-group search-bar">          <input [(ngModel)]="groupSelected"                 [typeahead]="statesComplex"                 typeaheadOptionField="name"                                  name="groupSelected"                 class="form-control"/>          <span class="input-group-btn">            <button type="submit" class="btn btn-default">              <i class="fa fa-search"></i>            </button>          </span>        </div>      </div>          </div>  </div></form></div>'
-    var COMPONENTS = [{'name': 'AddAddressComponent', 'selector': 'app-add-address'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressesComponent', 'selector': 'app-addresses'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CartProductListComponent', 'selector': 'app-cart-product-list'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'CheckoutFooterComponent', 'selector': 'app-checkout-footer'},{'name': 'CheckoutHeaderComponent', 'selector': 'app-checkout-header'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'EditAddressComponent', 'selector': 'app-edit-address'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'GuaranteeReturnPolicyComponent', 'selector': 'app-guarantee-return-policy'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PaymentComponent', 'selector': 'app-payment'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ProductComponent', 'selector': 'app-product'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductListComponent', 'selector': 'app-product-list'},{'name': 'ProductSearchComponent', 'selector': 'app-product-search'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProfileDropdownComponent', 'selector': 'app-profile-dropdown'},{'name': 'RateModalComponent', 'selector': 'app-rate-modal'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SharedComponent', 'selector': 'app-shared'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'TermsConditionsComponent', 'selector': 'app-terms-conditions'},{'name': 'UserComponent', 'selector': 'app-user'}];
+        var COMPONENT_TEMPLATE = '<div><form autocomplete="off" class="pull-left" #searchForm="ngForm" >  <div class="row">    <div class="col-md-12">      <div class="form-group">        <div class="input-group search-bar">          <input [(ngModel)]="groupSelected"                 [typeahead]="statesComplex"                 typeaheadOptionField="name"                 (typeaheadOnSelect)="typeaheadOnSelect($event)"                                name="groupSelected"                 class="form-control"/>          <span class="input-group-btn">            <button type="submit" class="btn btn-default">              <i class="fa fa-search"></i>            </button>          </span>        </div>      </div>          </div>  </div></form></div>'
+    var COMPONENTS = [{'name': 'AddAddressComponent', 'selector': 'app-add-address'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressesComponent', 'selector': 'app-addresses'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CartProductListComponent', 'selector': 'app-cart-product-list'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'CheckoutFooterComponent', 'selector': 'app-checkout-footer'},{'name': 'CheckoutHeaderComponent', 'selector': 'app-checkout-header'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'EditAddressComponent', 'selector': 'app-edit-address'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'GuaranteeReturnPolicyComponent', 'selector': 'app-guarantee-return-policy'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LocateUsComponent', 'selector': 'app-locate-us'},{'name': 'LocationComponent', 'selector': 'app-location'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PaymentComponent', 'selector': 'app-payment'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ProductComponent', 'selector': 'app-product'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductListComponent', 'selector': 'app-product-list'},{'name': 'ProductSearchComponent', 'selector': 'app-product-search'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProfileDropdownComponent', 'selector': 'app-profile-dropdown'},{'name': 'RateModalComponent', 'selector': 'app-rate-modal'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SharedComponent', 'selector': 'app-shared'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'TermsConditionsComponent', 'selector': 'app-terms-conditions'},{'name': 'ThankyouComponent', 'selector': 'app-thankyou'},{'name': 'UserComponent', 'selector': 'app-user'}];
     var DIRECTIVES = [{'name': 'EqualValidatorDirective', 'selector': '[validateEqual][formControlName],[validateEqual][formControl],[validateEqual][ngModel]'}];
     var ACTUAL_COMPONENT = {'name': 'ProductSearchComponent'};
 </script>

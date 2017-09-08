@@ -41,7 +41,7 @@ export class HeaderComponent implements OnInit {
 
   getCartItems(){
     if(this.isAuthenticated){
-      this.cartServerService.cartLength(this.currentUser).then(
+      this.cartServerService.cartLength().then(
         (response) => this.cartItems = response
       )
     } else {

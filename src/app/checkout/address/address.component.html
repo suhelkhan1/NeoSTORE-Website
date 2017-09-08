@@ -25,5 +25,8 @@
     <button [disabled]="!this.selectedAddress.length" (click)="goToPayment()" type="button" class="btn btn-default btn-lg">
       Next <i class="fa fa-angle-double-right"></i>
     </button>
+    <button [routerLink]="['/user/add/address']" type="button" class="btn btn-default btn-lg">
+      Add New <i class="fa fa-plus"></i>
+    </button>
   </div>
 </div>

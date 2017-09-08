@@ -178,6 +178,12 @@
                                     <a href="../components/HomeComponent.html" >HomeComponent</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../components/LocateUsComponent.html" >LocateUsComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/LocationComponent.html" >LocationComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/LoginComponent.html" >LoginComponent</a>
                                 </li>
                                 <li class="link">
@@ -224,6 +230,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../components/TermsConditionsComponent.html" >TermsConditionsComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/ThankyouComponent.html" >ThankyouComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/UserComponent.html" >UserComponent</a>
@@ -295,7 +304,19 @@
                                     <a href="../injectables/CartService.html" >CartService</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../injectables/CheckoutService.html" >CheckoutService</a>
+                                </li>
+                                <li class="link">
                                     <a href="../injectables/ColorService.html" >ColorService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/LocationService.html" >LocationService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/OrderService.html" >OrderService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/PdfGenerateService.html" >PdfGenerateService</a>
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/ProductCategoryService.html" >ProductCategoryService</a>
@@ -566,6 +587,12 @@
                                            <a href="../components/HomeComponent.html" >HomeComponent</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../components/LocateUsComponent.html" >LocateUsComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/LocationComponent.html" >LocationComponent</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../components/LoginComponent.html" >LoginComponent</a>
                                        </li>
                                        <li class="link">
@@ -612,6 +639,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../components/TermsConditionsComponent.html" >TermsConditionsComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/ThankyouComponent.html" >ThankyouComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/UserComponent.html" >UserComponent</a>
@@ -683,7 +713,19 @@
                                            <a href="../injectables/CartService.html" >CartService</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../injectables/CheckoutService.html" >CheckoutService</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../injectables/ColorService.html" >ColorService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/LocationService.html" >LocationService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/OrderService.html" >OrderService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/PdfGenerateService.html" >PdfGenerateService</a>
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/ProductCategoryService.html" >ProductCategoryService</a>
@@ -979,9 +1021,33 @@ export class ContactUsComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade" id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;p&gt;
-  contact-us works!
-&lt;/p&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;jumbotron&quot;&gt;
+  &lt;div class&#x3D;&quot;container form-center&quot;&gt;
+    &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+      &lt;form role&#x3D;&quot;form&quot;&gt;
+        &lt;br style&#x3D;&quot;clear:both&quot;&gt;
+        &lt;h3 style&#x3D;&quot;margin-bottom: 25px; text-align: center;&quot;&gt;Contact Form&lt;/h3&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;name&quot; name&#x3D;&quot;name&quot; placeholder&#x3D;&quot;Name&quot; required&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;email&quot; name&#x3D;&quot;email&quot; placeholder&#x3D;&quot;Email&quot; required&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;mobile&quot; name&#x3D;&quot;mobile&quot; placeholder&#x3D;&quot;Mobile Number&quot; required&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;subject&quot; name&#x3D;&quot;subject&quot; placeholder&#x3D;&quot;Subject&quot; required&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;textarea class&#x3D;&quot;form-control&quot; type&#x3D;&quot;textarea&quot; id&#x3D;&quot;message&quot; placeholder&#x3D;&quot;Message&quot; maxlength&#x3D;&quot;140&quot; rows&#x3D;&quot;7&quot;&gt;&lt;/textarea&gt;
+        &lt;/div&gt;
+
+        &lt;button type&#x3D;&quot;button&quot; id&#x3D;&quot;submit&quot; name&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-primary pull-right&quot;&gt;Submit Form&lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 </code></pre>
     </div>
 
@@ -1008,8 +1074,8 @@ export class ContactUsComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><p>  contact-us works!</p></div>'
-    var COMPONENTS = [{'name': 'AddAddressComponent', 'selector': 'app-add-address'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressesComponent', 'selector': 'app-addresses'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CartProductListComponent', 'selector': 'app-cart-product-list'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'CheckoutFooterComponent', 'selector': 'app-checkout-footer'},{'name': 'CheckoutHeaderComponent', 'selector': 'app-checkout-header'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'EditAddressComponent', 'selector': 'app-edit-address'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'GuaranteeReturnPolicyComponent', 'selector': 'app-guarantee-return-policy'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PaymentComponent', 'selector': 'app-payment'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ProductComponent', 'selector': 'app-product'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductListComponent', 'selector': 'app-product-list'},{'name': 'ProductSearchComponent', 'selector': 'app-product-search'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProfileDropdownComponent', 'selector': 'app-profile-dropdown'},{'name': 'RateModalComponent', 'selector': 'app-rate-modal'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SharedComponent', 'selector': 'app-shared'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'TermsConditionsComponent', 'selector': 'app-terms-conditions'},{'name': 'UserComponent', 'selector': 'app-user'}];
+        var COMPONENT_TEMPLATE = '<div><div class="jumbotron">  <div class="container form-center">    <div class="col-md-6">      <form role="form">        <br style="clear:both">        <h3 style="margin-bottom: 25px; text-align: center;">Contact Form</h3>        <div class="form-group">          <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>        </div>        <div class="form-group">          <input type="text" class="form-control" id="email" name="email" placeholder="Email" required>        </div>        <div class="form-group">          <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile Number" required>        </div>        <div class="form-group">          <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>        </div>        <div class="form-group">          <textarea class="form-control" type="textarea" id="message" placeholder="Message" maxlength="140" rows="7"></textarea>        </div>        <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Submit Form</button>      </form>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AddAddressComponent', 'selector': 'app-add-address'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressesComponent', 'selector': 'app-addresses'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CartProductListComponent', 'selector': 'app-cart-product-list'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'CheckoutFooterComponent', 'selector': 'app-checkout-footer'},{'name': 'CheckoutHeaderComponent', 'selector': 'app-checkout-header'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'EditAddressComponent', 'selector': 'app-edit-address'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'GuaranteeReturnPolicyComponent', 'selector': 'app-guarantee-return-policy'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LocateUsComponent', 'selector': 'app-locate-us'},{'name': 'LocationComponent', 'selector': 'app-location'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PaymentComponent', 'selector': 'app-payment'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ProductComponent', 'selector': 'app-product'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductListComponent', 'selector': 'app-product-list'},{'name': 'ProductSearchComponent', 'selector': 'app-product-search'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProfileDropdownComponent', 'selector': 'app-profile-dropdown'},{'name': 'RateModalComponent', 'selector': 'app-rate-modal'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SharedComponent', 'selector': 'app-shared'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'TermsConditionsComponent', 'selector': 'app-terms-conditions'},{'name': 'ThankyouComponent', 'selector': 'app-thankyou'},{'name': 'UserComponent', 'selector': 'app-user'}];
     var DIRECTIVES = [{'name': 'EqualValidatorDirective', 'selector': '[validateEqual][formControlName],[validateEqual][formControl],[validateEqual][ngModel]'}];
     var ACTUAL_COMPONENT = {'name': 'ContactUsComponent'};
 </script>

@@ -178,6 +178,12 @@
                                     <a href="../components/HomeComponent.html" >HomeComponent</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../components/LocateUsComponent.html" >LocateUsComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/LocationComponent.html" >LocationComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/LoginComponent.html" >LoginComponent</a>
                                 </li>
                                 <li class="link">
@@ -224,6 +230,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../components/TermsConditionsComponent.html" >TermsConditionsComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/ThankyouComponent.html" >ThankyouComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/UserComponent.html" >UserComponent</a>
@@ -295,7 +304,19 @@
                                     <a href="../injectables/CartService.html" >CartService</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../injectables/CheckoutService.html" >CheckoutService</a>
+                                </li>
+                                <li class="link">
                                     <a href="../injectables/ColorService.html" >ColorService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/LocationService.html" >LocationService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/OrderService.html" >OrderService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/PdfGenerateService.html" >PdfGenerateService</a>
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/ProductCategoryService.html" >ProductCategoryService</a>
@@ -566,6 +587,12 @@
                                            <a href="../components/HomeComponent.html" >HomeComponent</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../components/LocateUsComponent.html" >LocateUsComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/LocationComponent.html" >LocationComponent</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../components/LoginComponent.html" >LoginComponent</a>
                                        </li>
                                        <li class="link">
@@ -612,6 +639,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../components/TermsConditionsComponent.html" >TermsConditionsComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/ThankyouComponent.html" >ThankyouComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/UserComponent.html" >UserComponent</a>
@@ -683,7 +713,19 @@
                                            <a href="../injectables/CartService.html" >CartService</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../injectables/CheckoutService.html" >CheckoutService</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../injectables/ColorService.html" >ColorService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/LocationService.html" >LocationService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/OrderService.html" >OrderService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/PdfGenerateService.html" >PdfGenerateService</a>
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/ProductCategoryService.html" >ProductCategoryService</a>
@@ -843,9 +885,6 @@
                                     <li>
                                          <a href="#current_user_accesToken">current_user_accesToken</a>
                                     </li>
-                                    <li>
-                                         <a href="#url">url</a>
-                                    </li>
                                 </ul>
                             </td>
                         </tr>
@@ -884,7 +923,7 @@
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/core/services/user/user.service.ts:9</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/core/services/user/user.service.ts:10</a></div>
                                         </td>
                                     </tr>
             
@@ -1046,34 +1085,6 @@
             
                         </tbody>
                     </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <a name="url"></a>
-                                    <b> url</b>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <code>url:     <code></code>
-            </code>
-                                </td>
-                            </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <i>Default value : </i><code>http://10.0.100.213:3000/api/user_accounts</code>
-                                    </td>
-                                </tr>
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/core/services/user/user.service.ts:14</a></div>
-                                        </td>
-                                    </tr>
-            
-            
-                        </tbody>
-                    </table>
             </section>
     </div>
 
@@ -1084,6 +1095,7 @@ import { Observable } from &#x27;rxjs&#x27;
 import { Http, Response, Headers, RequestOptions } from &#x27;@angular/http&#x27;
 
 import { IUser } from &#x27;../../models/user.model&#x27;
+import { userUrl } from &#x27;../../apiUrls&#x27;;
 
 
 @Injectable()
@@ -1092,12 +1104,11 @@ export class UserService {
   constructor(
     private http: Http
   ) { }
-  url &#x3D; &#x27;http://10.0.100.213:3000/api/user_accounts&#x27;
   current_user_accesToken &#x3D; JSON.parse(localStorage.getItem(&#x27;currentAppUser&#x27;))
   curent_user_userId &#x3D; JSON.parse(localStorage.getItem(&#x27;currentAppUserId&#x27;))
 
   getUserDetails(): Observable&lt;IUser&gt;{
-    return this.http.get( this.url + &#x27;/&#x27; + this.curent_user_userId + &#x27;?access_token&#x3D;&#x27; + this.current_user_accesToken).map((response: Response) &#x3D;&gt; {
+    return this.http.get( userUrl + this.curent_user_userId + &#x27;?access_token&#x3D;&#x27; + this.current_user_accesToken).map((response: Response) &#x3D;&gt; {
       return &lt;IUser&gt;response.json()
     }).catch(this.handleError)
   }
@@ -1106,7 +1117,7 @@ export class UserService {
   updateUser(userInfo){
     let headers &#x3D; new Headers({ &#x27;Content-Type&#x27;: &#x27;application/json&#x27;});
     let options &#x3D; new RequestOptions({headers: headers});
-    return this.http.patch(this.url +&#x27;/&#x27;+ this.curent_user_userId + &#x27;?access_token&#x3D;&#x27;+ this.current_user_accesToken, JSON.stringify(userInfo), options).map( (response: Response) &#x3D;&gt; {
+    return this.http.patch(userUrl + this.curent_user_userId + &#x27;?access_token&#x3D;&#x27;+ this.current_user_accesToken, JSON.stringify(userInfo), options).map( (response: Response) &#x3D;&gt; {
       return &lt;IUser&gt;response.json()
     }).catch(this.handleError)
   }

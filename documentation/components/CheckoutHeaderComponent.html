@@ -178,6 +178,12 @@
                                     <a href="../components/HomeComponent.html" >HomeComponent</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../components/LocateUsComponent.html" >LocateUsComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/LocationComponent.html" >LocationComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/LoginComponent.html" >LoginComponent</a>
                                 </li>
                                 <li class="link">
@@ -224,6 +230,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../components/TermsConditionsComponent.html" >TermsConditionsComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/ThankyouComponent.html" >ThankyouComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/UserComponent.html" >UserComponent</a>
@@ -295,7 +304,19 @@
                                     <a href="../injectables/CartService.html" >CartService</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../injectables/CheckoutService.html" >CheckoutService</a>
+                                </li>
+                                <li class="link">
                                     <a href="../injectables/ColorService.html" >ColorService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/LocationService.html" >LocationService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/OrderService.html" >OrderService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/PdfGenerateService.html" >PdfGenerateService</a>
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/ProductCategoryService.html" >ProductCategoryService</a>
@@ -566,6 +587,12 @@
                                            <a href="../components/HomeComponent.html" >HomeComponent</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../components/LocateUsComponent.html" >LocateUsComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/LocationComponent.html" >LocationComponent</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../components/LoginComponent.html" >LoginComponent</a>
                                        </li>
                                        <li class="link">
@@ -612,6 +639,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../components/TermsConditionsComponent.html" >TermsConditionsComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/ThankyouComponent.html" >ThankyouComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/UserComponent.html" >UserComponent</a>
@@ -683,7 +713,19 @@
                                            <a href="../injectables/CartService.html" >CartService</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../injectables/CheckoutService.html" >CheckoutService</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../injectables/ColorService.html" >ColorService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/LocationService.html" >LocationService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/OrderService.html" >OrderService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/PdfGenerateService.html" >PdfGenerateService</a>
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/ProductCategoryService.html" >ProductCategoryService</a>
@@ -1317,7 +1359,7 @@ export class CheckoutHeaderComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><nav class="navbar navbar-default">  <div class="container">    <!-- Brand and toggle get grouped for better mobile display -->    <div class="navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">        <span class="sr-only">Toggle navigation</span>        <span class="icon-bar"></span>        <span class="icon-bar"></span>        <span class="icon-bar"></span>      </button>       <a class="navbar-brand" [routerLink]="[\'/\']" >        <i class="fa fa-shopping-bag fa-lg" aria-hidden="true"> <strong >NeoSTORE</strong> </i>      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="collapse navbar-collapse">      <ul class="nav navbar-nav ">        <li [ngClass]="{ \'active\': isActiveRoute(\'cart\')}" >            <a [ngClass]="{\'can-click\': checkIfClickable(\'cart\') }"                [routerLink]="getRouterLink(\'cart\')">Bag</a>        </li>        <li class="line"></li>        <li [ngClass]="{ \'active\': isActiveRoute(\'address\')}">            <a [ngClass]="{\'can-click\': checkIfClickable(\'address\')}"                [routerLink]="getRouterLink(\'address\')">Delivery</a>                    </li>        <li class="line"></li>        <li [ngClass]="{ \'active\': isActiveRoute(\'payment\')}">            <a [ngClass]="{\'can-click\': checkIfClickable(\'payment\')}"                [routerLink]="getRouterLink(\'payment\')">Payment</a>                    </li>      </ul>      <ol class="nav navbar-nav navbar-right">        <li>          <a disabled ><i class="fa fa-lock fa-lg" aria-hidden="true"></i> 100% SECURE</a>        </li>              </ol>    </div>  </div></nav></div>'
-    var COMPONENTS = [{'name': 'AddAddressComponent', 'selector': 'app-add-address'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressesComponent', 'selector': 'app-addresses'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CartProductListComponent', 'selector': 'app-cart-product-list'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'CheckoutFooterComponent', 'selector': 'app-checkout-footer'},{'name': 'CheckoutHeaderComponent', 'selector': 'app-checkout-header'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'EditAddressComponent', 'selector': 'app-edit-address'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'GuaranteeReturnPolicyComponent', 'selector': 'app-guarantee-return-policy'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PaymentComponent', 'selector': 'app-payment'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ProductComponent', 'selector': 'app-product'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductListComponent', 'selector': 'app-product-list'},{'name': 'ProductSearchComponent', 'selector': 'app-product-search'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProfileDropdownComponent', 'selector': 'app-profile-dropdown'},{'name': 'RateModalComponent', 'selector': 'app-rate-modal'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SharedComponent', 'selector': 'app-shared'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'TermsConditionsComponent', 'selector': 'app-terms-conditions'},{'name': 'UserComponent', 'selector': 'app-user'}];
+    var COMPONENTS = [{'name': 'AddAddressComponent', 'selector': 'app-add-address'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressesComponent', 'selector': 'app-addresses'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CartProductListComponent', 'selector': 'app-cart-product-list'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'CheckoutFooterComponent', 'selector': 'app-checkout-footer'},{'name': 'CheckoutHeaderComponent', 'selector': 'app-checkout-header'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'EditAddressComponent', 'selector': 'app-edit-address'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'GuaranteeReturnPolicyComponent', 'selector': 'app-guarantee-return-policy'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LocateUsComponent', 'selector': 'app-locate-us'},{'name': 'LocationComponent', 'selector': 'app-location'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PaymentComponent', 'selector': 'app-payment'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ProductComponent', 'selector': 'app-product'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductListComponent', 'selector': 'app-product-list'},{'name': 'ProductSearchComponent', 'selector': 'app-product-search'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProfileDropdownComponent', 'selector': 'app-profile-dropdown'},{'name': 'RateModalComponent', 'selector': 'app-rate-modal'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SharedComponent', 'selector': 'app-shared'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'TermsConditionsComponent', 'selector': 'app-terms-conditions'},{'name': 'ThankyouComponent', 'selector': 'app-thankyou'},{'name': 'UserComponent', 'selector': 'app-user'}];
     var DIRECTIVES = [{'name': 'EqualValidatorDirective', 'selector': '[validateEqual][formControlName],[validateEqual][formControl],[validateEqual][ngModel]'}];
     var ACTUAL_COMPONENT = {'name': 'CheckoutHeaderComponent'};
 </script>

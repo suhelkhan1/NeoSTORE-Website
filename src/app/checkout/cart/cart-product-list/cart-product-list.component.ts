@@ -16,6 +16,7 @@ import { element } from 'protractor';
 export class CartProductListComponent implements OnInit {
 
   cartItems: any[] = []
+  errorMesaage: string = ''
   public productQty: number[];
 
   subTotal: number = 0
@@ -105,6 +106,38 @@ export class CartProductListComponent implements OnInit {
     this.getLocalCart()
     this.subTotalCalc()
     this.calulateTax()
+  }
+
+  deleteCartItemServer(cartId){
+    this.cartServerService.deleteCart(cartId).subscribe(
+      (response) =>{
+        this.getServerCart()
+        return response
+      }
+    )
+  }
+
+  updateQtyServer(cartItem, flag){
+    if(flag == 'up'){
+      cartItem.productqty ++
+      this.updateCart(cartItem)
+    } else if(flag == 'down'){
+      if(cartItem.productqty > 1){
+        cartItem.productqty --
+        this.updateCart(cartItem)
+      }
+    }
+  }
+
+  updateCart(cartItem){
+    this.cartServerService.updateCartQty(cartItem).subscribe(
+      (response) => {
+        this.getServerCart()
+      },
+      (error) =>{
+        this.errorMesaage = error
+      }
+    )
   }
 
   upQuantity(index:number){

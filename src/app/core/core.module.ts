@@ -18,6 +18,7 @@ import { CartServerService } from './services/cart-server/cart-server.service'
 import { CheckoutService } from './services/checkout/checkout.service';
 import { OrderService } from './services/order/order.service';
 import { PdfGenerateService } from './services/pdf/pdf-generate.service';
+import { LocationService } from './services/location/location.service';
 
 /*+-+-+-+-+-+-+-+-+-+-+-+- GUARDS +-+-+-+-+-+-+-+-+-+-+-+-*/
 import { AuthGuard } from './guards/auth/auth.guard'
@@ -51,7 +52,8 @@ import { AuthGuard } from './guards/auth/auth.guard'
     CartServerService, 
     CheckoutService,
     OrderService,
-    PdfGenerateService
+    PdfGenerateService,
+    LocationService
   ],
   exports: [
   

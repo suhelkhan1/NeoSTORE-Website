@@ -5,7 +5,8 @@
     </span>
     <span>Order No: {{or.order.id}}</span>
     <div>
-      <small>Placed on {{or.order.createon}} / {{or.order.ordertotal | currency:'INR':true:'1.0-0'}}</small>
+      <small>Placed on {{or.order.createon}} / </small>
+      <small class="text-success"><strong>{{or.order.ordertotal | currency:'INR':true:'1.0-0'}}</strong></small>
     </div>
     <hr>
   </div>

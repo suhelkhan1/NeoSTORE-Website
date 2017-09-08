@@ -10,12 +10,15 @@ import { StarRatingModule } from 'angular-star-rating'; //Rating Star Module
 import { BreadcrumbModule } from 'angular2-crumbs'; //Angular2 Breadcrumbs
 import { InfiniteScrollModule } from 'angular2-infinite-scroll'; //Angular2 Infinite Scroll
 import { ShareButtonsModule } from 'ngx-sharebuttons';// Angular socail share buttons
-import { ToastModule, ToastOptions } from 'ng2-toastr' // Angular Toaster
+import { ToastModule, ToastOptions } from 'ng2-toastr'; // Angular Toaster
+import { AgmCoreModule } from '@agm/core'; //Angular 2 Google Maps
 
 /*+-+-+-+-+-+-+-+-+-+-+-+- Components +-+-+-+-+-+-+-+-+-+-+-+-*/
 import { SharedComponent } from './shared.component';
-import { PageNotFoundComponent } from './error-pages/page-not-found/page-not-found.component';
-import { ProductSearchComponent } from './product-search/product-search.component'
+import { PageNotFoundComponent } from './components/error-pages/page-not-found/page-not-found.component';
+import { ProductSearchComponent } from './components/product-search/product-search.component'
+import { ThankyouComponent } from './components/thankyou/thankyou.component';
+import { LocationComponent } from './components/location/location.component';
 
 /*+-+-+-+-+-+-+-+-+-+-+-+- Services +-+-+-+-+-+-+-+-+-+-+-+-*/
 import { ToastrService } from './services/toastr/toastr.service';
@@ -25,7 +28,6 @@ import { EqualValidatorDirective } from './directives/equal-validator.directive'
 
 /*+-+-+-+-+-+-+-+-+-+-+-+- Routes +-+-+-+-+-+-+-+-+-+-+-+-*/
 import { SharedRoutes as routes } from './shared.routes';
-import { ThankyouComponent } from './thankyou/thankyou.component';
 
 @NgModule({
   imports: [
@@ -37,14 +39,18 @@ import { ThankyouComponent } from './thankyou/thankyou.component';
     //BreadcrumbModule.forRoot(),
     InfiniteScrollModule,
     RouterModule.forChild(routes),
-    ToastModule.forRoot()
+    ToastModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDIc9JPEx_28T-43HG6bK-CtB7Z2KmaY9o'
+    })
   ],
   declarations: [
     PageNotFoundComponent,
     SharedComponent,
     EqualValidatorDirective,
     ProductSearchComponent,
-    ThankyouComponent
+    ThankyouComponent,
+    LocationComponent
   ],
   providers:[
     { provide: ToastOptions, useClass: ToastrService },
@@ -58,7 +64,8 @@ import { ThankyouComponent } from './thankyou/thankyou.component';
     EqualValidatorDirective,
     PageNotFoundComponent,
     ProductSearchComponent,
-    ToastModule
+    ToastModule,
+    AgmCoreModule
   ]
 })
 export class SharedModule { }

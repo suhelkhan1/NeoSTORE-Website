@@ -2,19 +2,19 @@
   position: relative;
   min-height: 100%;
 }*/
-.footer {
+/*.footer {
   position: relative;
   top: 100%;
   bottom: 0;
   width: 100%;
-  /* Set the fixed height of the footer here */
+ 
   height: 100%;
-  background-color: #e7e7e7;
-}
+  background-color: #e91b1a;
+  color: white
+}*/
 
-.footer .text-muted {
-    margin: 20px 0;
-    text-align: center;
+a {
+  color: white
 }
 
 

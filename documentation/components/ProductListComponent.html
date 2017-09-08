@@ -178,6 +178,12 @@
                                     <a href="../components/HomeComponent.html" >HomeComponent</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../components/LocateUsComponent.html" >LocateUsComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/LocationComponent.html" >LocationComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/LoginComponent.html" >LoginComponent</a>
                                 </li>
                                 <li class="link">
@@ -224,6 +230,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../components/TermsConditionsComponent.html" >TermsConditionsComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/ThankyouComponent.html" >ThankyouComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/UserComponent.html" >UserComponent</a>
@@ -295,7 +304,19 @@
                                     <a href="../injectables/CartService.html" >CartService</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../injectables/CheckoutService.html" >CheckoutService</a>
+                                </li>
+                                <li class="link">
                                     <a href="../injectables/ColorService.html" >ColorService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/LocationService.html" >LocationService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/OrderService.html" >OrderService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/PdfGenerateService.html" >PdfGenerateService</a>
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/ProductCategoryService.html" >ProductCategoryService</a>
@@ -566,6 +587,12 @@
                                            <a href="../components/HomeComponent.html" >HomeComponent</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../components/LocateUsComponent.html" >LocateUsComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/LocationComponent.html" >LocationComponent</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../components/LoginComponent.html" >LoginComponent</a>
                                        </li>
                                        <li class="link">
@@ -612,6 +639,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../components/TermsConditionsComponent.html" >TermsConditionsComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/ThankyouComponent.html" >ThankyouComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/UserComponent.html" >UserComponent</a>
@@ -683,7 +713,19 @@
                                            <a href="../injectables/CartService.html" >CartService</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../injectables/CheckoutService.html" >CheckoutService</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../injectables/ColorService.html" >ColorService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/LocationService.html" >LocationService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/OrderService.html" >OrderService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/PdfGenerateService.html" >PdfGenerateService</a>
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/ProductCategoryService.html" >ProductCategoryService</a>
@@ -1979,7 +2021,10 @@ export class ProductListComponent implements OnInit {
     console.log(&#x27;Cart items&#x27;, cart)
     if(this.isAuthenticated){
       this.cartServerService.addToCartServer(cart).subscribe(
-        response &#x3D;&gt; response
+        response &#x3D;&gt; {
+          this.toastr.custom(&#x27;Added to cart&#x27;)
+          return response
+        }
       )
     } else {
       this.cartService.addToCart(product)
@@ -2033,8 +2078,8 @@ export class ProductListComponent implements OnInit {
           &lt;div class&#x3D;&quot;img-thumb&quot;&gt;
             &lt;img class&#x3D;&quot;img-reposive&quot; [src]&#x3D;&quot;product.images[0].ThumbURL250&quot; alt&#x3D;&quot;product_image&quot;&gt;
           &lt;/div&gt;
-          &lt;div class&#x3D;&quot;caption elipse-product&quot;&gt;
-            &lt;p&gt;&lt;a [routerLink]&#x3D;&quot;[&#x27;/product/details/&#x27;, product.id]&quot;&gt;{{product.product_name}}&lt;/a&gt;&lt;/p&gt;
+          &lt;div class&#x3D;&quot;caption&quot;&gt;
+            &lt;p class&#x3D;&quot;elipse-product&quot;&gt;&lt;a [routerLink]&#x3D;&quot;[&#x27;/product/details/&#x27;, product.id]&quot;&gt;{{product.product_name}}&lt;/a&gt;&lt;/p&gt;
             &lt;button (click)&#x3D;&quot;addToCart(product)&quot; class&#x3D;&quot;pull-right btn btn-danger btn-xs&quot;&gt;Add To Cart&lt;/button&gt;
             &lt;p&gt;&lt;strong&gt;{{product.product_cost | currency:&#x27;INR&#x27;:true:&#x27;1.0-0&#x27;}}&lt;/strong&gt;&lt;/p&gt;
             &lt;fieldset class&#x3D;&quot;rating&quot;&gt;
@@ -2075,8 +2120,8 @@ export class ProductListComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="row">  <app-sidebar (colorFilter)="getProductsByColor($event)" (categoryFilter)="getProductByCategory($event)"></app-sidebar>  <div class="col-md-9 vertical-line">    <div class="row padding-row">      <h5 class="pull-left">{{categoryTitle}}</h5>      <div class="pull-right">        <tabset type="pills">          <tab (select)="sortByPopularProducts()" [active]="false" >            <template tabHeading>              <i class="fa fa-star" aria-hidden="true"></i>            </template>          </tab>          <tab (select)="sortByHighPrice()">            <template tabHeading>              <i class="fa fa-inr" aria-hidden="true"></i>              <i class="fa fa-arrow-up" aria-hidden="true"></i>            </template>          </tab>          <tab (select)="sortByLowPrice()">            <template tabHeading>              <i class="fa fa-inr" aria-hidden="true"></i>              <i class="fa fa-arrow-down" aria-hidden="true"></i>            </template>          </tab>        </tabset>      </div>      <h5 class="pull-right">Sort By : </h5>    </div>    <br>    <div *ngIf="productArray" [@listAnimation]="productArray.length" >      <div class="col-md-4"            *ngFor="let product of productArray"           infinite-scroll           [infiniteScrollDistance]="skip"           [infiniteScrollThrottle]="300"           (scrolled) ="lazyLoadingProducts()" >        <div class="thumbnail">          <div class="img-thumb">            <img class="img-reposive" [src]="product.images[0].ThumbURL250" alt="product_image">          </div>          <div class="caption elipse-product">            <p><a [routerLink]="[\'/product/details/\', product.id]">{{product.product_name}}</a></p>            <button (click)="addToCart(product)" class="pull-right btn btn-danger btn-xs">Add To Cart</button>            <p><strong>{{product.product_cost | currency:\'INR\':true:\'1.0-0\'}}</strong></p>            <fieldset class="rating">              <star-rating-comp [starType]="\'svg\'" [rating]="product.product_avg_rating" [size]="\'medium\'" [staticColor]="\'negative\'" [showHalfStars]="true"                [disabled]="true">              </star-rating-comp>            </fieldset>          </div>        </div>      </div>    </div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AddAddressComponent', 'selector': 'app-add-address'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressesComponent', 'selector': 'app-addresses'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CartProductListComponent', 'selector': 'app-cart-product-list'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'CheckoutFooterComponent', 'selector': 'app-checkout-footer'},{'name': 'CheckoutHeaderComponent', 'selector': 'app-checkout-header'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'EditAddressComponent', 'selector': 'app-edit-address'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'GuaranteeReturnPolicyComponent', 'selector': 'app-guarantee-return-policy'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PaymentComponent', 'selector': 'app-payment'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ProductComponent', 'selector': 'app-product'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductListComponent', 'selector': 'app-product-list'},{'name': 'ProductSearchComponent', 'selector': 'app-product-search'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProfileDropdownComponent', 'selector': 'app-profile-dropdown'},{'name': 'RateModalComponent', 'selector': 'app-rate-modal'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SharedComponent', 'selector': 'app-shared'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'TermsConditionsComponent', 'selector': 'app-terms-conditions'},{'name': 'UserComponent', 'selector': 'app-user'}];
+        var COMPONENT_TEMPLATE = '<div><div class="row">  <app-sidebar (colorFilter)="getProductsByColor($event)" (categoryFilter)="getProductByCategory($event)"></app-sidebar>  <div class="col-md-9 vertical-line">    <div class="row padding-row">      <h5 class="pull-left">{{categoryTitle}}</h5>      <div class="pull-right">        <tabset type="pills">          <tab (select)="sortByPopularProducts()" [active]="false" >            <template tabHeading>              <i class="fa fa-star" aria-hidden="true"></i>            </template>          </tab>          <tab (select)="sortByHighPrice()">            <template tabHeading>              <i class="fa fa-inr" aria-hidden="true"></i>              <i class="fa fa-arrow-up" aria-hidden="true"></i>            </template>          </tab>          <tab (select)="sortByLowPrice()">            <template tabHeading>              <i class="fa fa-inr" aria-hidden="true"></i>              <i class="fa fa-arrow-down" aria-hidden="true"></i>            </template>          </tab>        </tabset>      </div>      <h5 class="pull-right">Sort By : </h5>    </div>    <br>    <div *ngIf="productArray" [@listAnimation]="productArray.length" >      <div class="col-md-4"            *ngFor="let product of productArray"           infinite-scroll           [infiniteScrollDistance]="skip"           [infiniteScrollThrottle]="300"           (scrolled) ="lazyLoadingProducts()" >        <div class="thumbnail">          <div class="img-thumb">            <img class="img-reposive" [src]="product.images[0].ThumbURL250" alt="product_image">          </div>          <div class="caption">            <p class="elipse-product"><a [routerLink]="[\'/product/details/\', product.id]">{{product.product_name}}</a></p>            <button (click)="addToCart(product)" class="pull-right btn btn-danger btn-xs">Add To Cart</button>            <p><strong>{{product.product_cost | currency:\'INR\':true:\'1.0-0\'}}</strong></p>            <fieldset class="rating">              <star-rating-comp [starType]="\'svg\'" [rating]="product.product_avg_rating" [size]="\'medium\'" [staticColor]="\'negative\'" [showHalfStars]="true"                [disabled]="true">              </star-rating-comp>            </fieldset>          </div>        </div>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AddAddressComponent', 'selector': 'app-add-address'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressesComponent', 'selector': 'app-addresses'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CartProductListComponent', 'selector': 'app-cart-product-list'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'CheckoutFooterComponent', 'selector': 'app-checkout-footer'},{'name': 'CheckoutHeaderComponent', 'selector': 'app-checkout-header'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'EditAddressComponent', 'selector': 'app-edit-address'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'GuaranteeReturnPolicyComponent', 'selector': 'app-guarantee-return-policy'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LocateUsComponent', 'selector': 'app-locate-us'},{'name': 'LocationComponent', 'selector': 'app-location'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PaymentComponent', 'selector': 'app-payment'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ProductComponent', 'selector': 'app-product'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductListComponent', 'selector': 'app-product-list'},{'name': 'ProductSearchComponent', 'selector': 'app-product-search'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProfileDropdownComponent', 'selector': 'app-profile-dropdown'},{'name': 'RateModalComponent', 'selector': 'app-rate-modal'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SharedComponent', 'selector': 'app-shared'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'TermsConditionsComponent', 'selector': 'app-terms-conditions'},{'name': 'ThankyouComponent', 'selector': 'app-thankyou'},{'name': 'UserComponent', 'selector': 'app-user'}];
     var DIRECTIVES = [{'name': 'EqualValidatorDirective', 'selector': '[validateEqual][formControlName],[validateEqual][formControl],[validateEqual][ngModel]'}];
     var ACTUAL_COMPONENT = {'name': 'ProductListComponent'};
 </script>

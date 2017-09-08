@@ -12,7 +12,6 @@ export class ProductService {
     private http: Http
   ) { }
 
-
   getProducts(skip): Observable<IProduct>{
     return this.http.get(productUrl+ '?filter={"include":"images" ,"limit":"6", "skip":"'+ skip +'"}').map( (response: Response) => {
       return <IProduct>response.json()

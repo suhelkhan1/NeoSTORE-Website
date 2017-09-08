@@ -89,24 +89,7 @@ export class AuthServiceLocal {
   ifLoggedIn(){
     return this.loggedIn
   }
-
-  /*isAuthenticated(): Promise<any>{
-    let current_user_accesToken = JSON.parse(localStorage.getItem('currentAppUser'))
-    let curent_user_userId = JSON.parse(localStorage.getItem('currentAppUserId'))
-    if(current_user_accesToken == null){
-      this.loggedIn = false 
-      return Promise.resolve(false)
-    } else {
-      return this.http
-             .get(userUrl + curent_user_userId + '?access_token=' + current_user_accesToken)
-             .toPromise()
-             .then( (response)=>{
-               return response.ok
-             })
-             .catch(this.handleErrorPromise)
-    }
-  }*/
-
+  
   isAuthenticated(): Observable<boolean>{
     let current_user_accesToken = JSON.parse(localStorage.getItem('currentAppUser'))
     let curent_user_userId = JSON.parse(localStorage.getItem('currentAppUserId'))

@@ -1,6 +1,6 @@
 <hr>
 <div class="col-md-8">
-  <table class="table table-hover" *ngIf="cartItems.length >= 1" >
+  <table class="table table-hover" *ngIf="cartItems.length >= 1">
     <thead>
       <tr>
         <th>Product</th>
@@ -15,29 +15,38 @@
         <td class="col-sm-8 col-md-6">
           <div class="media">
             <div class="media-left">
-              <a >
+              <a>
               <img class="media-object cover" [src]="item.images[0].ThumbURL100" > 
             </a>
             </div>
 
             <div class="media-body">
-              <h4 class="media-heading"><a >{{item.product_name}}</a></h4>
-              <h5 class="media-heading"> by <a >{{item.product_producer}}</a></h5>
+              <h4 class="media-heading"><a>{{item.product_name}}</a></h4>
+              <h5 class="media-heading"> by <a>{{item.product_producer}}</a></h5>
               <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
             </div>
           </div>
         </td>
         <td class="col-sm-1 col-md-2 text-center">
-          <i (click)="downQuantity(i)" class="fa fa-minus-circle"></i>
-          <input type="number" disabled [(ngModel)]="productQty[i]" class="text-center quantity">
-          <i (click)="upQuantity(i)" class="fa fa-plus-circle"></i>
+          <i *ngIf="!isAuthenticate" (click)="downQuantity(i)" class="fa fa-minus-circle"></i>
+          <i *ngIf="isAuthenticate"  (click)="updateQtyServer(item, 'down')" class="fa fa-minus-circle"></i>
+
+          <input *ngIf="!isAuthenticate" type="number" disabled [(ngModel)]="productQty[i]" class="text-center quantity">
+          <input *ngIf="isAuthenticate"  type="number" disabled [ngModel]="item.productqty" class="text-center quantity">
+
+          <i *ngIf="!isAuthenticate" (click)="upQuantity(i)" class="fa fa-plus-circle"></i>
+          <i *ngIf="isAuthenticate" (click)="updateQtyServer(item, 'up')" class="fa fa-plus-circle"></i>
         </td>
         <td class="col-sm-1 col-md-1 text-center"><strong>{{item.product_cost | currency:'INR':true:'1.0-0'}}</strong></td>
         <td class="col-sm-1 col-md-1 text-center"><strong>{{item.product_cost*productQty[i] | currency:'INR':true:'1.0-0'}}</strong></td>
         <td class="col-sm-1 col-md-1">
-          <button (click)="deleteCartItem(i)" type="button" class="btn btn-sm btn-danger">
+          <button *ngIf="!isAuthenticate" (click)="deleteCartItem(i)" type="button" class="btn btn-sm btn-danger">
             <i class="fa fa-trash"></i>
-          </button></td>
+          </button>
+          <button *ngIf="isAuthenticate" (click)="deleteCartItemServer(item.id)" type="button" class="btn btn-sm btn-danger">
+            <i class="fa fa-trash"></i>
+          </button>
+        </td>
       </tr>
 
     </tbody>
@@ -50,7 +59,7 @@
     <div class="panel-heading text-center panel-heading-custom">
       <h4>Review Order</h4>
     </div>
-    <div class="panel-body"  >
+    <div class="panel-body">
       <div class="col-md-12">
         <strong>Subtotal (# items {{cartItems.length}})</strong>
         <div class="pull-right"><span>{{subTotal | currency:'INR':true:'1.0-0'}}</span></div>
@@ -77,4 +86,3 @@
     </span>
   </div>
 </div>
-

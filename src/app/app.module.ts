@@ -40,7 +40,7 @@ import { AppRoutingModule } from './app.routes';
     ProductModule,
     CheckoutModule,
     InformationModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [
   ],
