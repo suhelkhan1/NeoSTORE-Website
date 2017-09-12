@@ -22,7 +22,7 @@
 
             <div class="media-body">
               <h4 class="media-heading"><a>{{item.product_name}}</a></h4>
-              <h5 class="media-heading"> by <a>{{item.product_producer}}</a></h5>
+              <h5 class="media-heading"> by <a><small>{{item.product_producer}}</small></a></h5>
               <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
             </div>
           </div>
@@ -54,7 +54,7 @@
 </div>
 
 
-<div class="col-md-4 " *ngIf="cartItems.length >= 1">
+<div class="col-md-4" *ngIf="cartItems.length >= 1">
   <div class="panel panel-default">
     <div class="panel-heading text-center panel-heading-custom">
       <h4>Review Order</h4>

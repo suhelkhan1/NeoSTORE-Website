@@ -9,6 +9,7 @@
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	    <link rel="stylesheet" href="../styles/style.css">
+                 <link rel="stylesheet" href="../styles/stripe.css">
     </head>
     <body>
 
@@ -268,9 +269,6 @@
                         <ul class="links collapse "
                                 id="xs-classes-links"
                             >
-                                <li class="link">
-                                    <a href="../classes/NeostoreWebsitePage.html" >NeostoreWebsitePage</a>
-                                </li>
                                 <li class="link">
                                     <a href="../classes/ToastrService.html" >ToastrService</a>
                                 </li>
@@ -678,9 +676,6 @@
                                        id="classes-links"
                    >
                                        <li class="link">
-                                           <a href="../classes/NeostoreWebsitePage.html" >NeostoreWebsitePage</a>
-                                       </li>
-                                       <li class="link">
                                            <a href="../classes/ToastrService.html" >ToastrService</a>
                                        </li>
                                </ul>
@@ -939,7 +934,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/core/services/product/product.service.ts:22</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/core/services/product/product.service.ts:21</a></div>
                                         </td>
                                     </tr>
             
@@ -971,7 +966,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/core/services/product/product.service.ts:28</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/core/services/product/product.service.ts:27</a></div>
                                         </td>
                                     </tr>
             
@@ -1003,7 +998,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/core/services/product/product.service.ts:16</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/core/services/product/product.service.ts:15</a></div>
                                         </td>
                                     </tr>
             
@@ -1035,7 +1030,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/core/services/product/product.service.ts:34</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/core/services/product/product.service.ts:33</a></div>
                                         </td>
                                     </tr>
             
@@ -1069,7 +1064,6 @@ export class ProductService {
   constructor(
     private http: Http
   ) { }
-
 
   getProducts(skip): Observable&lt;IProduct&gt;{
     return this.http.get(productUrl+ &#x27;?filter&#x3D;{&quot;include&quot;:&quot;images&quot; ,&quot;limit&quot;:&quot;6&quot;, &quot;skip&quot;:&quot;&#x27;+ skip +&#x27;&quot;}&#x27;).map( (response: Response) &#x3D;&gt; {

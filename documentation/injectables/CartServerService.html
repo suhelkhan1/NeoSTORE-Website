@@ -9,6 +9,7 @@
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	    <link rel="stylesheet" href="../styles/style.css">
+                 <link rel="stylesheet" href="../styles/stripe.css">
     </head>
     <body>
 
@@ -268,9 +269,6 @@
                         <ul class="links collapse "
                                 id="xs-classes-links"
                             >
-                                <li class="link">
-                                    <a href="../classes/NeostoreWebsitePage.html" >NeostoreWebsitePage</a>
-                                </li>
                                 <li class="link">
                                     <a href="../classes/ToastrService.html" >ToastrService</a>
                                 </li>
@@ -677,9 +675,6 @@
                                <ul class="links collapse "
                                        id="classes-links"
                    >
-                                       <li class="link">
-                                           <a href="../classes/NeostoreWebsitePage.html" >NeostoreWebsitePage</a>
-                                       </li>
                                        <li class="link">
                                            <a href="../classes/ToastrService.html" >ToastrService</a>
                                        </li>
@@ -1187,7 +1182,7 @@ export class CartServerService {
 }
 
   getCartServer(userId): Observable&lt;any&gt;{
-    return this.http.get(cartUrl + &#x27;getCart?userid&#x3D;&#x27; + userId).map((response: Response) &#x3D;&gt; {
+    return this.http.get(cartUrl + &#x27;getCart?userid&#x3D;&#x27; + userId ).map((response: Response) &#x3D;&gt; {
       return &lt;any&gt;response.json();
     }).catch(this.handleError)
   }
