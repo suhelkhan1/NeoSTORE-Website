@@ -852,13 +852,13 @@
 
 <img src="./images/coverage-badge.svg">
 
-<table class="table table-bordered coverage">
+<table class="table table-bordered coverage" id="coverage-table">
     <thead class="coverage-header">
         <tr>
             <th>File</th>
             <th>Type</th>
             <th>Identifier</th>
-            <th style="text-align:right">Statements</th>
+            <th style="text-align:right" class="statements" data-sort-default>Statements</th>
         </tr>
     </thead>
     <tbody>
@@ -872,7 +872,7 @@
             <td>
                 NeostoreWebsitePage
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/3)</span>
             </td>
@@ -887,7 +887,7 @@
             <td>
                 AppComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/9)</span>
             </td>
@@ -902,7 +902,7 @@
             <td>
                 LoginComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="7">
                 <span class="coverage-percent">7 %</span>
                 <span class="coverage-count">(1/13)</span>
             </td>
@@ -917,7 +917,7 @@
             <td>
                 RegisterComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/11)</span>
             </td>
@@ -932,7 +932,7 @@
             <td>
                 AddressComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/12)</span>
             </td>
@@ -947,7 +947,7 @@
             <td>
                 CartProductListComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/24)</span>
             </td>
@@ -962,7 +962,7 @@
             <td>
                 CartComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/3)</span>
             </td>
@@ -977,7 +977,7 @@
             <td>
                 CheckoutComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/3)</span>
             </td>
@@ -992,7 +992,7 @@
             <td>
                 PaymentComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/13)</span>
             </td>
@@ -1007,7 +1007,7 @@
             <td>
                 AuthGuard
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/3)</span>
             </td>
@@ -1022,7 +1022,7 @@
             <td>
                 IAddress
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/8)</span>
             </td>
@@ -1037,7 +1037,7 @@
             <td>
                 ICart
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/8)</span>
             </td>
@@ -1052,7 +1052,7 @@
             <td>
                 IColor
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/5)</span>
             </td>
@@ -1067,7 +1067,7 @@
             <td>
                 IProductCategory
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/6)</span>
             </td>
@@ -1082,7 +1082,7 @@
             <td>
                 IProductCategoryImage
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/10)</span>
             </td>
@@ -1097,7 +1097,7 @@
             <td>
                 IProduct
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/14)</span>
             </td>
@@ -1112,7 +1112,7 @@
             <td>
                 IProductImage
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/10)</span>
             </td>
@@ -1127,7 +1127,7 @@
             <td>
                 IRating
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/5)</span>
             </td>
@@ -1142,7 +1142,7 @@
             <td>
                 IUserLoginResponse
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/3)</span>
             </td>
@@ -1157,7 +1157,7 @@
             <td>
                 IUser
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/11)</span>
             </td>
@@ -1172,7 +1172,7 @@
             <td>
                 AuthServiceLocal
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/14)</span>
             </td>
@@ -1187,7 +1187,7 @@
             <td>
                 CartServerService
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/9)</span>
             </td>
@@ -1202,7 +1202,7 @@
             <td>
                 CartService
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/7)</span>
             </td>
@@ -1217,7 +1217,7 @@
             <td>
                 CheckoutService
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/10)</span>
             </td>
@@ -1232,7 +1232,7 @@
             <td>
                 ColorService
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/4)</span>
             </td>
@@ -1247,7 +1247,7 @@
             <td>
                 LocationService
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/3)</span>
             </td>
@@ -1262,7 +1262,7 @@
             <td>
                 OrderService
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/6)</span>
             </td>
@@ -1277,7 +1277,7 @@
             <td>
                 PdfGenerateService
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/3)</span>
             </td>
@@ -1292,7 +1292,7 @@
             <td>
                 ProductCategoryService
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/5)</span>
             </td>
@@ -1307,7 +1307,7 @@
             <td>
                 ProductFilterService
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/5)</span>
             </td>
@@ -1322,7 +1322,7 @@
             <td>
                 ProductSearchService
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/4)</span>
             </td>
@@ -1337,7 +1337,7 @@
             <td>
                 ProductSortService
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/9)</span>
             </td>
@@ -1352,7 +1352,7 @@
             <td>
                 ProductService
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/6)</span>
             </td>
@@ -1367,7 +1367,7 @@
             <td>
                 RatingService
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/6)</span>
             </td>
@@ -1382,7 +1382,7 @@
             <td>
                 AddressService
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/10)</span>
             </td>
@@ -1397,7 +1397,7 @@
             <td>
                 UserService
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/7)</span>
             </td>
@@ -1412,7 +1412,7 @@
             <td>
                 CheckoutFooterComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/3)</span>
             </td>
@@ -1427,7 +1427,7 @@
             <td>
                 CheckoutHeaderComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/9)</span>
             </td>
@@ -1442,7 +1442,7 @@
             <td>
                 FooterComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/3)</span>
             </td>
@@ -1457,7 +1457,7 @@
             <td>
                 HeaderComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/7)</span>
             </td>
@@ -1472,7 +1472,7 @@
             <td>
                 ProfileDropdownComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/7)</span>
             </td>
@@ -1487,7 +1487,7 @@
             <td>
                 HomeComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/7)</span>
             </td>
@@ -1502,7 +1502,7 @@
             <td>
                 ContactUsComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/3)</span>
             </td>
@@ -1517,7 +1517,7 @@
             <td>
                 GuaranteeReturnPolicyComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/3)</span>
             </td>
@@ -1532,7 +1532,7 @@
             <td>
                 LocateUsComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/5)</span>
             </td>
@@ -1547,7 +1547,7 @@
             <td>
                 PrivacyPolicyComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/3)</span>
             </td>
@@ -1562,7 +1562,7 @@
             <td>
                 TermsConditionsComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/3)</span>
             </td>
@@ -1577,9 +1577,9 @@
             <td>
                 ProductDetailsComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/11)</span>
+                <span class="coverage-count">(0/12)</span>
             </td>
         </tr>
         <tr class="low">
@@ -1592,7 +1592,7 @@
             <td>
                 RateModalComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/12)</span>
             </td>
@@ -1607,7 +1607,7 @@
             <td>
                 ProductListComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/26)</span>
             </td>
@@ -1622,7 +1622,7 @@
             <td>
                 SidebarComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/11)</span>
             </td>
@@ -1637,7 +1637,7 @@
             <td>
                 ProductComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/4)</span>
             </td>
@@ -1652,7 +1652,7 @@
             <td>
                 PageNotFoundComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/3)</span>
             </td>
@@ -1667,7 +1667,7 @@
             <td>
                 LocationComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/7)</span>
             </td>
@@ -1682,7 +1682,7 @@
             <td>
                 ProductSearchComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/7)</span>
             </td>
@@ -1697,7 +1697,7 @@
             <td>
                 ThankyouComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/3)</span>
             </td>
@@ -1712,7 +1712,7 @@
             <td>
                 EqualValidatorDirective
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/6)</span>
             </td>
@@ -1727,7 +1727,7 @@
             <td>
                 ToastrService
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/6)</span>
             </td>
@@ -1742,7 +1742,7 @@
             <td>
                 SharedComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/3)</span>
             </td>
@@ -1757,7 +1757,7 @@
             <td>
                 AddAddressComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/12)</span>
             </td>
@@ -1772,7 +1772,7 @@
             <td>
                 AddressesComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/6)</span>
             </td>
@@ -1787,7 +1787,7 @@
             <td>
                 EditAddressComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/14)</span>
             </td>
@@ -1802,7 +1802,7 @@
             <td>
                 OrdersComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/6)</span>
             </td>
@@ -1817,7 +1817,7 @@
             <td>
                 EditProfileComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/15)</span>
             </td>
@@ -1832,7 +1832,7 @@
             <td>
                 ProfileComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/5)</span>
             </td>
@@ -1847,13 +1847,19 @@
             <td>
                 UserComponent
             </td>
-            <td align="right">
+            <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/3)</span>
             </td>
         </tr>
     </tbody>
 </table>
+
+<script src="js/libs/tablesort.min.js"></script>
+<script src="js/libs/tablesort.number.min.js"></script>
+<script>
+    new Tablesort(document.getElementById('coverage-table'));
+</script>
 
                    </div><div class="search-results">
     <div class="has-results">

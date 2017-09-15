@@ -880,10 +880,11 @@ import { CartComponent } from &#x27;./cart/cart.component&#x27;
 
 import { AuthGuard } from &#x27;../core/guards/auth/auth.guard&#x27;
 import { NgModule } from &#x27;@angular/core&#x27;;
-import { RouterModule } from &#x27;@angular/router&#x27;;
+import { RouterModule, Routes } from &#x27;@angular/router&#x27;;
 import { CheckoutComponent } from &#x27;./checkout.component&#x27;;
 
-export const CheckoutRoutes &#x3D;[
+
+const CheckoutRoutes: Routes &#x3D;[
   {
     path: &#x27;&#x27;,
     component: CheckoutComponent,
