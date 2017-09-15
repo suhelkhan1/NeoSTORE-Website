@@ -38,7 +38,8 @@
           <i *ngIf="isAuthenticate" (click)="updateQtyServer(item, 'up')" class="fa fa-plus-circle"></i>
         </td>
         <td class="col-sm-1 col-md-1 text-center"><strong>{{item.product_cost | currency:'INR':true:'1.0-0'}}</strong></td>
-        <td class="col-sm-1 col-md-1 text-center"><strong>{{item.product_cost*productQty[i] | currency:'INR':true:'1.0-0'}}</strong></td>
+        <td *ngIf="!isAuthenticate" class="col-sm-1 col-md-1 text-center"><strong>{{item.product_cost*productQty[i] | currency:'INR':true:'1.0-0'}}</strong></td>
+        <td *ngIf="isAuthenticate" class="col-sm-1 col-md-1 text-center"><strong>{{item.product_cost*item.productqty | currency:'INR':true:'1.0-0'}}</strong></td>
         <td class="col-sm-1 col-md-1">
           <button *ngIf="!isAuthenticate" (click)="deleteCartItem(i)" type="button" class="btn btn-sm btn-danger">
             <i class="fa fa-trash"></i>
@@ -62,17 +63,17 @@
     <div class="panel-body">
       <div class="col-md-12">
         <strong>Subtotal (# items {{cartItems.length}})</strong>
-        <div class="pull-right"><span>{{subTotal | currency:'INR':true:'1.0-0'}}</span></div>
+        <div class="pull-right"><span *ngIf="subTotal" >{{subTotal | currency:'INR':true:'1.0-0'}}</span></div>
         <hr>
       </div>
       <div class="col-md-12">
         <strong>GST({{gstRate}}%)</strong>
-        <div class="pull-right"><span>{{taxTotal | currency:'INR':true:'1.0-0'}}</span></div>
+        <div class="pull-right"><span *ngIf="taxTotal">{{taxTotal | currency:'INR':true:'1.0-0'}}</span></div>
         <hr>
       </div>
       <div class="col-md-12">
         <strong>Order Total</strong>
-        <div class="pull-right"><span>{{grandTotal | currency:'INR':true:'1.0-0'}}</span></div>
+        <div class="pull-right"><span *ngIf="grandTotal">{{grandTotal | currency:'INR':true:'1.0-0'}}</span></div>
         <hr>
       </div>
       <button type="button" (click)="goToAddress(cartItems)" [disabled]="cartItems.length < 1" class="btn btn-primary btn-lg btn-block">Checkout</button>

@@ -34,8 +34,6 @@ export class CartProductListComponent implements OnInit {
     private router: Router
   ) {
     this.productQty = [1]
-    //this.productQty = this.productQty.map((el:any)=>0);
-    //this.cartItems = this.cartService.getCartItems()
   }
 
   ngOnInit() {
@@ -79,33 +77,15 @@ export class CartProductListComponent implements OnInit {
     }
   }
 
+  /**+*+*+*+*+*+*+*+*+*+***+*+*+* For logged in users +*+*+*+*+*+*+**+*+*+*+*+*+*+*+*+*+*/
   getServerCart(){
     this.cartServerService.getCartServer(this.currentUser).subscribe(
       (response) => {
         this.cartItems = response
-        for(let item of this.cartItems){
-          this.productQty.push(1)
-        }
-        this.subTotalCalc()
-        this.calulateTax()
+        this.getSubtotal()
+        this.getGst()
       }
     )
-  }
-
-  getLocalCart(){
-    this.cartItems = this.cartService.getCartItems()
-    for(let item of this.cartItems){
-      this.productQty.push(1)
-    }
-    this.subTotalCalc()
-    this.calulateTax()
-  }
-
-  deleteCartItem(index){
-    this.cartService.deleteCartItem(index)
-    this.getLocalCart()
-    this.subTotalCalc()
-    this.calulateTax()
   }
 
   deleteCartItemServer(cartId){
@@ -113,6 +93,17 @@ export class CartProductListComponent implements OnInit {
       (response) =>{
         this.getServerCart()
         return response
+      }
+    )
+  }
+
+  updateCart(cartItem){
+    this.cartServerService.updateCartQty(cartItem).subscribe(
+      (response) => {
+        this.getServerCart()
+      },
+      (error) =>{
+        this.errorMesaage = error
       }
     )
   }
@@ -129,15 +120,43 @@ export class CartProductListComponent implements OnInit {
     }
   }
 
-  updateCart(cartItem){
-    this.cartServerService.updateCartQty(cartItem).subscribe(
-      (response) => {
-        this.getServerCart()
-      },
-      (error) =>{
-        this.errorMesaage = error
-      }
-    )
+  /**+*+*+*+*+*+*+*+*+*+***+*+*+* Amount calculation +*+*+*+*+*+*+**+*+*+*+*+*+*+*+*+*+*/  
+  getSubtotal(){
+    this.subTotal = 0    
+    for(let item of this.cartItems){
+      this.subTotal = this.subTotal + (item.product_cost*item.productqty)
+    }
+  }
+
+  getGst(){
+    this.taxTotal = 0
+    for(let item of this.cartItems){
+      let itemCost = item.product_cost * item.productqty
+      this.taxTotal =  this.taxTotal + itemCost - ( itemCost - (itemCost * this.gstRate)/100 )
+    }
+    this.getTotal()
+  }
+
+  getTotal(){
+    this.grandTotal = this.subTotal + this.taxTotal
+  }
+  
+  /**+*+*+*+*+*+*+*+*+*+***+*+*+* For anonymous users +*+*+*+*+*+*+**+*+*+*+*+*+*+*+*+*+*/
+  
+  getLocalCart(){
+    this.cartItems = this.cartService.getCartItems()
+    for(let item of this.cartItems){
+      this.productQty.push(1)
+    }
+    this.subTotalCalc()
+    this.calulateTax()
+  }
+
+  deleteCartItem(index){
+    this.cartService.deleteCartItem(index)
+    this.getLocalCart()
+    this.subTotalCalc()
+    this.calulateTax()
   }
 
   upQuantity(index:number){
@@ -156,6 +175,8 @@ export class CartProductListComponent implements OnInit {
     }
   }
 
+  /**+*+*+*+*+*+*+*+*+*+***+*+*+* Amount calculation +*+*+*+*+*+*+**+*+*+*+*+*+*+*+*+*+*/
+  
   subTotalCalc(){
     let i = 0;
     this.subTotal = 0
