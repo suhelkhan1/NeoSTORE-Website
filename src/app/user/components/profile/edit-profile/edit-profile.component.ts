@@ -112,6 +112,17 @@ export class EditProfileComponent implements OnInit {
     )
   }
 
+  uploadImage(event){
+    console.log(event.target.files[0])
+    let userInfo = {
+      id: this.user.id,
+      file: event.target.files[0]
+    }
+    this.userService.uploadImage(userInfo).subscribe(
+      response => response
+    )
+  }
+
 
 
 

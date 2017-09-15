@@ -9,4 +9,14 @@ export interface IUser {
     phone_no: number,
     birth_date: string,
     username: string,
+    images: {
+        id: string,
+        userId: string,
+        name: string,
+        type: string,
+        isActive: boolean,
+        container: string,
+        ImgURL: string,
+        ThumbURL: string
+    }
 }

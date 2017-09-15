@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
-import { AuthServiceLocal } from '../core/services/auth/auth.service'
+import { UserService } from '../core/services/user/user.service'
 
 @Component({
   selector: 'app-user',
@@ -10,17 +10,26 @@ import { AuthServiceLocal } from '../core/services/auth/auth.service'
 export class UserComponent implements OnInit {
 
   constructor(
-    private authServiceLocal: AuthServiceLocal,
+    private userService: UserService,
     private router: Router
   ) { }
 
+  user: any
+  profilePic
+
   ngOnInit() {
-    this.authServiceLocal.isAuthenticated().subscribe(
+    this.userService.getUserDetails().subscribe(
       (response) => {
+        this.user = response
+        if(this.user.hasOwnProperty('images')){
+          this.profilePic = this.user.images.ImgURL
+        } else {
+          this.profilePic = 'http://soeasyloansonline.com.au/img/testimonial/noimg.png'
+        }
         return response
       },
       (error) => {
-        this.router.navigate(['/login'])
+        this.router.navigate(['/auth/login'])
       }
     )
   }

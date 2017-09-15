@@ -3,9 +3,10 @@
     <h2>Profile</h2>
     <hr>
   </div>
-  <div class="panel-body">
+  <div class="panel-body" *ngIf="user">
+  
     <table class="table borderless">
-      <tbody *ngIf="user" >
+      <tbody>
         <tr>
           <th>First Name</th>
           <td>{{user.first_name}}</td>

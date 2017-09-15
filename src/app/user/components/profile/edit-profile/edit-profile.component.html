@@ -7,12 +7,9 @@
 
       <div class="row">
         <div class="col-md-6">
-          <div class="form-group" >
-            <label for="firstName">First Name</label>         
-            <input type="text" 
-                   class="form-control" 
-                   formControlName="firstName" 
-                   [ngClass]="{ 'error' : firstName.invalid && firstName.dirty }">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" formControlName="firstName" [ngClass]="{ 'error' : firstName.invalid && firstName.dirty }">
           </div>
           <small class="text-danger" *ngIf="firstName.invalid && firstName.dirty">Please enter valid first name</small>
         </div>
@@ -20,12 +17,9 @@
 
       <div class="row">
         <div class="col-md-6">
-          <div class="form-group" >
-            <label for="lastName">Last Name</label>         
-            <input type="text" 
-                   class="form-control" 
-                   formControlName="lastName" 
-                   [ngClass]="{ 'error' : lastName.invalid && lastName.dirty }">
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" formControlName="lastName" [ngClass]="{ 'error' : lastName.invalid && lastName.dirty }">
           </div>
           <small class="text-danger" *ngIf="lastName.invalid && lastName.dirty">Please enter valid last name</small>
         </div>
@@ -33,8 +27,8 @@
 
       <div class="row">
         <div class="col-md-6">
-          <div class="form-group" >
-            <label for="gender">Gender</label>         
+          <div class="form-group">
+            <label for="gender">Gender</label>
             <div class="checkbox" [ngClass]="{ 'error' : gender.invalid && gender.dirty }">
               <label><input type="radio" formControlName="gender" value="male" name="gender"> <strong>Male</strong> </label>
               <label><input type="radio" formControlName="gender" value="female" name="gender"> <strong>Female</strong> </label>
@@ -46,12 +40,9 @@
 
       <div class="row">
         <div class="col-md-6">
-          <div class="form-group" >
-            <label for="dateOfBirth">Date of Birth</label>         
-            <input type="date" 
-                   class="form-control" 
-                   formControlName="dateOfBirth" 
-                   [ngClass]="{ 'error' : dateOfBirth.invalid && dateOfBirth.dirty }">
+          <div class="form-group">
+            <label for="dateOfBirth">Date of Birth</label>
+            <input type="date" class="form-control" formControlName="dateOfBirth" [ngClass]="{ 'error' : dateOfBirth.invalid && dateOfBirth.dirty }">
           </div>
           <small class="text-danger" *ngIf="dateOfBirth.invalid && dateOfBirth.dirty">Please enter valid date</small>
         </div>
@@ -59,12 +50,9 @@
 
       <div class="row">
         <div class="col-md-6">
-          <div class="form-group" >
-            <label for="mobile">Mobile</label>         
-            <input type="number" 
-                   class="form-control" 
-                   formControlName="mobile" 
-                   [ngClass]="{ 'error' : mobile.invalid && mobile.dirty }">
+          <div class="form-group">
+            <label for="mobile">Mobile</label>
+            <input type="number" class="form-control" formControlName="mobile" [ngClass]="{ 'error' : mobile.invalid && mobile.dirty }">
           </div>
           <small class="text-danger" *ngIf="mobile.invalid && mobile.dirty">Please enter valid mobile number</small>
         </div>
@@ -72,17 +60,23 @@
 
       <div class="row">
         <div class="col-md-6">
-          <div class="form-group" >
-            <label for="email">Email</label>         
-            <input type="email" 
-                   class="form-control" 
-                   formControlName="email" 
-                   [ngClass]="{ 'error' : email.invalid && email.dirty }">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" formControlName="email" [ngClass]="{ 'error' : email.invalid && email.dirty }">
           </div>
           <small class="text-danger" *ngIf="email.invalid && email.dirty">Please enter valid email</small>
         </div>
       </div>
-      
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="email">Upload Profile Pic</label>
+            <input type="file" class="form-control" (change)="uploadImage($event)">
+          </div>
+        </div>
+      </div>
+
       <hr>
       <button type="submit" [disabled]="editProfileForm.invalid" class="btn btn-default btn-lg"><i class="fa fa-floppy-o"></i>Save</button>
       <button [routerLink]="['/user/profile']" type="button" class="btn btn-default btn-lg"><i class="fa fa-remove"></i>Cancel</button>

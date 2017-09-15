@@ -74,7 +74,8 @@ export class RegisterComponent implements OnInit {
       role: 'AppUser',
       orderId: '',
       shoppingcartId: '',
-      is_active: true
+      is_active: true,
+      birth_of_date: 0
     }
     this.authServiceLocal.register(userInfo).subscribe(
       (response: IUser) => {

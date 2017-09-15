@@ -9,3 +9,4 @@ export const ratingUrl = domain + 'api/ratings/';
 export const userUrl = domain + 'api/user_accounts/';
 export const addressUrl = domain + 'api/addresses/';
 export const orderUrl = domain + 'api/orders/'
+export const imageUrl = domain + 'api/images/upload'

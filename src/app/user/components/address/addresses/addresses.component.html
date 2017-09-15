@@ -23,6 +23,11 @@
       </div>
     </div>
   </div>
+
+  <div class="panel-body" *ngIf="!addresses" >
+    <p>No Address please add one</p>
+  </div>
+
   <div class="panel-footer">
     <hr>
     <button [routerLink]="['/user/add/address']" type="button" class="btn btn-default btn-lg">Add new</button>
