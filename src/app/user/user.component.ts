@@ -24,7 +24,7 @@ export class UserComponent implements OnInit {
         if(this.user.hasOwnProperty('images')){
           this.profilePic = this.user.images.ImgURL
         } else {
-          this.profilePic = 'http://soeasyloansonline.com.au/img/testimonial/noimg.png'
+          this.profilePic = '../../assets/images/noimg.png'
         }
         return response
       },

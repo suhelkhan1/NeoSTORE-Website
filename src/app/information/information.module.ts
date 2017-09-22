@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { SharedModule } from '../shared/shared.module';
 
@@ -15,7 +16,8 @@ import { LocateUsComponent } from './locate-us/locate-us.component';
   imports: [
     CommonModule,
     InfomationRoutingModules,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],
   declarations: [
     ContactUsComponent,

@@ -38,6 +38,14 @@ export class UserService {
       return response.json()
     }).catch(this.handleError)
   }
+
+  contactUs(data){
+    let headers = new Headers({ 'Content-Type': 'application/json'});
+    let options = new RequestOptions({headers: headers});
+    return this.http.post(userUrl + 'contactus?access_token='+ this.current_user_accesToken, JSON.stringify(data), options).map( (response: Response) => {
+      return <IUser>response.json()
+    }).catch(this.handleError)
+  }
   
   handleError(error: Response) { 
     return Observable.throw(error.json());
