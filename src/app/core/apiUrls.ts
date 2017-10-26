@@ -1,6 +1,6 @@
 
-//const domain = 'http://10.0.100.213:3000/'
-const domain = 'http://180.149.245.182:8086/'
+//const domain = 'http://10.0.100.213:8080/'
+const domain = 'http://180.149.245.182:3008/'
 
 export const cartUrl = domain + 'api/shoppingcarts/';
 export const colorUrl = domain + 'api/colors';
